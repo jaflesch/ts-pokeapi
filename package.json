@@ -1,14 +1,20 @@
 {
   "name": "@types/pokeapi-v2",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": ["/dist"],
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaflesch/-types-pokeapi-v2"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Jean Flesch",
+  "scripts": {},
+  "keywords": ["pokemon", "pokeapi", "typescript"],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaflesch/-types-pokeapi-v2/issues"
+  },
+  "homepage": "https://github.com/jaflesch/-types-pokeapi-v2/#readme"
 }
