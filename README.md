@@ -1,16 +1,16 @@
-# @types-pokeapi-v2
+# TS-PokéAPI
 
 ## Installation
 
 To install run the following command with NPM
 
 ```bash
-npm install --save-dev @types/pokeapi-v2`
+npm install --save-dev ts-pokeapi`
 ```
 
 Or Yarn
 ```bash
-yarn add -D @types/pokeapi-v2`
+yarn add -D ts-pokeapi`
 ```
 
 ## Summary
