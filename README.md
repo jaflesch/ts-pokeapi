@@ -5,12 +5,12 @@
 To install run the following command with NPM
 
 ```bash
-npm install --save-dev ts-pokeapi`
+npm install --save-dev ts-pokeapi
 ```
 
 Or Yarn
 ```bash
-yarn add -D ts-pokeapi`
+yarn add -D ts-pokeapi
 ```
 
 ## Summary
