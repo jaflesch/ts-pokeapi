@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/jaflesch/-types-pokeapi-v2/issues"
   },
-  "homepage": "https://github.com/jaflesch/-types-pokeapi-v2/#readme"
+  "homepage": "https://github.com/jaflesch/-types-pokeapi-v2/#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }
