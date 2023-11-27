@@ -1,5 +1,5 @@
 {
-  "name": "@types/pokeapi-v2",
+  "name": "ts-pokeapi",
   "version": "0.1.0",
   "description": "",
   "main": "dist/index.js",
@@ -7,16 +7,16 @@
   "files": ["/dist"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jaflesch/-types-pokeapi-v2"
+    "url": "https://github.com/jaflesch/ts-pokeapi"
   },
   "author": "Jean Flesch",
   "scripts": {},
   "keywords": ["pokemon", "pokeapi", "typescript"],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jaflesch/-types-pokeapi-v2/issues"
+    "url": "https://github.com/jaflesch/ts-pokeapi/issues"
   },
-  "homepage": "https://github.com/jaflesch/-types-pokeapi-v2/#readme",
+  "homepage": "https://github.com/jaflesch/ts-pokeapi/#readme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   }
