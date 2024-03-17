@@ -1,71 +1,74 @@
-// Berries
-export * from './berry';
-export * from './berry-firmness';
-export * from './berry-flavor';
+// Types > Berries
+export * from './types/berry';
+export * from './types/berry-firmness';
+export * from './types/berry-flavor';
 
-// Contests
-export * from './contest-type';
-export * from './contest-effect';
-export * from './super-contest-effect';
+// Types > Contests
+export * from './types/contest-type';
+export * from './types/contest-effect';
+export * from './types/super-contest-effect';
 
-// Encounters
-export * from './encounter-method';
-export * from './encounter-condition';
-export * from './encounter-condition-value';
+// Types > Encounters
+export * from './types/encounter-method';
+export * from './types/encounter-condition';
+export * from './types/encounter-condition-value';
 
-// Evolutions
-export * from './evolution-chain';
-export * from './evolution-trigger';
+// Types > Evolutions
+export * from './types/evolution-chain';
+export * from './types/evolution-trigger';
 
-// Games
-export * from './generation';
-export * from './pokedex';
-export * from './version';
-export * from './version-group';
+// Types > Games
+export * from './types/generation';
+export * from './types/pokedex';
+export * from './types/version';
+export * from './types/version-group';
 
-// Items
-export * from './item';
-export * from './item-attribute';
-export * from './item-category';
-export * from './item-fling-effect';
-export * from './item-pocket';
+// Types > Items
+export * from './types/item';
+export * from './types/item-attribute';
+export * from './types/item-category';
+export * from './types/item-fling-effect';
+export * from './types/item-pocket';
 
-// Locations
-export * from './location';
-export * from './location-area';
-export * from './pal-park-area';
-export * from './region';
+// Types > Locations
+export * from './types/location';
+export * from './types/location-area';
+export * from './types/pal-park-area';
+export * from './types/region';
 
-// Machines
-export * from './machine';
+// Types > Machines
+export * from './types/machine';
 
-// Moves
-export * from './move';
-export * from './move-ailment';
-export * from './move-battle-style';
-export * from './move-category';
-export * from './move-damage-class';
-export * from './move-learn-method';
-export * from './move-target';
+// Types > Moves
+export * from './types/move';
+export * from './types/move-ailment';
+export * from './types/move-battle-style';
+export * from './types/move-category';
+export * from './types/move-damage-class';
+export * from './types/move-learn-method';
+export * from './types/move-target';
 
-// Pokémon
-export * from './ability';
-export * from './characteristic';
-export * from './egg-group';
-export * from './gender';
-export * from './growth-rate';
-export * from './nature';
-export * from './pokeathlon-stat';
-export * from './pokemon';
-export * from './pokemon-location-area';
-export * from './pokemon-color';
-export * from './pokemon-form';
-export * from './pokemon-habitat';
-export * from './pokemon-shape';
-export * from './pokemon-specie';
-export * from './stat';
-export * from './pokemon-type';
+// Types > Pokémon
+export * from './types/ability';
+export * from './types/characteristic';
+export * from './types/egg-group';
+export * from './types/gender';
+export * from './types/growth-rate';
+export * from './types/nature';
+export * from './types/pokeathlon-stat';
+export * from './types/pokemon';
+export * from './types/pokemon-location-area';
+export * from './types/pokemon-color';
+export * from './types/pokemon-form';
+export * from './types/pokemon-habitat';
+export * from './types/pokemon-shape';
+export * from './types/pokemon-specie';
+export * from './types/stat';
+export * from './types/pokemon-type';
 
-// Utiliy
-export * from './language';
-export * from './common';
+// Types > Utiliy
+export * from './types/language';
+export * from './types/common';
+
+// Math
+export * from './math';
