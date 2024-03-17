@@ -1,1 +1,7 @@
 node_modules/
+.vscode
+#__tests__
+#jest.config.js
+.eslintrc.js
+.prettierrc.js
+.npmrc
