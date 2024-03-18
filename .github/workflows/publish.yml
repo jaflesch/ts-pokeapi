@@ -5,8 +5,8 @@ name: Publish Package
 
 on:
   push:
-    branches:
-      - main
+    tags: 
+      - '*.*.*'
 
 jobs:
   build:
@@ -21,8 +21,6 @@ jobs:
         run: npm ci
       - name: Unit Test
         run: npm test
-      - name: Typescript Dist
-        run: npx -p typescript tsc
 
   # publish to gpr
   publish-gpr:
