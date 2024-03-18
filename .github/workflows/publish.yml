@@ -5,21 +5,41 @@ name: Publish Package
 
 on:
   push:
-    branches:
-      - main
+    tags: 
+      - '*.*.*'
 
 jobs:
-  deploy:
-    name: 'Deployment'
+  build:
+    name: 'Build'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-
       - name: Clean Install
         run: npm ci
       - name: Unit Test
         run: npm test
 
+  # publish to gpr
+  publish-gpr:
+    name: 'Publish Package'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: https://registry.npmjs.org
+          scope: '@jaflesch'
+      - name: Clean Install
+        run: npm ci
+      - name: Package Publication
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
