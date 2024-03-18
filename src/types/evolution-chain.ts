@@ -1,5 +1,5 @@
 import {
-  Gender,
+  GenderEnum,
   TimeOfDay,
   NamedAPIResource,
   RelativePhysicalStatEvolution,
@@ -52,7 +52,7 @@ export type ChainLink = {
 export type EvolutionDetail = {
   item: NamedAPIResource;
   trigger: NamedAPIResource;
-  gender: Gender;
+  gender: GenderEnum;
   held_item: NamedAPIResource;
   known_move: NamedAPIResource;
   known_move_type: NamedAPIResource;
