@@ -1,6 +1,6 @@
 {
   "name": "@jaflesch/ts-pokeapi",
-  "version": "0.1.1",
+  "version": "0.1.2-alpha",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,7 +15,8 @@
   "author": "Jean Flesch",
   "scripts": {
     "test": "jest",
-    "lint": "eslint src/**/*.ts --fix"
+    "lint": "eslint src/**/*.ts --fix",
+    "dist": "npx -p typescript tsc"
   },
   "keywords": [
     "pokemon",
@@ -28,7 +29,7 @@
   },
   "homepage": "https://github.com/jaflesch/ts-pokeapi/#readme",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+    "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",

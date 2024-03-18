@@ -21,6 +21,8 @@ jobs:
         run: npm ci
       - name: Unit Test
         run: npm test
+      # - name: Typescript Dist
+      #   run: npx -p typescript tsc
 
   # publish to gpr
   publish-gpr:
@@ -36,7 +38,7 @@ jobs:
         with:
           node-version: '20.x'
           registry-url: https://registry.npmjs.org
-          scope: '@jafleschdev'
+          scope: '@jaflesch'
       - name: Clean Install
         run: npm ci
       - name: Package Publication
