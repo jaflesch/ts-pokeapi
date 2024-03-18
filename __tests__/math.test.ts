@@ -1,6 +1,16 @@
-import {describe, expect, test} from '@jest/globals';
-import { getMaxStatValue, getMinStatValue, getStatValue } from '../src/math';
+import { describe, expect } from '@jest/globals';
+import { getMaxStatValue, getMinStatValue, getPriorGenIIIStatValue, getStatValue } from '../src/math';
 import { InvalidParameterValueError } from '../src/errors/InvalidParameterValueError';
+import {
+  MIN_IV_VALUE,
+  MAX_IV_VALUE,
+  MIN_EV_VALUE,
+  MAX_EV_VALUE,
+  MIN_IV_VALUE_PRIOR_GEN3,
+  MAX_IV_VALUE_PRIOR_GEN3,
+  MIN_EV_VALUE_PRIOR_GEN3,
+  MAX_EV_VALUE_PRIOR_GEN3,
+} from '../src/constants';
 
 describe('when using math module', () => {
   it('gets a Pokémon stat at level 100, 0 IVs and 0 EVs', () => {
@@ -259,7 +269,7 @@ describe('when using math module', () => {
         hp: true,
         level: 50,
         base: 100,
-        ev: -1,
+        ev: MIN_EV_VALUE - 1,
       })
     }).toThrow(InvalidParameterValueError);
 
@@ -268,7 +278,7 @@ describe('when using math module', () => {
         hp: true,
         level: 50,
         base: 100,
-        ev: 256,
+        ev: MAX_EV_VALUE + 1,
       })
     }).toThrow(InvalidParameterValueError);
   });
@@ -279,7 +289,7 @@ describe('when using math module', () => {
         hp: true,
         level: 50,
         base: 100,
-        iv: -1,
+        iv: MIN_IV_VALUE - 1,
       })
     }).toThrow(InvalidParameterValueError);
 
@@ -288,8 +298,90 @@ describe('when using math module', () => {
         hp: true,
         level: 50,
         base: 100,
-        iv: 32,
+        iv: MAX_IV_VALUE + 1,
       })
     }).toThrow(InvalidParameterValueError);
-  })
+  });
+
+  it('gets prior Generation III stats values for Pikachu', () => {
+    expect(
+      getPriorGenIIIStatValue({
+        hp: true,
+        level: 81,
+        base: 35,
+        iv: 7,
+        ev: 22850
+      })
+    ).toBe(189);
+
+    expect(
+      getPriorGenIIIStatValue({
+        hp: false,
+        level: 81,
+        base: 50,
+        iv: 9,
+        ev: 19625
+      })
+    ).toBe(128);
+
+    expect(
+      getPriorGenIIIStatValue({
+        hp: false,
+        level: 81,
+        base: 40,
+        iv: 9,
+        ev: 19625
+      })
+    ).toBe(112);
+
+    expect(
+      getPriorGenIIIStatValue({
+        hp: false,
+        level: 81,
+        base: 90,
+        iv: 5,
+        ev: 24795
+      })
+    ).toBe(190);
+  });
+
+  it('gets InvalidParameterValue exception when using prior Generation III invalid EV values', () => {
+    expect(() => {
+      getPriorGenIIIStatValue({
+        hp: true,
+        level: 50,
+        base: 100,
+        ev: MIN_EV_VALUE_PRIOR_GEN3 - 1,
+      })
+    }).toThrow(InvalidParameterValueError);
+
+    expect(() => {
+      getPriorGenIIIStatValue({
+        hp: true,
+        level: 50,
+        base: 100,
+        ev: MAX_EV_VALUE_PRIOR_GEN3 + 1,
+      })
+    }).toThrow(InvalidParameterValueError);
+  });
+
+  it('gets InvalidParameterValue exception when using prior Generation III invalid IV values', () => {
+    expect(() => {
+      getPriorGenIIIStatValue({
+        hp: true,
+        level: 50,
+        base: 100,
+        iv: MIN_IV_VALUE_PRIOR_GEN3 - 1,
+      })
+    }).toThrow(InvalidParameterValueError);
+
+    expect(() => {
+      getPriorGenIIIStatValue({
+        hp: true,
+        level: 50,
+        base: 100,
+        iv: MAX_IV_VALUE_PRIOR_GEN3 + 1,
+      })
+    }).toThrow(InvalidParameterValueError);
+  });
 });
