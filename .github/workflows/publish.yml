@@ -21,8 +21,8 @@ jobs:
         run: npm ci
       - name: Unit Test
         run: npm test
-      # - name: Typescript Dist
-      #   run: npx -p typescript tsc
+      - name: Typescript Dist
+        run: npx -p typescript tsc
 
   # publish to gpr
   publish-gpr:
