@@ -49,7 +49,9 @@ export const getMinStatValue = (params: Omit<GetStatValueParams, 'iv' | 'ev' | '
   });
 };
 
-export const getPriorGenIIIStatValue = (params: Omit<GetStatValueParams, 'nature'>) => {};
+export const getPriorGenIIIStatValue = (params: Omit<GetStatValueParams, 'nature'>) => {
+  return false;
+};
 type GetGoPowerStatValue = {
   // ...
 };
