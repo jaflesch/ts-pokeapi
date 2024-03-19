@@ -16,12 +16,14 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint src/**/*.ts --fix",
-    "dist": "npx -p typescript tsc && git add dist/",
+    "tsc": "npx -p typescript tsc --project tsconfig.json",
+    "dist": "git add dist/",
     "precommit-msg": "echo '..:: Pre-commit checks ::..' && exit 0"
   },
   "pre-commit": [
     "precommit-msg",
     "lint",
+    "tsc",
     "dist"
   ],
   "keywords": [

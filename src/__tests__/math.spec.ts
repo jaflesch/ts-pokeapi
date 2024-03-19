@@ -1,11 +1,11 @@
 import { describe, expect, it } from '@jest/globals';
 import {
-  getLegendsArceusStatValue,
-  getLetsGoPikachuStatValue,
+  getStatValue,
   getMaxStatValue,
   getMinStatValue,
   getPriorGenIIIStatValue,
-  getStatValue,
+  getLegendsArceusStatValue,
+  getLetsGoPikachuStatValue,
 } from '../math';
 import { InvalidParameterValueError } from '../errors/InvalidParameterValueError';
 import {
