@@ -220,6 +220,6 @@ export const getLGPFriendshipMultiplier = (friendship: number): number => {
 };
 
 export const getCombatPowerValue = () => {
-  // to do
+  // to do:
   return false;
 };
