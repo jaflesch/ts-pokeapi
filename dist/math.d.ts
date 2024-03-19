@@ -1,15 +1,35 @@
+type NatureStatType = 'enhancing' | 'hindering' | 'neutral';
 type GetStatValueParams = {
-    hp?: boolean;
     base: number;
+    level: number;
     iv?: number;
     ev?: number;
-    level: number;
-    nature?: 'enhancing' | 'hindering' | 'neutral';
+    isHp?: boolean;
+    nature?: NatureStatType;
+    isShedinja?: boolean;
 };
 export declare const getStatValue: (params: GetStatValueParams) => number;
 export declare const getMaxStatValue: (params: Omit<GetStatValueParams, 'iv' | 'ev' | 'nature'>) => number;
 export declare const getMinStatValue: (params: Omit<GetStatValueParams, 'iv' | 'ev' | 'nature'>) => number;
-export declare const getPriorGenIIIStatValue: (params: Omit<GetStatValueParams, 'nature'>) => number;
-type GetGoPowerStatValue = {};
-export declare const getGoPowerStatValue: (params: GetGoPowerStatValue) => void;
+export declare const getPriorGenIIIStatValue: (params: Omit<GetStatValueParams, 'nature' | 'isShedinja'>) => number;
+type GetLegendsArceusStatValueParams = {
+    base: number;
+    isHp?: boolean;
+    level?: number;
+    effortLevel?: number;
+    nature?: NatureStatType;
+};
+export declare const getLegendsArceusStatValue: (params: GetLegendsArceusStatValueParams) => number;
+export declare const getPLAEfforLevelMultiplier: (effortLevel: number) => number;
+type GetLetsGoPikachuStatValueParams = {
+    base: number;
+    isHp?: boolean;
+    level?: number;
+    iv?: number;
+    av?: number;
+    nature?: NatureStatType;
+    friendship?: number;
+};
+export declare const getLetsGoPikachuStatValue: (params: GetLetsGoPikachuStatValueParams) => number;
+export declare const getLGPFriendshipMultiplier: (friendship: number) => number;
 export {};
