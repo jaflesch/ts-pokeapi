@@ -2,33 +2,31 @@ name: Pull Request Action
 
 on:
   pull_request:
-  push:
     branches:
       - 'feature/*'
 
 jobs:
-  build:
-    name: 'Build'
+  deploy:
+    name: Deployment
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-      - name: Clean Install
-        run: npm ci
-      - name: Unit Test
-        run: npm test
+      - run: npm ci
+      - run: npm test
   
   create-pull-request:
-    name: Create Pull Request
-    needs: build
-    runs-on: ubuntu-latest
+      name: Create Pull Request
+      runs-on: ubuntu-latest
+    needs:
+      - deploy
     permissions:
       pull-requests: write
     steps:
-      - name: 'Create PR'
-      - uses: actions/github-script@v6
+    - name: 'Create PR'
+      uses: actions/github-script@v6
       with:
         script: |
           const { repo, owner } = context.repo;
