@@ -3,8 +3,16 @@
 Here we write upgrading notes for brands. It's a team effort to make them as
 straightforward as possible.
 
-## 0.1.2 [UNPUBLISHED] - 2024-03-17
+## 0.1.2 [UNPUBLISHED] - 2024-0x-xx
  
+### Added
+- Stat calculation formula for Pokémon Legends Arceus
+- Stat calculation formula for Pokémon Let's Go Pikachu / Eevee
+- Friendship formula for Pokémon Let's Go Pikachu / Eevee
+
+### Changed
+- Changed `getStatValue` function parameters names and added `isShedinja` property
+
 ### Fixed
 - EvolutionChain type gender property module import
 
