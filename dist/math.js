@@ -108,7 +108,6 @@ const getLetsGoPikachuStatValue = (params) => {
     if (params.isHp) {
         return base + level + 10 + av;
     }
-    console.log('@@@:', base, nature, friendship, (0, exports.getLGPFriendshipMultiplier)(friendship), av);
     return (Math.floor((base + 5) * nature * (0, exports.getLGPFriendshipMultiplier)(friendship)) +
         av);
 };

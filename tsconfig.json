@@ -14,9 +14,9 @@
     "watchDirectory": "useFsEvents",
     "fallbackPolling": "dynamicPriority",
     "synchronousWatchDirectory": true,
-    "excludeDirectories": ["**/node_modules", "dist", "__tests__"],
+    "excludeDirectories": ["**/node_modules", "dist", "**/__tests__"],
     "excludeFiles": []
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "include": ["src/**/*", ".eslintrc.js"],
+  "exclude": ["node_modules", "__tests__/**/*.spec.ts"]
 }
