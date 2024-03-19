@@ -2,9 +2,8 @@ name: Pull Request Action
 
 on:
   pull_request:
-  push:
     branches:
-      - 'feature/*'
+      - 'feature/**'
 
 jobs:
   deploy:
