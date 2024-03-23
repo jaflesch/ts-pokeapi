@@ -3,16 +3,32 @@ name: Pull Request Action
 on:
   pull_request:
     branches:
-      - 'feature/**'
-
+      - feature/**
+    paths:
+      - src/**
+#
 jobs:
-  deploy:
-    name: Deployment
+  pull-request:
+    name: 'Pull Request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+
+      # Setup NodeJS
+      - name: Setup NodeJS 20
+        uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-      - run: npm ci
-      - run: npm test
+          cache: 'npm'
+
+      # Install npm
+      - name: Install npm
+        run: npm ci
+
+      # Run linting
+      - name: Lint
+        run: npm run lint
+
+      # Run tests
+      - name: Unit Test
+        run: npm test
