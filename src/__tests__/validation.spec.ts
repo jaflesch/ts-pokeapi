@@ -18,13 +18,13 @@ import {
 import {
   isValidEV,
   isValidIV,
+  isValidTotalAVs,
   isValidTotalEVs,
   isValidBaseStat,
   isValidEffortLevel,
   isValidEVPriorGen3,
   isValidIVPriorGen3,
   isValidPokemonLevel,
-  isValidTotalAwakeningValue,
 } from '../validation';
 
 describe('when validating Pokémon level', () => {
@@ -129,13 +129,13 @@ describe('when validating PLA Effort level', () => {
 
 describe('when validating Pokémon Let\'s Go Pikachu/Eevee formulas', () => {
   it('returns true when using valid total AV values', () => {
-    expect(isValidTotalAwakeningValue(0)).toBe(true);
-    expect(isValidTotalAwakeningValue(MAX_AWAKENING_VALUE)).toBe(true);
-    expect(isValidTotalAwakeningValue(MAX_AWAKENING_VALUE * 6)).toBe(true);
+    expect(isValidTotalAVs(0)).toBe(true);
+    expect(isValidTotalAVs(MAX_AWAKENING_VALUE)).toBe(true);
+    expect(isValidTotalAVs(MAX_AWAKENING_VALUE * 6)).toBe(true);
   });
   
   it('returns false when using invalid total AV values', () => {
-    expect(isValidTotalAwakeningValue(-1)).toBe(false);
-    expect(isValidTotalAwakeningValue(MAX_AWAKENING_VALUE * 6 + 1)).toBe(false);
+    expect(isValidTotalAVs(-1)).toBe(false);
+    expect(isValidTotalAVs(MAX_AWAKENING_VALUE * 6 + 1)).toBe(false);
   });
 });
