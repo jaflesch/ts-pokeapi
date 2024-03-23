@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getLGPFriendshipMultiplier = exports.getLetsGoPikachuStatValue = exports.getPLAEfforLevelMultiplier = exports.getLegendsArceusStatValue = exports.getPriorGenIIIStatValue = exports.getMinStatValue = exports.getMaxStatValue = exports.getStatValue = void 0;
+exports.getCombatPowerValue = exports.getLGPFriendshipMultiplier = exports.getLetsGoPikachuStatValue = exports.getPLAEfforLevelMultiplier = exports.getLegendsArceusStatValue = exports.getPriorGenIIIStatValue = exports.getMinStatValue = exports.getMaxStatValue = exports.getStatValue = void 0;
 const constants_1 = require("./constants");
 const InvalidParameterValueError_1 = require("./errors/InvalidParameterValueError");
 const getStatValue = (params) => {
@@ -116,4 +116,9 @@ const getLGPFriendshipMultiplier = (friendship) => {
     return 1 + Math.floor((10 * friendship) / 255) / 100;
 };
 exports.getLGPFriendshipMultiplier = getLGPFriendshipMultiplier;
+const getCombatPowerValue = () => {
+    // to do
+    return false;
+};
+exports.getCombatPowerValue = getCombatPowerValue;
 //# sourceMappingURL=math.js.map

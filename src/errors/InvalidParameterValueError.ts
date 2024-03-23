@@ -1,5 +1,5 @@
 export class InvalidParameterValueError extends Error {
-  public static INVALID_RANGE: string = 'Invalid parameter value';
+  public static INVALID_PARAMETER_VALUE: string = 'Invalid parameter value';
 
   constructor(public message: string) {
     super(message);

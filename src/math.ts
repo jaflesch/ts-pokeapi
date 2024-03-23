@@ -218,3 +218,8 @@ export const getLetsGoPikachuStatValue = (
 export const getLGPFriendshipMultiplier = (friendship: number): number => {
   return 1 + Math.floor((10 * friendship) / 255) / 100;
 };
+
+export const getCombatPowerValue = () => {
+  // to do:
+  return false;
+};

@@ -32,4 +32,5 @@ type GetLetsGoPikachuStatValueParams = {
 };
 export declare const getLetsGoPikachuStatValue: (params: GetLetsGoPikachuStatValueParams) => number;
 export declare const getLGPFriendshipMultiplier: (friendship: number) => number;
+export declare const getCombatPowerValue: () => boolean;
 export {};

@@ -10,5 +10,5 @@ class InvalidParameterValueError extends Error {
     }
 }
 exports.InvalidParameterValueError = InvalidParameterValueError;
-InvalidParameterValueError.INVALID_RANGE = 'Invalid parameter value';
+InvalidParameterValueError.INVALID_PARAMETER_VALUE = 'Invalid parameter value';
 //# sourceMappingURL=InvalidParameterValueError.js.map
