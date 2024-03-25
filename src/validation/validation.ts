@@ -16,7 +16,7 @@ import {
   MAX_IV_VALUE_PRIOR_GEN3,
   MIN_EV_VALUE_PRIOR_GEN3,
   MAX_EV_VALUE_PRIOR_GEN3,
-} from './constants';
+} from '../utils';
 
 /**
  * Returns true if given value is a valid Pokémon level.

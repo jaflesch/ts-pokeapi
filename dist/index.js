@@ -75,6 +75,4 @@ __exportStar(require("./types/pokemon-type"), exports);
 // Types > Utiliy
 __exportStar(require("./types/language"), exports);
 __exportStar(require("./types/common"), exports);
-// Math
-__exportStar(require("./math"), exports);
 //# sourceMappingURL=index.js.map

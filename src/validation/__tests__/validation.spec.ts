@@ -14,7 +14,7 @@ import {
   MIN_EV_VALUE_PRIOR_GEN3,
   MAX_EV_VALUE_PRIOR_GEN3,
   MAX_AWAKENING_VALUE,
-} from '../constants';
+} from '../../utils';
 import {
   isValidEV,
   isValidIV,
@@ -33,7 +33,7 @@ describe('when validating Pokémon level', () => {
     expect(isValidPokemonLevel(50)).toBe(true);
     expect(isValidPokemonLevel(MAX_POKEMON_LEVEL)).toBe(true);
   });
-  
+
   it('returns false when using invalid value', () => {
     expect(isValidPokemonLevel(MIN_POKEMON_LEVEL - 1)).toBe(false);
     expect(isValidPokemonLevel(MAX_POKEMON_LEVEL + 1)).toBe(false);
@@ -46,7 +46,7 @@ describe('when validating Pokémon base stats', () => {
     expect(isValidBaseStat(100)).toBe(true);
     expect(isValidBaseStat(200)).toBe(true);
   });
-  
+
   it('returns false when using invalid value', () => {
     expect(isValidBaseStat(0)).toBe(false);
     expect(isValidPokemonLevel(-1)).toBe(false);
@@ -60,7 +60,7 @@ describe('when validating Pokémon EV values', () => {
     expect(isValidEV(MIN_EV_VALUE)).toBe(true);
     expect(isValidEV(MAX_EV_VALUE)).toBe(true);
   });
-  
+
   it('returns false when using invalid EV values', () => {
     expect(isValidEV(MIN_EV_VALUE - 1)).toBe(false);
     expect(isValidEV(MAX_EV_VALUE + 1)).toBe(false);
@@ -72,7 +72,7 @@ describe('when validating Pokémon EV values', () => {
     expect(isValidEVPriorGen3(MIN_EV_VALUE_PRIOR_GEN3)).toBe(true);
     expect(isValidEVPriorGen3(MAX_EV_VALUE_PRIOR_GEN3)).toBe(true);
   });
-  
+
   it('returns false when using prior Generation III invalid EV values', () => {
     expect(isValidEVPriorGen3(MIN_EV_VALUE_PRIOR_GEN3 - 1)).toBe(false);
     expect(isValidEVPriorGen3(MAX_EV_VALUE_PRIOR_GEN3 + 1)).toBe(false);
@@ -87,7 +87,7 @@ describe('when validating Pokémon EV values', () => {
   });
   it('returns false when using invalid total EV values', () => {
     expect(isValidTotalEVs(MAX_TOTAL_EVS_VALUE + 1)).toBe(false);
-  });  
+  });
 });
 
 describe('when validating Pokémon IV values', () => {
@@ -96,7 +96,7 @@ describe('when validating Pokémon IV values', () => {
     expect(isValidIV(MIN_IV_VALUE)).toBe(true);
     expect(isValidIV(MAX_IV_VALUE)).toBe(true);
   });
-  
+
   it('returns false when using invalid IV values', () => {
     expect(isValidIV(MIN_IV_VALUE - 1)).toBe(false);
     expect(isValidIV(MAX_IV_VALUE + 1)).toBe(false);
@@ -107,7 +107,7 @@ describe('when validating Pokémon IV values', () => {
     expect(isValidIVPriorGen3(11)).toBe(true);
     expect(isValidIVPriorGen3(MAX_IV_VALUE_PRIOR_GEN3)).toBe(true);
   });
-  
+
   it('returns false when using prior Generation III invalid IV values ', () => {
     expect(isValidIVPriorGen3(MIN_IV_VALUE_PRIOR_GEN3 - 1)).toBe(false);
     expect(isValidIVPriorGen3(MAX_IV_VALUE_PRIOR_GEN3 + 1)).toBe(false);
@@ -120,20 +120,20 @@ describe('when validating PLA Effort level', () => {
     expect(isValidEffortLevel(5)).toBe(true);
     expect(isValidEffortLevel(MAX_EFFORT_LEVEL_PLA)).toBe(true);
   });
-  
+
   it('returns false when using invalid value', () => {
     expect(isValidEffortLevel(MIN_EFFORT_LEVEL_PLA - 1)).toBe(false);
     expect(isValidEffortLevel(MAX_EFFORT_LEVEL_PLA + 1)).toBe(false);
   });
 });
 
-describe('when validating Pokémon Let\'s Go Pikachu/Eevee formulas', () => {
+describe("when validating Pokémon Let's Go Pikachu/Eevee formulas", () => {
   it('returns true when using valid total AV values', () => {
     expect(isValidTotalAVs(0)).toBe(true);
     expect(isValidTotalAVs(MAX_AWAKENING_VALUE)).toBe(true);
     expect(isValidTotalAVs(MAX_AWAKENING_VALUE * 6)).toBe(true);
   });
-  
+
   it('returns false when using invalid total AV values', () => {
     expect(isValidTotalAVs(-1)).toBe(false);
     expect(isValidTotalAVs(MAX_AWAKENING_VALUE * 6 + 1)).toBe(false);

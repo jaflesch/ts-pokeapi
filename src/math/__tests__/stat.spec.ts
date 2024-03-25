@@ -1,13 +1,13 @@
 import { describe, expect, it } from '@jest/globals';
 import {
+  getCPValue,
   getStatValue,
   getMaxStatValue,
   getMinStatValue,
   getPriorGenIIIStatValue,
   getLegendsArceusStatValue,
   getLetsGoPikachuStatValue,
-} from '../math';
-import { InvalidParameterValueError } from '../errors/InvalidParameterValueError';
+} from '../stat';
 import {
   MIN_IV_VALUE,
   MAX_IV_VALUE,
@@ -19,7 +19,8 @@ import {
   MAX_IV_VALUE_PRIOR_GEN3,
   MIN_EV_VALUE_PRIOR_GEN3,
   MAX_EV_VALUE_PRIOR_GEN3,
-} from '../constants';
+} from '../../utils';
+import { InvalidParameterRangeError } from '../../errors';
 
 describe('when using math module for current stats formula', () => {
   it('gets a Pokémon stat at level 100, 0 IVs and 0 EVs', () => {
@@ -290,7 +291,7 @@ describe('when using math module for current stats formula', () => {
         base: 100,
         ev: MIN_EV_VALUE - 1,
       });
-    }).toThrow(InvalidParameterValueError);
+    }).toThrow(InvalidParameterRangeError);
 
     expect(() => {
       getStatValue({
@@ -299,7 +300,7 @@ describe('when using math module for current stats formula', () => {
         base: 100,
         ev: MAX_EV_VALUE + 1,
       });
-    }).toThrow(InvalidParameterValueError);
+    }).toThrow(InvalidParameterRangeError);
   });
 
   it('throws InvalidParameterValue exception when using invalid IV values', () => {
@@ -310,7 +311,7 @@ describe('when using math module for current stats formula', () => {
         base: 100,
         iv: MIN_IV_VALUE - 1,
       });
-    }).toThrow(InvalidParameterValueError);
+    }).toThrow(InvalidParameterRangeError);
 
     expect(() => {
       getStatValue({
@@ -319,7 +320,7 @@ describe('when using math module for current stats formula', () => {
         base: 100,
         iv: MAX_IV_VALUE + 1,
       });
-    }).toThrow(InvalidParameterValueError);
+    }).toThrow(InvalidParameterRangeError);
   });
 });
 
@@ -411,7 +412,7 @@ describe('when using math module with prior Generation III stats formula', () =>
         base: 100,
         ev: MIN_EV_VALUE_PRIOR_GEN3 - 1,
       });
-    }).toThrow(InvalidParameterValueError);
+    }).toThrow(InvalidParameterRangeError);
 
     expect(() => {
       getPriorGenIIIStatValue({
@@ -420,7 +421,7 @@ describe('when using math module with prior Generation III stats formula', () =>
         base: 100,
         ev: MAX_EV_VALUE_PRIOR_GEN3 + 1,
       });
-    }).toThrow(InvalidParameterValueError);
+    }).toThrow(InvalidParameterRangeError);
   });
 
   it('throws InvalidParameterValue exception when invalid IV values', () => {
@@ -431,7 +432,7 @@ describe('when using math module with prior Generation III stats formula', () =>
         base: 100,
         iv: MIN_IV_VALUE_PRIOR_GEN3 - 1,
       });
-    }).toThrow(InvalidParameterValueError);
+    }).toThrow(InvalidParameterRangeError);
 
     expect(() => {
       getPriorGenIIIStatValue({
@@ -440,7 +441,7 @@ describe('when using math module with prior Generation III stats formula', () =>
         base: 100,
         iv: MAX_IV_VALUE_PRIOR_GEN3 + 1,
       });
-    }).toThrow(InvalidParameterValueError);
+    }).toThrow(InvalidParameterRangeError);
   });
 });
 
@@ -488,14 +489,14 @@ describe('when using math module from different games stats formula', () => {
         base: 100,
         effortLevel: MIN_EFFORT_LEVEL_PLA - 1,
       });
-    }).toThrow(InvalidParameterValueError);
+    }).toThrow(InvalidParameterRangeError);
 
     expect(() => {
       getLegendsArceusStatValue({
         base: 100,
         effortLevel: MAX_EFFORT_LEVEL_PLA + 1,
       });
-    }).toThrow(InvalidParameterValueError);
+    }).toThrow(InvalidParameterRangeError);
   });
 
   it("gets Pokémon Let's Go Pikachu & Eeevee stats values for Mew", () => {
@@ -529,5 +530,94 @@ describe('when using math module from different games stats formula', () => {
         nature: 'hindering',
       }),
     ).toBe(212);
+  });
+
+  it('gets Pikachu Combat Power', () => {
+    expect(
+      getCPValue({
+        level: 50,
+        totalAv: 0,
+        stat: {
+          hp: 110,
+          attack: 75,
+          defense: 60,
+          specialAttack: 70,
+          specialDefense: 70,
+          speed: 110,
+        },
+      }),
+    ).toBe(1485);
+  });
+
+  it('gets Pikachu MAX Combat Power', () => {
+    expect(
+      getCPValue({
+        level: 100,
+        totalAv: 1200,
+        stat: {
+          hp: 411,
+          attack: 360,
+          defense: 327,
+          specialAttack: 349,
+          specialDefense: 349,
+          speed: 437,
+        },
+      }),
+    ).toBe(10000);
+  });
+
+  it('gets Eevee Combat Power', () => {
+    expect(
+      getCPValue({
+        level: 50,
+        totalAv: 0,
+        stat: {
+          hp: 130,
+          attack: 75,
+          defense: 70,
+          specialAttack: 65,
+          specialDefense: 85,
+          speed: 75,
+        },
+      }),
+    ).toBe(1500);
+  });
+
+  it('gets Eevee MAX Combat Power', () => {
+    expect(
+      getCPValue({
+        level: 100,
+        totalAv: 1200,
+        stat: {
+          hp: 451,
+          attack: 360,
+          defense: 349,
+          specialAttack: 338,
+          specialDefense: 382,
+          speed: 360,
+        },
+      }),
+    ).toBe(10000);
+  });
+
+  /*
+    - Reddit example https://www.reddit.com/r/PokemonLetsGo/comments/agkc5y/comment/ervlbix/
+    - Credits to @gletschafloh 
+  */
+  it('gets Ditto Combat Power at lv43 with 200 total AVs', () => {
+    expect(
+      getCPValue({
+        level: 43,
+        totalAv: 200,
+        stat: {
+          hp: 107,
+          attack: 59,
+          defense: 59,
+          specialAttack: 54,
+          specialDefense: 59,
+          speed: 64,
+        },
+      }),
+    ).toBe(1458);
   });
 });

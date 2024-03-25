@@ -48,4 +48,3 @@ export * from './types/stat';
 export * from './types/pokemon-type';
 export * from './types/language';
 export * from './types/common';
-export * from './math';

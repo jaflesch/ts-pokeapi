@@ -69,6 +69,3 @@ export * from './types/pokemon-type';
 // Types > Utiliy
 export * from './types/language';
 export * from './types/common';
-
-// Math
-export * from './math';

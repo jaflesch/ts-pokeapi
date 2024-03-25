@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.isValidFrienshipValue = exports.isValidTotalAVs = exports.isValidAV = exports.isValidEffortLevel = exports.isValidEVPriorGen3 = exports.isValidIVPriorGen3 = exports.isValidTotalEVs = exports.isValidEV = exports.isValidIV = exports.isValidBaseStat = exports.isValidPokemonLevel = void 0;
-const constants_1 = require("./constants");
+const utils_1 = require("../utils");
 /**
  * Returns true if given value is a valid Pokémon level.
  * @param {number} level {number} - Pokémon level.
  * @returns {boolean}
  */
 const isValidPokemonLevel = (level) => {
-    if (level >= constants_1.MIN_POKEMON_LEVEL && level <= constants_1.MAX_POKEMON_LEVEL) {
+    if (level >= utils_1.MIN_POKEMON_LEVEL && level <= utils_1.MAX_POKEMON_LEVEL) {
         return true;
     }
     return false;
@@ -29,7 +29,7 @@ exports.isValidBaseStat = isValidBaseStat;
  * @returns {boolean}
  */
 const isValidIV = (iv) => {
-    if (iv >= constants_1.MIN_IV_VALUE && iv <= constants_1.MAX_IV_VALUE) {
+    if (iv >= utils_1.MIN_IV_VALUE && iv <= utils_1.MAX_IV_VALUE) {
         return true;
     }
     return false;
@@ -41,7 +41,7 @@ exports.isValidIV = isValidIV;
  * @returns {boolean}
  */
 const isValidEV = (ev) => {
-    if (ev >= constants_1.MIN_EV_VALUE && ev <= constants_1.MAX_EV_VALUE) {
+    if (ev >= utils_1.MIN_EV_VALUE && ev <= utils_1.MAX_EV_VALUE) {
         return true;
     }
     return false;
@@ -53,7 +53,7 @@ exports.isValidEV = isValidEV;
  * @returns {boolean}
  */
 const isValidTotalEVs = (totalEvs) => {
-    if (totalEvs <= constants_1.MAX_TOTAL_EVS_VALUE) {
+    if (totalEvs <= utils_1.MAX_TOTAL_EVS_VALUE) {
         return true;
     }
     return false;
@@ -65,7 +65,7 @@ exports.isValidTotalEVs = isValidTotalEVs;
  * @returns {boolean}
  */
 const isValidIVPriorGen3 = (iv) => {
-    if (iv >= constants_1.MIN_IV_VALUE_PRIOR_GEN3 && iv <= constants_1.MAX_IV_VALUE_PRIOR_GEN3) {
+    if (iv >= utils_1.MIN_IV_VALUE_PRIOR_GEN3 && iv <= utils_1.MAX_IV_VALUE_PRIOR_GEN3) {
         return true;
     }
     return false;
@@ -77,7 +77,7 @@ exports.isValidIVPriorGen3 = isValidIVPriorGen3;
  * @returns {boolean}
  */
 const isValidEVPriorGen3 = (ev) => {
-    if (ev >= constants_1.MIN_EV_VALUE_PRIOR_GEN3 && ev <= constants_1.MAX_EV_VALUE_PRIOR_GEN3) {
+    if (ev >= utils_1.MIN_EV_VALUE_PRIOR_GEN3 && ev <= utils_1.MAX_EV_VALUE_PRIOR_GEN3) {
         return true;
     }
     return false;
@@ -89,8 +89,8 @@ exports.isValidEVPriorGen3 = isValidEVPriorGen3;
  * @returns {boolean}
  */
 const isValidEffortLevel = (effortLevel) => {
-    if (effortLevel >= constants_1.MIN_EFFORT_LEVEL_PLA &&
-        effortLevel <= constants_1.MAX_EFFORT_LEVEL_PLA) {
+    if (effortLevel >= utils_1.MIN_EFFORT_LEVEL_PLA &&
+        effortLevel <= utils_1.MAX_EFFORT_LEVEL_PLA) {
         return true;
     }
     return false;
@@ -102,7 +102,7 @@ exports.isValidEffortLevel = isValidEffortLevel;
  * @returns {boolean}
  */
 const isValidAV = (av) => {
-    if (av >= constants_1.MIN_AWAKENING_VALUE && av <= constants_1.MAX_AWAKENING_VALUE) {
+    if (av >= utils_1.MIN_AWAKENING_VALUE && av <= utils_1.MAX_AWAKENING_VALUE) {
         return true;
     }
     return false;
@@ -114,7 +114,7 @@ exports.isValidAV = isValidAV;
  * @returns {boolean}
  */
 const isValidTotalAVs = (totalAvs) => {
-    if (totalAvs >= 0 && totalAvs <= constants_1.MAX_AWAKENING_VALUE * 6) {
+    if (totalAvs >= 0 && totalAvs <= utils_1.MAX_AWAKENING_VALUE * 6) {
         return true;
     }
     return false;
@@ -126,8 +126,8 @@ exports.isValidTotalAVs = isValidTotalAVs;
  * @returns {boolean}
  */
 const isValidFrienshipValue = (friendship) => {
-    if (friendship >= constants_1.MIN_FRIENDSHIP_VALUE &&
-        friendship <= constants_1.MAX_FRIENDSHIP_VALUE) {
+    if (friendship >= utils_1.MIN_FRIENDSHIP_VALUE &&
+        friendship <= utils_1.MAX_FRIENDSHIP_VALUE) {
         return true;
     }
     return false;
