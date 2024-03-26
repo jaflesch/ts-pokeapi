@@ -46,6 +46,18 @@ type GetStatValueParams = {
   isShedinja?: boolean;
 };
 
+/**
+ * Returns the Pokémon's final stat value regarding parameters sent
+ * @param {Object} params - The general parameters used for Pokémon's stat calculation.
+ * @param {number} params.base - The Pokémon's base stat value (HP, Attack, Defense, Special Attack, Special Defense, or Speed).
+ * @param {number} [params.ev = 0] - The Pokémon's Effort Value (EV) for given stat.
+ * @param {number} [params.iv = MAX_IV_VALUE] - The Pokémon's Individual Value (IV) for given stat.
+ * @param {boolean} [params.isHp = false] - True if evaluating HP stat value for given Pokémon.
+ * @param {number} [params.level = 100] - The Pokémon's level.
+ * @param {NatureStatType} [params.nature = neutral] - If the Pokémon has a hindering, neutral, or enhancing nature.
+ * @param {boolean} [params.isShedinja = false] - True if evaluating a stat for {@link https://bulbapedia.bulbagarden.net/wiki/Shedinja_(Pok%C3%A9mon) Shedinja}.
+ * @returns {number}
+ */
 export const getStatValue = ({
   base,
   ev = 0,
@@ -92,6 +104,15 @@ export const getStatValue = ({
   return Math.floor((Math.floor(result) + 5) * natureValue);
 };
 
+/**
+ * Returns the Pokémon's final maximum possible stat value regarding parameters sent
+ * @param {Object} params - The general parameters used for Pokémon's maximum possible stat calculation.
+ * @param {number} params.base - The Pokémon's base stat value (HP, Attack, Defense, Special Attack, Special Defense, or Speed).
+ * @param {boolean} [params.isHp = false] - True if evaluating HP stat value for given Pokémon.
+ * @param {number} [params.level = 100] - The Pokémon's level.
+ * @param {boolean} [params.isShedinja = false] - True if evaluating a stat for {@link https://bulbapedia.bulbagarden.net/wiki/Shedinja_(Pok%C3%A9mon) Shedinja}.
+ * @returns {number}
+ */
 export const getMaxStatValue = (
   params: Omit<GetStatValueParams, 'iv' | 'ev' | 'nature'>,
 ): number => {
@@ -103,6 +124,15 @@ export const getMaxStatValue = (
   });
 };
 
+/**
+ * Returns the Pokémon's final minimum possible stat value regarding parameters sent
+ * @param {Object} params - The general parameters used for Pokémon's minimum possible stat calculation.
+ * @param {number} params.base - The Pokémon's base stat value (HP, Attack, Defense, Special Attack, Special Defense, or Speed).
+ * @param {boolean} [params.isHp = false] - True if evaluating HP stat value for given Pokémon.
+ * @param {number} [params.level = 100] - The Pokémon's level.
+ * @param {boolean} [params.isShedinja = false] - True if evaluating a stat for {@link https://bulbapedia.bulbagarden.net/wiki/Shedinja_(Pok%C3%A9mon) Shedinja}.
+ * @returns {number}
+ */
 export const getMinStatValue = (
   params: Omit<GetStatValueParams, 'iv' | 'ev' | 'nature'>,
 ): number => {
@@ -114,6 +144,16 @@ export const getMinStatValue = (
   });
 };
 
+/**
+ * Returns the Pokémon's final stat value regarding parameters sent for Pokémon Red, Blue, Yellow, Gold, Silver, and Crystal games.
+ * @param {Object} params - The general parameters used for Pokémon's stat calculation.
+ * @param {number} params.base - The Pokémon's base stat value (HP, Attack, Defense, Special Attack, Special Defense, or Speed).
+ * @param {number} [params.ev = 0] - The Pokémon's Effort Value (EV) for given stat.
+ * @param {number} [params.iv = MAX_IV_VALUE_PRIOR_GEN3] - The Pokémon's Individual Value (IV) for given stat.
+ * @param {boolean} [params.isHp = false] - True if evaluating HP stat value for given Pokémon.
+ * @param {number} [params.level = 100] - The Pokémon's level.
+ * @returns {number}
+ */
 export const getPriorGenIIIStatValue = ({
   base,
   isHp,
@@ -170,6 +210,16 @@ type GetLegendsArceusStatValueParams = {
   nature?: NatureStatType;
 };
 
+/**
+ * Returns the Pokémon's final stat value regarding parameters sent for Pokémon Legends Arceus game.
+ * @param {Object} params - The general parameters used for Pokémon's stat calculation.
+ * @param {number} params.base - The Pokémon's base stat value (HP, Attack, Defense, Special Attack, Special Defense, or Speed).
+ * @param {boolean} [params.isHp = false] - True if evaluating HP stat value for given Pokémon.
+ * @param {number} [params.level = 100] - The Pokémon's level.
+ * @param {number} [params.effortLevel = 0] - The Pokémon's Effort Level for given stat.
+ * @param {NatureStatType} [params.nature = neutral] - If the Pokémon has a hindering, neutral, or enhancing nature.
+ * @returns {number}
+ */
 export const getLegendsArceusStatValue = ({
   base,
   isHp,
@@ -210,6 +260,11 @@ export const getLegendsArceusStatValue = ({
   return result + effortLevelBonus;
 };
 
+/**
+ * Returns the Pokémon's Effort Level Multiplier for Pokémon Legends Arceus game.
+ * @param {number} effortLevel - The Pokémon's Effort Level.
+ * @returns {number}
+ */
 export const getPLAEfforLevelMultiplier = (effortLevel: number): number => {
   if (!isValidEffortLevel(effortLevel)) {
     throw new InvalidParameterRangeError(
@@ -232,11 +287,23 @@ type GetLetsGoPikachuStatValueParams = {
   friendship?: number;
 };
 
+/**
+ * Returns the Pokémon's final stat value regarding parameters sent for Pokémon: Let's Go, Pikachu! and Let's Go, Eevee! games.
+ * @param {Object} params - The general parameters used for Pokémon's stat calculation.
+ * @param {number} params.base - The Pokémon's base stat value (HP, Attack, Defense, Special Attack, Special Defense, or Speed).
+ * @param {boolean} [params.isHp = false] - True if evaluating HP stat value for given Pokémon.
+ * @param {number} [params.av = 0] - The Pokémon's Awakening Value (AV), also known as Go Power bonus, for given stat.
+ * @param {number} [params.iv = MAX_IV_VALUE] - The Pokémon's Individual Vale (IV) for given stat.
+ * @param {number} [params.level = 100] - The Pokémon's level.
+ * @param {number} [params.friendship = 0] - The Pokémon's friendship level.
+ * @param {NatureStatType} [params.nature = neutral] - If the Pokémon has a hindering, neutral, or enhancing nature.
+ * @returns {number}
+ */
 export const getLetsGoPikachuStatValue = ({
   base,
   isHp,
   av = 0,
-  iv = 31,
+  iv = MAX_IV_VALUE,
   level = 100,
   nature = 'neutral',
   friendship = 0,
@@ -283,6 +350,11 @@ export const getLetsGoPikachuStatValue = ({
   );
 };
 
+/**
+ * Returns the Pokémon's Effort Level Multiplier in Pokémon: Let's Go, Pikachu! and Let's Go, Eevee! games.
+ * @param {number} friendship - The Pokémon's friendship Level.
+ * @returns {number}
+ */
 export const getLGPFriendshipMultiplier = (friendship: number): number => {
   if (!isValidFrienshipValue(friendship)) {
     throw new InvalidParameterRangeError(
@@ -306,6 +378,21 @@ type GetCPValueParams = {
   level?: number;
   totalAv?: number;
 };
+
+/**
+ * Returns the Pokémon's Combat Power in Pokémon: Let's Go, Pikachu! and Let's Go, Eevee! games.
+ * @param {Object} params - The general parameters used for Pokémon's stat calculation.
+ * @param {number} params.stat - The Pokémon's base stats
+ * @param {number} params.stat.hp - The Pokémon's HP stat value
+ * @param {number} params.stat.attack - The Pokémon's Attack stat value
+ * @param {number} params.stat.defense - The Pokémon's Defense stat value
+ * @param {number} params.stat.specialAttack - The Pokémon's Special Attack stat value
+ * @param {number} params.stat.specialDefense - The Pokémon's Special Defense stat value
+ * @param {number} params.stat.speed - The Pokémon's Speed stat value
+ * @param {number} [params.totalAv = 0] - True if evaluating HP stat value for given Pokémon.
+ * @param {number} [params.level = 100] - The Pokémon's level.
+ * @returns {number}
+ */
 export const getCPValue = ({
   stat,
   totalAv = 0,
