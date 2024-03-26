@@ -1,7 +1,7 @@
 {
   "name": "@jaflesch/ts-pokeapi",
-  "version": "0.1.2-alpha2",
-  "description": "",
+  "version": "0.1.2",
+  "description": "A Pokémon TypeScript utility package",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
