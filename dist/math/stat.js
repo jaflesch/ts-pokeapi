@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getCPValue = exports.getLGPFriendshipMultiplier = exports.getLetsGoPikachuStatValue = exports.getPLAEfforLevelMultiplier = exports.getLegendsArceusStatValue = exports.getPriorGenIIIStatValue = exports.getMinStatValue = exports.getMaxStatValue = exports.getStatValue = void 0;
-const utils_1 = require("../utils");
 const errors_1 = require("../errors");
-const validation_1 = require("../validation");
+const constants_1 = require("./constants");
+const validation_1 = require("./validation");
 /**
  * Returns the Pokémon's final stat value regarding parameters sent
  * @param {Object} params - The general parameters used for Pokémon's stat calculation.
@@ -16,19 +16,19 @@ const validation_1 = require("../validation");
  * @param {boolean} [params.isShedinja = false] - True if evaluating a stat for {@link https://bulbapedia.bulbagarden.net/wiki/Shedinja_(Pok%C3%A9mon) Shedinja}.
  * @returns {number}
  */
-const getStatValue = ({ base, ev = 0, iv = utils_1.MAX_IV_VALUE, isHp = false, level = 100, nature = 'neutral', isShedinja = false, }) => {
+const getStatValue = ({ base, ev = 0, iv = constants_1.MAX_IV_VALUE, isHp = false, level = 100, nature = 'neutral', isShedinja = false, }) => {
     if (!(0, validation_1.isValidPokemonLevel)(level)) {
-        throw new errors_1.InvalidParameterRangeError('Pokémon level', utils_1.MIN_POKEMON_LEVEL, utils_1.MAX_POKEMON_LEVEL);
+        throw new errors_1.InvalidParameterRangeError('Pokémon level', constants_1.MIN_POKEMON_LEVEL, constants_1.MAX_POKEMON_LEVEL);
     }
     if (!(0, validation_1.isValidBaseStat)(base)) {
         throw new errors_1.InvalidParameterValueError('Base parameter should be a positive value');
     }
     if (!(0, validation_1.isValidIV)(iv)) {
-        throw new errors_1.InvalidParameterRangeError('IV', utils_1.MIN_IV_VALUE, utils_1.MAX_IV_VALUE);
+        throw new errors_1.InvalidParameterRangeError('IV', constants_1.MIN_IV_VALUE, constants_1.MAX_IV_VALUE);
     }
     const evValue = ev / 4;
     if (!(0, validation_1.isValidEV)(ev)) {
-        throw new errors_1.InvalidParameterRangeError('EV', utils_1.MIN_EV_VALUE, utils_1.MAX_EV_VALUE);
+        throw new errors_1.InvalidParameterRangeError('EV', constants_1.MIN_EV_VALUE, constants_1.MAX_EV_VALUE);
     }
     const natureValue = nature === 'enhancing' ? 1.1 : nature === 'hindering' ? 0.9 : 1;
     const result = ((2 * base + iv + Math.floor(evValue)) * level) / 100;
@@ -51,7 +51,7 @@ exports.getStatValue = getStatValue;
  * @returns {number}
  */
 const getMaxStatValue = (params) => {
-    return (0, exports.getStatValue)(Object.assign(Object.assign({}, params), { iv: utils_1.MAX_IV_VALUE, ev: utils_1.MAX_EV_VALUE, nature: 'enhancing' }));
+    return (0, exports.getStatValue)(Object.assign(Object.assign({}, params), { iv: constants_1.MAX_IV_VALUE, ev: constants_1.MAX_EV_VALUE, nature: 'enhancing' }));
 };
 exports.getMaxStatValue = getMaxStatValue;
 /**
@@ -64,7 +64,7 @@ exports.getMaxStatValue = getMaxStatValue;
  * @returns {number}
  */
 const getMinStatValue = (params) => {
-    return (0, exports.getStatValue)(Object.assign(Object.assign({}, params), { iv: utils_1.MIN_IV_VALUE, ev: utils_1.MIN_EV_VALUE, nature: 'hindering' }));
+    return (0, exports.getStatValue)(Object.assign(Object.assign({}, params), { iv: constants_1.MIN_IV_VALUE, ev: constants_1.MIN_EV_VALUE, nature: 'hindering' }));
 };
 exports.getMinStatValue = getMinStatValue;
 /**
@@ -77,18 +77,18 @@ exports.getMinStatValue = getMinStatValue;
  * @param {number} [params.level = 100] - The Pokémon's level.
  * @returns {number}
  */
-const getPriorGenIIIStatValue = ({ base, isHp, ev = 0, iv = utils_1.MAX_IV_VALUE_PRIOR_GEN3, level = 100, }) => {
+const getPriorGenIIIStatValue = ({ base, isHp, ev = 0, iv = constants_1.MAX_IV_VALUE_PRIOR_GEN3, level = 100, }) => {
     if (!(0, validation_1.isValidBaseStat)(base)) {
         throw new errors_1.InvalidParameterValueError('Base parameter should be a positive value');
     }
     if (!(0, validation_1.isValidPokemonLevel)(level)) {
-        throw new errors_1.InvalidParameterRangeError('Pokémon level', utils_1.MIN_POKEMON_LEVEL, utils_1.MAX_POKEMON_LEVEL);
+        throw new errors_1.InvalidParameterRangeError('Pokémon level', constants_1.MIN_POKEMON_LEVEL, constants_1.MAX_POKEMON_LEVEL);
     }
     if (!(0, validation_1.isValidIVPriorGen3)(iv)) {
-        throw new errors_1.InvalidParameterRangeError('IV', utils_1.MIN_IV_VALUE_PRIOR_GEN3, utils_1.MAX_IV_VALUE_PRIOR_GEN3);
+        throw new errors_1.InvalidParameterRangeError('IV', constants_1.MIN_IV_VALUE_PRIOR_GEN3, constants_1.MAX_IV_VALUE_PRIOR_GEN3);
     }
     if (!(0, validation_1.isValidEVPriorGen3)(ev)) {
-        throw new errors_1.InvalidParameterRangeError('EV', utils_1.MIN_EV_VALUE_PRIOR_GEN3, utils_1.MAX_EV_VALUE_PRIOR_GEN3);
+        throw new errors_1.InvalidParameterRangeError('EV', constants_1.MIN_EV_VALUE_PRIOR_GEN3, constants_1.MAX_EV_VALUE_PRIOR_GEN3);
     }
     const baseIv = (base + iv) * 2;
     const evSqrt = Math.floor(Math.ceil(Math.sqrt(ev)) / 4);
@@ -116,7 +116,7 @@ const getLegendsArceusStatValue = ({ base, isHp, level = 100, nature = 'neutral'
         throw new errors_1.InvalidParameterValueError('Base parameter should be a positive value');
     }
     if (!(0, validation_1.isValidPokemonLevel)(level)) {
-        throw new errors_1.InvalidParameterRangeError('Pokémon level', utils_1.MIN_POKEMON_LEVEL, utils_1.MAX_POKEMON_LEVEL);
+        throw new errors_1.InvalidParameterRangeError('Pokémon level', constants_1.MIN_POKEMON_LEVEL, constants_1.MAX_POKEMON_LEVEL);
     }
     const effortLevelBonus = Math.round((Math.sqrt(base) * (0, exports.getPLAEfforLevelMultiplier)(effortLevel) + level) / 2.5);
     const natureValue = nature === 'enhancing' ? 1.1 : nature === 'hindering' ? 0.9 : 1;
@@ -135,7 +135,7 @@ exports.getLegendsArceusStatValue = getLegendsArceusStatValue;
  */
 const getPLAEfforLevelMultiplier = (effortLevel) => {
     if (!(0, validation_1.isValidEffortLevel)(effortLevel)) {
-        throw new errors_1.InvalidParameterRangeError('Effort level', utils_1.MIN_EFFORT_LEVEL_PLA, utils_1.MAX_EFFORT_LEVEL_PLA);
+        throw new errors_1.InvalidParameterRangeError('Effort level', constants_1.MIN_EFFORT_LEVEL_PLA, constants_1.MAX_EFFORT_LEVEL_PLA);
     }
     const multiplier = [0, 2, 3, 4, 7, 8, 9, 14, 15, 16, 25];
     return multiplier[effortLevel];
@@ -153,18 +153,18 @@ exports.getPLAEfforLevelMultiplier = getPLAEfforLevelMultiplier;
  * @param {NatureStatType} [params.nature = neutral] - If the Pokémon has a hindering, neutral, or enhancing nature.
  * @returns {number}
  */
-const getLetsGoPikachuStatValue = ({ base, isHp, av = 0, iv = utils_1.MAX_IV_VALUE, level = 100, nature = 'neutral', friendship = 0, }) => {
+const getLetsGoPikachuStatValue = ({ base, isHp, av = 0, iv = constants_1.MAX_IV_VALUE, level = 100, nature = 'neutral', friendship = 0, }) => {
     if (!(0, validation_1.isValidPokemonLevel)(level)) {
-        throw new errors_1.InvalidParameterRangeError('Pokémon level', utils_1.MIN_POKEMON_LEVEL, utils_1.MAX_POKEMON_LEVEL);
+        throw new errors_1.InvalidParameterRangeError('Pokémon level', constants_1.MIN_POKEMON_LEVEL, constants_1.MAX_POKEMON_LEVEL);
     }
     if (!(0, validation_1.isValidBaseStat)(base)) {
         throw new errors_1.InvalidParameterValueError('Base parameter should be a positive value');
     }
     if (!(0, validation_1.isValidAV)(av)) {
-        throw new errors_1.InvalidParameterRangeError('AV', utils_1.MIN_AWAKENING_VALUE, utils_1.MAX_AWAKENING_VALUE);
+        throw new errors_1.InvalidParameterRangeError('AV', constants_1.MIN_AWAKENING_VALUE, constants_1.MAX_AWAKENING_VALUE);
     }
     if (!(0, validation_1.isValidIV)(iv)) {
-        throw new errors_1.InvalidParameterRangeError('IV', utils_1.MIN_IV_VALUE, utils_1.MAX_IV_VALUE);
+        throw new errors_1.InvalidParameterRangeError('IV', constants_1.MIN_IV_VALUE, constants_1.MAX_IV_VALUE);
     }
     const natureValue = nature === 'enhancing' ? 1.1 : nature === 'hindering' ? 0.9 : 1;
     const result = Math.floor(((2 * base + iv) * level) / 100);
@@ -181,7 +181,7 @@ exports.getLetsGoPikachuStatValue = getLetsGoPikachuStatValue;
  */
 const getLGPFriendshipMultiplier = (friendship) => {
     if (!(0, validation_1.isValidFrienshipValue)(friendship)) {
-        throw new errors_1.InvalidParameterRangeError('Friendship', utils_1.MIN_FRIENDSHIP_VALUE, utils_1.MAX_FRIENDSHIP_VALUE);
+        throw new errors_1.InvalidParameterRangeError('Friendship', constants_1.MIN_FRIENDSHIP_VALUE, constants_1.MAX_FRIENDSHIP_VALUE);
     }
     return 1 + Math.floor((10 * friendship) / 255) / 100;
 };
@@ -202,10 +202,10 @@ exports.getLGPFriendshipMultiplier = getLGPFriendshipMultiplier;
  */
 const getCPValue = ({ stat, totalAv = 0, level = 100, }) => {
     if (!(0, validation_1.isValidPokemonLevel)(level)) {
-        throw new errors_1.InvalidParameterRangeError('Pokémon level', utils_1.MIN_POKEMON_LEVEL, utils_1.MAX_POKEMON_LEVEL);
+        throw new errors_1.InvalidParameterRangeError('Pokémon level', constants_1.MIN_POKEMON_LEVEL, constants_1.MAX_POKEMON_LEVEL);
     }
     if (!(0, validation_1.isValidTotalAVs)(totalAv)) {
-        throw new errors_1.InvalidParameterRangeError('totalAv', utils_1.MIN_AWAKENING_VALUE, utils_1.MAX_AWAKENING_VALUE * 6);
+        throw new errors_1.InvalidParameterRangeError('totalAv', constants_1.MIN_AWAKENING_VALUE, constants_1.MAX_AWAKENING_VALUE * 6);
     }
     let totalStats = 0;
     const statsValue = Object.values(stat);
@@ -216,7 +216,7 @@ const getCPValue = ({ stat, totalAv = 0, level = 100, }) => {
         totalStats += statsValue[i];
     }
     const result = Math.floor((totalStats * level * 6) / 100 + totalAv * (level / 4 / 100 + 2));
-    return Math.min(result, utils_1.MAX_COMBAT_POWER_VALUE);
+    return Math.min(result, constants_1.MAX_COMBAT_POWER_VALUE);
 };
 exports.getCPValue = getCPValue;
 //# sourceMappingURL=stat.js.map

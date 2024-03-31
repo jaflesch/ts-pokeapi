@@ -136,11 +136,11 @@ export declare enum PokemonTypeIdEnum {
     DARK = 17,
     FAIRY = 18
 }
-export type PaginatedResult = {
+export type PaginatedResult<T> = {
     count: number;
     next: number | null;
     previous: number | null;
-    results: NamedAPIResource[];
+    results: T[];
 };
 export declare enum DamageClassEnum {
     PHYSICAL = "physical",
