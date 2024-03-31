@@ -14,7 +14,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./api/endpoint.enum"), exports);
+__exportStar(require("./api"), exports);
 __exportStar(require("./pokemon.enum"), exports);
 __exportStar(require("./gender.enum"), exports);
 __exportStar(require("./time-of-day.enum"), exports);
@@ -22,4 +22,5 @@ __exportStar(require("./damage-class.enum"), exports);
 __exportStar(require("./pokemon-type.enum"), exports);
 __exportStar(require("./relative-physical-stat-evolution.enum"), exports);
 __exportStar(require("./berry-firmness.enum"), exports);
+__exportStar(require("./berry-flavor.enum"), exports);
 //# sourceMappingURL=index.js.map

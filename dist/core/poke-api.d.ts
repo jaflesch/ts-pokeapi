@@ -55,7 +55,8 @@ export interface QueryParams {
     offset: number;
 }
 type GetAllResources<T> = T extends 'pokemon-location-area' ? number | string : Partial<QueryParams> | void;
-export interface IPokeApi<T extends keyof TypeMap> {
+type TypeMapKeys = keyof TypeMap;
+interface PokeApiProps<T extends TypeMapKeys> {
     get(idOrName: number | string): Promise<TypeMap[T]>;
     getAll(params?: GetAllResources<T>): Promise<Model.PaginatedResult['results']>;
     getById(id: number): Promise<TypeMap[T]>;
@@ -67,7 +68,7 @@ type PokeApiConfig = {
     debug?: boolean;
     [key: string]: unknown;
 };
-export declare class PokeApi<T extends keyof TypeMap> implements IPokeApi<T> {
+export declare class PokeApi<T extends keyof TypeMap> implements PokeApiProps<T> {
     readonly config?: PokeApiConfig | undefined;
     private endpoint;
     private urlParam;

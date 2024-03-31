@@ -38,6 +38,9 @@ class PokeApi {
     }
     getByName(name) {
         return __awaiter(this, void 0, void 0, function* () {
+            // no names!
+            // CONTEST-effect
+            // super-contest
             const result = yield this.fetchResource(`${this.getResourceURL()}/${name}`);
             this.validateStatus(result.status);
             return result.json();
