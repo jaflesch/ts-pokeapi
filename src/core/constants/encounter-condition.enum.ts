@@ -1,0 +1,15 @@
+export enum EncounterConditionId {
+  SWARM = 1,
+  TIME,
+  RADAR,
+  SLOT2,
+  RADIO,
+  SEASON,
+  STARTER,
+  TV_OPTION,
+  STORY_PROGRESS,
+  OTHER,
+  ITEM,
+  WEEKDAY,
+  FIRST_PARTY_POKEMON,
+}

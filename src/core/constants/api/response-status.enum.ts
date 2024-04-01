@@ -1,4 +1,3 @@
-// to do: https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status
 export enum ResponseStatus {
   CONTINUE = 100,
   SWITCHING_PROTOCOL = 101,
