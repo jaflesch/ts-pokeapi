@@ -1,0 +1,32 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.NatureId = void 0;
+var NatureId;
+(function (NatureId) {
+    NatureId[NatureId["HARDY"] = 1] = "HARDY";
+    NatureId[NatureId["BOLD"] = 2] = "BOLD";
+    NatureId[NatureId["MODEST"] = 3] = "MODEST";
+    NatureId[NatureId["CALM"] = 4] = "CALM";
+    NatureId[NatureId["TIMID"] = 5] = "TIMID";
+    NatureId[NatureId["LONELY"] = 6] = "LONELY";
+    NatureId[NatureId["DOCILE"] = 7] = "DOCILE";
+    NatureId[NatureId["MILD"] = 8] = "MILD";
+    NatureId[NatureId["GENTLE"] = 9] = "GENTLE";
+    NatureId[NatureId["HASTY"] = 10] = "HASTY";
+    NatureId[NatureId["ADAMANT"] = 11] = "ADAMANT";
+    NatureId[NatureId["IMPISH"] = 12] = "IMPISH";
+    NatureId[NatureId["BASHFUL"] = 13] = "BASHFUL";
+    NatureId[NatureId["CAREFUL"] = 14] = "CAREFUL";
+    NatureId[NatureId["RASH"] = 15] = "RASH";
+    NatureId[NatureId["JOLLY"] = 16] = "JOLLY";
+    NatureId[NatureId["NAUGHTY"] = 17] = "NAUGHTY";
+    NatureId[NatureId["LAX"] = 18] = "LAX";
+    NatureId[NatureId["QUIRKY"] = 19] = "QUIRKY";
+    NatureId[NatureId["NAIVE"] = 20] = "NAIVE";
+    NatureId[NatureId["BRAVE"] = 21] = "BRAVE";
+    NatureId[NatureId["RELAXED"] = 22] = "RELAXED";
+    NatureId[NatureId["QUIET"] = 23] = "QUIET";
+    NatureId[NatureId["SASSY"] = 24] = "SASSY";
+    NatureId[NatureId["SERIOUS"] = 25] = "SERIOUS";
+})(NatureId || (exports.NatureId = NatureId = {}));
+//# sourceMappingURL=nature.enum.js.map

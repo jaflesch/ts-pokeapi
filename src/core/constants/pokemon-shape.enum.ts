@@ -1,0 +1,16 @@
+export enum PokemonShapeId {
+  BALL = 1,
+  SQUIGGLE,
+  FISH,
+  ARMS,
+  BLOB,
+  UPRIGHT,
+  LEGS,
+  QUADRUPED,
+  WINGS,
+  TENTACLES,
+  HEADS,
+  HUMANOID,
+  BUG_WINGS,
+  ARMOR,
+}

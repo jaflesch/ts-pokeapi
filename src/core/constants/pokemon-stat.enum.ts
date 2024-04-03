@@ -1,0 +1,10 @@
+export enum PokemonStatId {
+  HP = 1,
+  ATTACK,
+  DEFENSE,
+  SPECIAL_ATTACK,
+  SPECIAL_DEFENSE,
+  SPEED,
+  ACCURACY,
+  EVASION,
+}

@@ -19,7 +19,7 @@ import {
   MAX_IV_VALUE_PRIOR_GEN3,
   MIN_EV_VALUE_PRIOR_GEN3,
   MAX_EV_VALUE_PRIOR_GEN3,
-} from '../../utils';
+} from '../constants';
 import { InvalidParameterRangeError } from '../../errors';
 
 describe('when using math module for current stats formula', () => {

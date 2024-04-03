@@ -1,4 +1,8 @@
 import {
+  InvalidParameterValueError,
+  InvalidParameterRangeError,
+} from '../errors';
+import {
   MIN_EV_VALUE,
   MAX_EV_VALUE,
   MIN_IV_VALUE,
@@ -16,11 +20,7 @@ import {
   MAX_IV_VALUE_PRIOR_GEN3,
   MIN_EV_VALUE_PRIOR_GEN3,
   MAX_EV_VALUE_PRIOR_GEN3,
-} from '../utils';
-import {
-  InvalidParameterValueError,
-  InvalidParameterRangeError,
-} from '../errors';
+} from './constants';
 import {
   isValidAV,
   isValidEV,
@@ -32,7 +32,7 @@ import {
   isValidEVPriorGen3,
   isValidPokemonLevel,
   isValidFrienshipValue,
-} from '../validation';
+} from './validation';
 
 type NatureStatType = 'enhancing' | 'hindering' | 'neutral';
 
