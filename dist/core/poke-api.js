@@ -31,17 +31,16 @@ class PokeApi {
     }
     getById(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            const result = yield this.fetchResource(`${this.getResourceURL()}/${id}`);
+            const result = yield this.fetchResource(`${this.getResourceURL({ param: id })}`);
             this.validateStatus(result.status);
             return result.json();
         });
     }
     getByName(name) {
         return __awaiter(this, void 0, void 0, function* () {
-            // no names!
-            // CONTEST-effect
-            // super-contest
-            const result = yield this.fetchResource(`${this.getResourceURL()}/${name}`);
+            const result = yield this.fetchResource(`${this.getResourceURL({
+                param: name,
+            })}`);
             this.validateStatus(result.status);
             return result.json();
         });
@@ -73,7 +72,6 @@ class PokeApi {
         });
     }
     getResourceURL(params) {
-        var _a;
         if (this.endpoint === 'pokemon-location-area') {
             this.endpoint = 'pokemon';
             this.urlParam = '/encounters';
@@ -84,7 +82,7 @@ class PokeApi {
             url = `${api_1.BASE_URL}${this.endpoint}/${params}${this.urlParam}`;
         }
         else {
-            if ((params === null || params === void 0 ? void 0 : params.param) && params.param !== undefined) {
+            if (params && params.param !== undefined) {
                 url = `${api_1.BASE_URL}${this.endpoint}/${params.param}${this.urlParam}`;
             }
             else {
@@ -98,16 +96,11 @@ class PokeApi {
                 url = `${api_1.BASE_URL}${this.endpoint}${queryParams.size > 0 ? '?' + queryParams.toString() : ''}${this.urlParam}`;
             }
         }
-        if ((_a = this.config) === null || _a === void 0 ? void 0 : _a.debug) {
-            console.log('[GET]', url);
-        }
+        this.logger(`[GET] ${url}`);
         return url;
     }
     validateStatus(statusCode) {
-        var _a;
-        if ((_a = this.config) === null || _a === void 0 ? void 0 : _a.debug) {
-            console.log('[STATUS]', statusCode !== null && statusCode !== void 0 ? statusCode : 'UNKNOWN');
-        }
+        this.logger(`[STATUS] ${statusCode !== null && statusCode !== void 0 ? statusCode : 'UNKNOWN'}`);
         if (statusCode === api_1.ResponseStatus.NOT_FOUND) {
             throw new errors_1.ResourceNotFoundError();
         }
@@ -116,6 +109,12 @@ class PokeApi {
         return __awaiter(this, void 0, void 0, function* () {
             return fetch(url);
         });
+    }
+    logger(message) {
+        var _a;
+        if ((_a = this.config) === null || _a === void 0 ? void 0 : _a.debug) {
+            console.log(message);
+        }
     }
 }
 exports.PokeApi = PokeApi;

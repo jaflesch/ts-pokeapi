@@ -7,7 +7,8 @@ import { NamedAPIResource, VersionEncounterDetail } from '../utility/common';
  * @property location_area - The location area the referenced Pokémon can be encountered in.
  * @property version_details - A list of versions and encounters with the referenced Pokémon that might happen.
  * */
-export interface PokemonLocationArea {
+export interface PokemonLocationArea extends Array<{
     location_area: NamedAPIResource;
     version_details: VersionEncounterDetail[];
+}> {
 }

@@ -1,0 +1,34 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VersionGroupId = void 0;
+var VersionGroupId;
+(function (VersionGroupId) {
+    VersionGroupId[VersionGroupId["RED_BLUE"] = 1] = "RED_BLUE";
+    VersionGroupId[VersionGroupId["YELLOW"] = 2] = "YELLOW";
+    VersionGroupId[VersionGroupId["GOLD_SILVER"] = 3] = "GOLD_SILVER";
+    VersionGroupId[VersionGroupId["CRYSTAL"] = 4] = "CRYSTAL";
+    VersionGroupId[VersionGroupId["RUBY_SAPPHIRE"] = 5] = "RUBY_SAPPHIRE";
+    VersionGroupId[VersionGroupId["EMERALD"] = 6] = "EMERALD";
+    VersionGroupId[VersionGroupId["FIRERED_LEAFGREEN"] = 7] = "FIRERED_LEAFGREEN";
+    VersionGroupId[VersionGroupId["DIAMOND_PEARL"] = 8] = "DIAMOND_PEARL";
+    VersionGroupId[VersionGroupId["PLATINUM"] = 9] = "PLATINUM";
+    VersionGroupId[VersionGroupId["HEARTGOLD_SOULSILVER"] = 10] = "HEARTGOLD_SOULSILVER";
+    VersionGroupId[VersionGroupId["BLACK_WHITE"] = 11] = "BLACK_WHITE";
+    VersionGroupId[VersionGroupId["COLOSSEUM"] = 12] = "COLOSSEUM";
+    VersionGroupId[VersionGroupId["XD"] = 13] = "XD";
+    VersionGroupId[VersionGroupId["BLACK_2_WHITE_2"] = 14] = "BLACK_2_WHITE_2";
+    VersionGroupId[VersionGroupId["X_Y"] = 15] = "X_Y";
+    VersionGroupId[VersionGroupId["OMEGA_RUBY_ALPHA_SAPPHIRE"] = 16] = "OMEGA_RUBY_ALPHA_SAPPHIRE";
+    VersionGroupId[VersionGroupId["SUN_MOON"] = 17] = "SUN_MOON";
+    VersionGroupId[VersionGroupId["ULTRA_SUN_ULTRA_MOON"] = 18] = "ULTRA_SUN_ULTRA_MOON";
+    VersionGroupId[VersionGroupId["LETS_GO_PIKACHU_LETS_GO_EEVEE"] = 19] = "LETS_GO_PIKACHU_LETS_GO_EEVEE";
+    VersionGroupId[VersionGroupId["SWORD_SHIELD"] = 20] = "SWORD_SHIELD";
+    VersionGroupId[VersionGroupId["THE_ISLE_OF_ARMOR"] = 21] = "THE_ISLE_OF_ARMOR";
+    VersionGroupId[VersionGroupId["THE_CROWN_TUNDRA"] = 22] = "THE_CROWN_TUNDRA";
+    VersionGroupId[VersionGroupId["BRILLIANT_DIAMOND_AND_SHINING_PEARL"] = 23] = "BRILLIANT_DIAMOND_AND_SHINING_PEARL";
+    VersionGroupId[VersionGroupId["LEGENDS_ARCEUS"] = 24] = "LEGENDS_ARCEUS";
+    VersionGroupId[VersionGroupId["SCARLET_VIOLET"] = 25] = "SCARLET_VIOLET";
+    VersionGroupId[VersionGroupId["THE_TEAL_MASK"] = 26] = "THE_TEAL_MASK";
+    VersionGroupId[VersionGroupId["THE_INDIGO_DISK"] = 27] = "THE_INDIGO_DISK";
+})(VersionGroupId || (exports.VersionGroupId = VersionGroupId = {}));
+//# sourceMappingURL=version-group.enum.js.map

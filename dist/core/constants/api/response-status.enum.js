@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ResponseStatus = void 0;
-// to do: https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status
 var ResponseStatus;
 (function (ResponseStatus) {
     ResponseStatus[ResponseStatus["CONTINUE"] = 100] = "CONTINUE";
