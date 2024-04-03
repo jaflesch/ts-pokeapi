@@ -18,7 +18,7 @@ export class PokeApi<T extends Keys> implements Types.PokeApiProps<T> {
     this.urlParam = '';
   }
 
-  async get(idOrName: string | number): Promise<Types.TypeMap[T]> {
+  async get(idOrName: Types.GetParams<T>): Promise<Types.TypeMap[T]> {
     const result = await this.fetchResource(
       `${this.getResourceURL({ param: idOrName })}`,
     );
@@ -36,7 +36,7 @@ export class PokeApi<T extends Keys> implements Types.PokeApiProps<T> {
     return result.json();
   }
 
-  async getByName(name: string): Types.GetByName<T> {
+  async getByName(name: string): Types.GetByNameReturn<T> {
     const result = await this.fetchResource(
       `${this.getResourceURL({
         param: name,
@@ -47,7 +47,7 @@ export class PokeApi<T extends Keys> implements Types.PokeApiProps<T> {
     return result.json();
   }
 
-  async getAll(params?: Types.GetAllParams<T>): Types.GetAll<T> {
+  async getAll(params: Types.GetAllParams<T>): Types.GetAllReturn<T> {
     const result = await this.fetchResource(this.getResourceURL(params));
     this.validateStatus(result.status);
 
@@ -59,7 +59,7 @@ export class PokeApi<T extends Keys> implements Types.PokeApiProps<T> {
     return result.json();
   }
 
-  async count(): Types.Count<T> {
+  async count(): Types.CountReturn<T> {
     const result = await this.fetchResource(this.getResourceURL());
     this.validateStatus(result.status);
 
@@ -67,7 +67,7 @@ export class PokeApi<T extends Keys> implements Types.PokeApiProps<T> {
     return raw.count;
   }
 
-  async paginate(params?: Partial<Types.QueryParams>): Types.Paginate<T> {
+  async paginate(params?: Partial<Types.QueryParams>): Types.PaginateReturn<T> {
     const result = await this.fetchResource(this.getResourceURL(params));
     this.validateStatus(result.status);
 
