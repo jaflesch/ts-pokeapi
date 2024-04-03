@@ -316,7 +316,7 @@ export interface PokeApiProps<T extends TypeMapKeys> {
    * If PokéApi resource is in type `UnnamedPaginationResource`
    * fetching data is only available via its id.
    *
-   * @returns {Promise<TypeMap[T]>} a Promise with given single PokéApi resource.
+   * @returns {Promise<TypeMap[T]>} Promise with given single PokéApi resource.
    */
   get(idOrName: GetParams<T>): Promise<TypeMap[T]>;
 
@@ -325,7 +325,7 @@ export interface PokeApiProps<T extends TypeMapKeys> {
    * @template T - PokéApi resource endpoint.
    * @param {Partial<QueryParams> | void | string | number} [params] - If resource is in type `SubCollectionResource`,
    * a `number` or `string` must be provided. Otherwise, the parameter is optinal, and can be partially completed with `QueryParams` or `void`.
-   * @returns {Promise<TypeMap[T] | NamedAPIResource>} a Promise with given single PokéApi resource if resource is in type `SubCollectionResource` or a Promise with paginated result.
+   * @returns {Promise<TypeMap[T] | NamedAPIResource>} Promise with given single PokéApi resource if resource is in type `SubCollectionResource` or a Promise with paginated result.
    */
   getAll(params?: GetAllParams<T>): GetAllReturn<T>;
 
@@ -333,7 +333,7 @@ export interface PokeApiProps<T extends TypeMapKeys> {
    * Method that fetches a single record of given PokéApi resource endpoint by its id.
    * @template T - PokéApi resource endpoint.
    * @param {number} id - The desired resource id for given PokéApi resource.
-   * @returns {Promise<TypeMap[T]>} a Promise with given single PokéApi resource
+   * @returns {Promise<TypeMap[T]>} Promise with given single PokéApi resource.
    */
   getById(id: number): Promise<TypeMap[T]>;
 
@@ -341,14 +341,14 @@ export interface PokeApiProps<T extends TypeMapKeys> {
    * Method that fetches a single record of given PokéApi resource endpoint by its name (if possible).
    * @template T - PokéApi resource endpoint.
    * @param {string} name - The desired resource name for given PokéApi resource.
-   * @returns {Promise<TypeMap[T]>} a Promise with given single PokéApi resource if resource is not in `UnnamedPaginationResource`, otherwise `never`
+   * @returns {Promise<TypeMap[T]>} Promise with given single PokéApi resource if resource is not in `UnnamedPaginationResource`, otherwise `never`.
    */
   getByName(name: string): GetByNameReturn<T>;
 
   /**
    * Method that fetches the total number of records for given PokéApi resource (if possible).
    * @template T - PokéApi resource endpoint.
-   * @returns {Promise<TypeMap[T]>} a Promise with total number of records for given PokéApi resource, if resource is not in `SubCollectionResource`, otherwise `never`
+   * @returns {Promise<TypeMap[T]>} Promise with total number of records for given PokéApi resource, if resource is not in `SubCollectionResource`, otherwise `never`.
    */
   count(): CountReturn<T>;
 
@@ -356,7 +356,7 @@ export interface PokeApiProps<T extends TypeMapKeys> {
    * Method that fetches a paginated result for given PokéApi resource (if possible).
    * @template T - PokéApi resource endpoint.
    * @param {Partial<QueryParams>} [params] - Optional parameter for setting resouce list limit and offset values.
-   * @returns {Promise<TypeMap[T]>} a Promise with paginated result number of records for given PokéApi resource, if resource is not in `SubCollectionResource`, otherwise `never`
+   * @returns {Promise<TypeMap[T]>} Promise with paginated result number of records for given PokéApi resource, if resource is not in `SubCollectionResource`, otherwise `never`.
    */
   paginate(params?: Partial<QueryParams>): PaginateReturn<T>;
 }
