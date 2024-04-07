@@ -107,7 +107,7 @@ Fetches a single record of given PokéApi resource endpoint by its **name** (if 
 
 ##### Signature
 ```typescript
-async getByName<T>(id: number) => Promise<PokeApiResource<T> | never>
+async getByName<T>(name: string) => Promise<PokeApiResource<T> | never>
 ```
 
 | Parameter | Type  | Required | Description |
@@ -196,7 +196,7 @@ async paginate<T>(params?: Partial<QueryParams>) => Promise<PaginatedResult | ne
 
 | Parameter | Type  | Required | Description |
 | -| - | - | - |
-| `Partial<QueryParams>` | No | Optional parameter for setting resouce list limit and offset values |
+`params` | `Partial<QueryParams>` | No | Optional parameter for setting resouce list limit and offset values |
 
 
 ##### Returns
