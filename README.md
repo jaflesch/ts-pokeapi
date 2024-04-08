@@ -1,10 +1,6 @@
 # TS-PokéAPI
 
-<img alt="NPM Version" src="https://img.shields.io/npm/v/%40jaflesch%2Fts-pokeapi?logo=npm&color=blue">
-<img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/jaflesch/ts-pokeapi/deploy.yml?branch=main&logo=github&label=build / test">
-<img alt="Codecov" src="https://img.shields.io/codecov/c/github/jaflesch/ts-pokeapi?logo=codecov">
-<img alt="NPM Downloads" src="https://img.shields.io/npm/dw/%40jaflesch%2Fts-pokeapi?color=blue">
-
+![npm version](https://img.shields.io/npm/v/%40jaflesch%2Fts-pokeapi?logo=npm&color=blue) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/jaflesch/ts-pokeapi/deploy.yml?branch=main&logo=github&label=build%20/%20test) ![Codecov status](https://img.shields.io/codecov/c/github/jaflesch/ts-pokeapi?logo=codecov) ![npm downloads](https://img.shields.io/npm/dw/%40jaflesch%2Fts-pokeapi?color=blue)
 
 ## Summary
 
