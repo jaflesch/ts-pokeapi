@@ -1,5 +1,11 @@
 # TS-PokéAPI
 
+<img alt="NPM Version" src="https://img.shields.io/npm/v/%40jaflesch%2Fts-pokeapi?logo=npm&color=blue">
+<img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/jaflesch/ts-pokeapi/deploy.yml?branch=main&logo=github&label=build / test">
+<img alt="Codecov" src="https://img.shields.io/codecov/c/github/jaflesch/ts-pokeapi?logo=codecov">
+<img alt="NPM Downloads" src="https://img.shields.io/npm/dw/%40jaflesch%2Fts-pokeapi?color=blue">
+
+
 ## Summary
 
 **TS-PokeApi** is a zero dependency Typescript package with type annotations and fetching methods for PokéAPI v2 endpoints. This package also provides useful Pokémon's games calculations in general, e.g.: damage, stats, catch rate etc.
