@@ -3,6 +3,22 @@
 Here we write upgrading notes for brands. It's a team effort to make them as
 straightforward as possible.
 
+## 0.3.0 - 2024-04-21
+
+## What's Changed
+
+### Added
+- Catch Combo Bonus formulas
+- Base Power Calculation by Pokémon Weight
+- Base Power Calculation by Pokémon Speed
+- Stat Modifier Formula
+
+### Changed
+- CodeCov uncovered custom Exception classes
+
+### Fixed
+- Pokémon interface properties type annotation
+
 ## 0.2.0 - 2024-04-02
  
 ### Added
