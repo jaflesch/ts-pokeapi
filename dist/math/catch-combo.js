@@ -1,6 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getCatchComboRatesLGP = exports.getCatchComboBonusLGP = void 0;
+exports.getCatchComboRangesLGP = exports.getCatchComboBonusLGP = void 0;
+/** Returns all the Catch Combo bonuses active for given Pokémon combo.
+ * @param {Object} params - The general parameters used for get the Catch Combo bonus values.
+ * @param {number} params.combo - The number of captured Pokémon in a row of same specie.
+ * @param {boolean} [params.lure = false] - True if a Lure item is active.
+ * @param {boolean} [params.shinyCharm = false] - True if player has the Shiny Charm key item.
+ * @returns {CatchComboBonus} A object with all bonuses.
+ */
 const getCatchComboBonusLGP = ({ combo, lure, shinyCharm, }) => {
     const bonus = {
         sameSpecieChance: 0,
@@ -85,7 +92,11 @@ const getCatchComboBonusLGP = ({ combo, lure, shinyCharm, }) => {
     return bonus;
 };
 exports.getCatchComboBonusLGP = getCatchComboBonusLGP;
-const getCatchComboRatesLGP = (reward) => {
+/** Returns all the ranges for a specific type of reward regarding Catch Combo Bonus in Pokémon: Let's Go Pikachu & Lets'Go Eevee.
+ * @param {CatchComboReward} reward - The type of reward for Catch Combo Bonus.
+ * @returns {CatchComboRange[]} An array with min, max and the reward value for each Catch Combo Range.
+ */
+const getCatchComboRangesLGP = (reward) => {
     switch (reward) {
         case 'same-species':
             return [
@@ -143,5 +154,5 @@ const getCatchComboRatesLGP = (reward) => {
             return [];
     }
 };
-exports.getCatchComboRatesLGP = getCatchComboRatesLGP;
+exports.getCatchComboRangesLGP = getCatchComboRangesLGP;
 //# sourceMappingURL=catch-combo.js.map
