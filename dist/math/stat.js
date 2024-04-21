@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getCPValue = exports.getLGPFriendshipMultiplier = exports.getLetsGoPikachuStatValue = exports.getPLAEfforLevelMultiplier = exports.getLegendsArceusStatValue = exports.getPriorGenIIIStatValue = exports.getMinStatValue = exports.getMaxStatValue = exports.getStatValue = void 0;
+exports.getStatWithStage = exports.getCPValue = exports.getLGPFriendshipMultiplier = exports.getLetsGoPikachuStatValue = exports.getPLAEfforLevelMultiplier = exports.getLegendsArceusStatValue = exports.getPriorGenIIIStatValue = exports.getMinStatValue = exports.getMaxStatValue = exports.getStatValue = void 0;
 const errors_1 = require("../errors");
 const constants_1 = require("./constants");
 const validation_1 = require("./validation");
@@ -219,4 +219,15 @@ const getCPValue = ({ stat, totalAv = 0, level = 100, }) => {
     return Math.min(result, constants_1.MAX_COMBAT_POWER_VALUE);
 };
 exports.getCPValue = getCPValue;
+/**
+ * Returns the final Pokémon's stat value after applying a scale of stage multipliers.
+ * See more on {@link https://bulbapedia.bulbagarden.net/wiki/Stat_modifier Bulbapedia}.
+ * @param {number} statValue - the Pokémon stat to apply stage multiplier.
+ * @param {StageMultiplier} multiplier - the stage multiplier to apply on Pokémon stat.
+ * @returns {number} The Pokémon stat value after stage multiplier.
+ */
+const getStatWithStage = (statValue, multiplier) => {
+    return statValue * (0.5 * multiplier + 1);
+};
+exports.getStatWithStage = getStatWithStage;
 //# sourceMappingURL=stat.js.map

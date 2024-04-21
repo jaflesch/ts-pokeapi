@@ -17,4 +17,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./stat"), exports);
 __exportStar(require("./constants"), exports);
 __exportStar(require("./catch-combo"), exports);
+__exportStar(require("./moves-weight"), exports);
+__exportStar(require("./moves-speed"), exports);
 //# sourceMappingURL=index.js.map
