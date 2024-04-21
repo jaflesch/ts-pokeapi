@@ -431,3 +431,18 @@ export const getCPValue = ({
 
   return Math.min(result, MAX_COMBAT_POWER_VALUE);
 };
+
+type StageMultiplier = -6 | -5 | -4 | -3 | -2 | -1 | 1 | 2 | 3 | 4 | 5 | 6;
+/**
+ * Returns the final Pokémon's stat value after applying a scale of stage multipliers.
+ * See more on {@link https://bulbapedia.bulbagarden.net/wiki/Stat_modifier Bulbapedia}
+ * @param {number} statValue - the Pokémon stat to apply stage multiplier.
+ * @param {StageMultiplier} multiplier - the stage multiplier to apply on Pokémon stat.
+ * @returns {number} The Pokémon stat value after stage multiplier.
+ */
+export const getStatWithStage = (
+  statValue: number,
+  multiplier: StageMultiplier,
+): number => {
+  return statValue * (0.5 * multiplier + 1);
+};

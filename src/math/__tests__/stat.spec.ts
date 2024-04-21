@@ -7,6 +7,7 @@ import {
   getPriorGenIIIStatValue,
   getLegendsArceusStatValue,
   getLetsGoPikachuStatValue,
+  getStatWithStage,
 } from '../stat';
 import {
   MIN_IV_VALUE,
@@ -619,5 +620,62 @@ describe('when using math module from different games stats formula', () => {
         },
       }),
     ).toBe(1458);
+  });
+});
+
+describe("when calculing Pokémon's final stat value after stage multipliers boost", () => {
+  it('returns stat value with +1 stage multiplier (Stat rose)', () => {
+    const stat = getStatValue({
+      base: 100,
+      level: 100,
+      nature: 'enhancing',
+      ev: 255,
+    });
+
+    expect(getStatWithStage(stat, 1)).toBe(492);
+  });
+
+  it('returns stat value with +2 stage multiplier (Stat rose sharply)', () => {
+    const stat = getStatValue({
+      base: 100,
+      level: 100,
+      nature: 'enhancing',
+      ev: 255,
+    });
+
+    expect(getStatWithStage(stat, 2)).toBe(656);
+  });
+
+  it('returns stat value with +3 stage multiplier (Stat rose drastically)', () => {
+    const stat = getStatValue({
+      base: 100,
+      level: 100,
+      nature: 'enhancing',
+      ev: 255,
+    });
+
+    expect(getStatWithStage(stat, 3)).toBe(820);
+  });
+
+  it('returns Attack with maxed stages multiplier after Belly Drum move (+6)', () => {
+    const stat = getStatValue({
+      base: 100,
+      level: 100,
+      nature: 'enhancing',
+      ev: 255,
+    });
+
+    expect(getStatWithStage(stat, 6)).toBe(1312);
+  });
+
+  it('returns Attack stat value fell after Intimidate ability (-1)', () => {
+    const stat = getStatValue({
+      base: 100,
+      level: 100,
+      nature: 'enhancing',
+      ev: 255,
+    });
+
+    expect(getStatWithStage(stat, -1)).toBe(164);
   });
 });
