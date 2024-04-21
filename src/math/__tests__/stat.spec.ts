@@ -21,7 +21,10 @@ import {
   MIN_EV_VALUE_PRIOR_GEN3,
   MAX_EV_VALUE_PRIOR_GEN3,
 } from '../constants';
-import { InvalidParameterRangeError } from '../../errors';
+import {
+  InvalidParameterRangeError,
+  InvalidParameterValueError,
+} from '../../errors';
 
 describe('when using math module for current stats formula', () => {
   it('gets a Pokémon stat at level 100, 0 IVs and 0 EVs', () => {
@@ -284,7 +287,25 @@ describe('when using math module for current stats formula', () => {
     ).toBe(201);
   });
 
-  it('throws InvalidParameterValue exception when using invalid EV values', () => {
+  it('throws InvalidParameterValueError exception when using invalid base stat value', () => {
+    expect(() => {
+      getStatValue({
+        isHp: true,
+        level: 50,
+        base: 0,
+      });
+    }).toThrow(InvalidParameterValueError);
+
+    expect(() => {
+      getStatValue({
+        isHp: false,
+        level: 50,
+        base: 0,
+      });
+    }).toThrow(InvalidParameterValueError);
+  });
+
+  it('throws InvalidParameterRangeError exception when using invalid EV values', () => {
     expect(() => {
       getStatValue({
         isHp: true,
@@ -304,7 +325,7 @@ describe('when using math module for current stats formula', () => {
     }).toThrow(InvalidParameterRangeError);
   });
 
-  it('throws InvalidParameterValue exception when using invalid IV values', () => {
+  it('throws InvalidParameterRangeError exception when using invalid IV values', () => {
     expect(() => {
       getStatValue({
         isHp: true,
@@ -405,7 +426,25 @@ describe('when using math module with prior Generation III stats formula', () =>
     ).toBe(190);
   });
 
-  it('throws InvalidParameterValue exception when invalid EV values', () => {
+  it('throws InvalidParameterValueError exception when using invalid base stat value', () => {
+    expect(() => {
+      getPriorGenIIIStatValue({
+        isHp: true,
+        level: 50,
+        base: 0,
+      });
+    }).toThrow(InvalidParameterValueError);
+
+    expect(() => {
+      getPriorGenIIIStatValue({
+        isHp: false,
+        level: 50,
+        base: 0,
+      });
+    }).toThrow(InvalidParameterValueError);
+  });
+
+  it('throws InvalidParameterRangeError exception when invalid EV values', () => {
     expect(() => {
       getPriorGenIIIStatValue({
         isHp: true,
@@ -425,7 +464,7 @@ describe('when using math module with prior Generation III stats formula', () =>
     }).toThrow(InvalidParameterRangeError);
   });
 
-  it('throws InvalidParameterValue exception when invalid IV values', () => {
+  it('throws InvalidParameterRangeError exception when invalid IV values', () => {
     expect(() => {
       getPriorGenIIIStatValue({
         isHp: true,
@@ -484,7 +523,16 @@ describe('when using math module from different games stats formula', () => {
     ).toBe(366);
   });
 
-  it('throws InvalidParameterValue exception when using invalid Effort Level values', () => {
+  it('throws InvalidParameterValueError exception when using invalid Effort Level values', () => {
+    expect(() => {
+      getLegendsArceusStatValue({
+        base: 0,
+        effortLevel: MIN_EFFORT_LEVEL_PLA,
+      });
+    }).toThrow(InvalidParameterValueError);
+  });
+
+  it('throws InvalidParameterRangeError exception when using invalid Effort Level values', () => {
     expect(() => {
       getLegendsArceusStatValue({
         base: 100,
@@ -531,6 +579,24 @@ describe('when using math module from different games stats formula', () => {
         nature: 'hindering',
       }),
     ).toBe(212);
+  });
+
+  it('throws InvalidParameterValueError exception when using invalid Effort Level values', () => {
+    expect(() => {
+      getLetsGoPikachuStatValue({
+        isHp: true,
+        level: 100,
+        base: 0,
+      });
+    }).toThrow(InvalidParameterValueError);
+
+    expect(() => {
+      getLetsGoPikachuStatValue({
+        isHp: false,
+        level: 100,
+        base: 0,
+      });
+    }).toThrow(InvalidParameterValueError);
   });
 
   it('gets Pikachu Combat Power', () => {
@@ -620,6 +686,81 @@ describe('when using math module from different games stats formula', () => {
         },
       }),
     ).toBe(1458);
+  });
+
+  it('throws InvalidParameterValueError when usind when using invalid stats', () => {
+    const params = {
+      level: 100,
+      totalAv: 1200,
+      stat: {
+        hp: 451,
+        attack: 320,
+        defense: 349,
+        specialAttack: 338,
+        specialDefense: 382,
+        speed: 360,
+      },
+    };
+
+    expect(() => {
+      getCPValue({
+        ...params,
+        stat: {
+          ...params.stat,
+          hp: 0,
+        },
+      });
+    }).toThrow(InvalidParameterValueError);
+
+    expect(() => {
+      getCPValue({
+        ...params,
+        stat: {
+          ...params.stat,
+          attack: 0,
+        },
+      });
+    }).toThrow(InvalidParameterValueError);
+
+    expect(() => {
+      getCPValue({
+        ...params,
+        stat: {
+          ...params.stat,
+          defense: 0,
+        },
+      });
+    }).toThrow(InvalidParameterValueError);
+
+    expect(() => {
+      getCPValue({
+        ...params,
+        stat: {
+          ...params.stat,
+          specialAttack: 0,
+        },
+      });
+    }).toThrow(InvalidParameterValueError);
+
+    expect(() => {
+      getCPValue({
+        ...params,
+        stat: {
+          ...params.stat,
+          specialDefense: 0,
+        },
+      });
+    }).toThrow(InvalidParameterValueError);
+
+    expect(() => {
+      getCPValue({
+        ...params,
+        stat: {
+          ...params.stat,
+          speed: 0,
+        },
+      });
+    }).toThrow(InvalidParameterValueError);
   });
 });
 

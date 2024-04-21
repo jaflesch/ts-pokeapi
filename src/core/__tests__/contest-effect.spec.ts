@@ -1,6 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
 import { PokeApi } from '../poke-api';
 import { getResourceIdFromURL } from '../utils';
+import { ResourceNotFoundError } from '../../errors';
 
 describe('PokéAPI Contest Effect resource', () => {
   const api = new PokeApi('berry-firmness');
@@ -43,5 +44,11 @@ describe('PokéAPI Contest Effect resource', () => {
     expect(pagination.next).toBeDefined();
     expect(pagination.previous).toBeDefined();
     expect(pagination.results).toHaveLength(5);
+  });
+
+  it('throws ResourceNotFoundError when fetching invalid Contest Effect', async () => {
+    await expect(async () => {
+      await api.get(-10);
+    }).rejects.toThrow(ResourceNotFoundError);
   });
 });

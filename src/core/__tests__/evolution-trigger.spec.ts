@@ -1,6 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
 import { PokeApi } from '../poke-api';
 import { getResourceIdFromURL } from '../utils';
+import { ResourceNotFoundError } from '../../errors';
 
 describe('PokéAPI Evolution Trigger resource', () => {
   const api = new PokeApi('evolution-trigger');
@@ -51,5 +52,11 @@ describe('PokéAPI Evolution Trigger resource', () => {
     expect(pagination.next).toBeDefined();
     expect(pagination.previous).toBeDefined();
     expect(pagination.results).toHaveLength(13);
+  });
+
+  it('throws ResourceNotFoundError when fetching invalid Evolution Trigger', async () => {
+    await expect(async () => {
+      await api.get(-10);
+    }).rejects.toThrow(ResourceNotFoundError);
   });
 });

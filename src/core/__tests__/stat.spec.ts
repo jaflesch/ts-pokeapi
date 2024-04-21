@@ -1,6 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
 import { PokeApi } from '../poke-api';
 import { getResourceIdFromURL } from '../utils';
+import { ResourceNotFoundError } from '../../errors';
 
 describe('PokéAPI Pokémon Stat resource', () => {
   const api = new PokeApi('stat');
@@ -51,5 +52,11 @@ describe('PokéAPI Pokémon Stat resource', () => {
     expect(pagination.next).toBeDefined();
     expect(pagination.previous).toBeDefined();
     expect(pagination.results).toHaveLength(8);
+  });
+
+  it('throws ResourceNotFoundError when fetching invalid Pokémon Stat', async () => {
+    await expect(async () => {
+      await api.get(-10);
+    }).rejects.toThrow(ResourceNotFoundError);
   });
 });

@@ -1,6 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
 import { PokeApi } from '../poke-api';
 import { getResourceIdFromURL } from '../utils';
+import { ResourceNotFoundError } from '../../errors';
 
 describe('PokéAPI Move Damage Class resource', () => {
   const api = new PokeApi('move-damage-class');
@@ -52,5 +53,11 @@ describe('PokéAPI Move Damage Class resource', () => {
     expect(pagination.next).toBeDefined();
     expect(pagination.previous).toBeDefined();
     expect(pagination.results).toHaveLength(3);
+  });
+
+  it('throws ResourceNotFoundError when fetching invalid Move Damage Class', async () => {
+    await expect(async () => {
+      await api.get(-10);
+    }).rejects.toThrow(ResourceNotFoundError);
   });
 });
