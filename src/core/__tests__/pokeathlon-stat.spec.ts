@@ -1,6 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
 import { PokeApi } from '../poke-api';
 import { getResourceIdFromURL } from '../utils';
+import { ResourceNotFoundError } from '../../errors';
 
 describe('PokéAPI PokéAthlon Stat resource', () => {
   const api = new PokeApi('pokeathlon-stat');
@@ -51,5 +52,11 @@ describe('PokéAPI PokéAthlon Stat resource', () => {
     expect(pagination.next).toBeDefined();
     expect(pagination.previous).toBeDefined();
     expect(pagination.results).toHaveLength(5);
+  });
+
+  it('throws ResourceNotFoundError when fetching invalid PokéAhtlon Stat', async () => {
+    await expect(async () => {
+      await api.get(-10);
+    }).rejects.toThrow(ResourceNotFoundError);
   });
 });

@@ -1,6 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
 import { PokeApi } from '../poke-api';
 import { getResourceIdFromURL } from '../utils';
+import { ResourceNotFoundError } from '../../errors';
 
 describe('PokéAPI Pokémon Location Area resource', () => {
   const api = new PokeApi('pokemon-location-area');
@@ -30,5 +31,11 @@ describe('PokéAPI Pokémon Location Area resource', () => {
     expect(result).toBeDefined();
     expect(result.length).toBeGreaterThan(0);
     expect(getResourceIdFromURL(result[0].location_area.url)).toBe(282);
+  });
+
+  it('throws ResourceNotFoundError when fetching invalid Pokémon Location Area', async () => {
+    await expect(async () => {
+      await api.get(-10);
+    }).rejects.toThrow(ResourceNotFoundError);
   });
 });
