@@ -47,6 +47,7 @@ __exportStar(require("./pokemon-habitat.enum"), exports);
 __exportStar(require("./pokemon-habitat.enum"), exports);
 __exportStar(require("./pokemon-shape.enum"), exports);
 __exportStar(require("./pokemon-stat.enum"), exports);
+__exportStar(require("./pokemon-stat-name.enum"), exports);
 __exportStar(require("./pokemon-type.enum"), exports);
 __exportStar(require("./pokemon.enum"), exports);
 __exportStar(require("./region.enum"), exports);

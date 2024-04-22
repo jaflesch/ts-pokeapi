@@ -31,6 +31,7 @@ export * from './pokemon-habitat.enum';
 export * from './pokemon-habitat.enum';
 export * from './pokemon-shape.enum';
 export * from './pokemon-stat.enum';
+export * from './pokemon-stat-name.enum';
 export * from './pokemon-type.enum';
 export * from './pokemon.enum';
 export * from './region.enum';
