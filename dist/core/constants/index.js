@@ -39,6 +39,7 @@ __exportStar(require("./move-damage-class.enum"), exports);
 __exportStar(require("./move-learn-method.enum"), exports);
 __exportStar(require("./move-target.enum"), exports);
 __exportStar(require("./nature.enum"), exports);
+__exportStar(require("./nature-name.enum"), exports);
 __exportStar(require("./pal-park-area.enum"), exports);
 __exportStar(require("./pokeathlon-stat.enum"), exports);
 __exportStar(require("./pokedex.enum"), exports);

@@ -23,6 +23,7 @@ export * from './move-damage-class.enum';
 export * from './move-learn-method.enum';
 export * from './move-target.enum';
 export * from './nature.enum';
+export * from './nature-name.enum';
 export * from './pal-park-area.enum';
 export * from './pokeathlon-stat.enum';
 export * from './pokedex.enum';

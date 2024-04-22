@@ -1,4 +1,4 @@
-import { PokemonStatId, PokemonStatName } from '../core';
+import { NatureName, PokemonStatId, PokemonStatName } from '../core';
 
 type GetNatureNameParam =
   | PokemonStatId.ATTACK
@@ -11,6 +11,13 @@ type GetNatureNameParam =
   | PokemonStatName.SPECIAL_ATTACK
   | PokemonStatName.SPECIAL_DEFENSE
   | PokemonStatName.SPEED;
+
+/**
+ * Returns Pokémon Nature regarding increased and decreased stats. Valid stats are only Attack, Defense, Special Attack, Special Defense, and Speed.
+ * @param { PokemonStatId | PokemonStatName} increase - Increased stat of nature.
+ * @param { PokemonStatId | PokemonStatName} decrease - Decreased stat of nature.
+ * @returns {NatureName} Nature name.
+ */
 export const getNatureName = (
   increase: GetNatureNameParam,
   decrease: GetNatureNameParam,
@@ -23,28 +30,28 @@ export const getNatureName = (
       decrease === PokemonStatId.ATTACK ||
       decrease === PokemonStatName.ATTACK
     ) {
-      return 'Hardy';
+      return NatureName.HARDY;
     } else if (
       decrease === PokemonStatId.DEFENSE ||
       decrease === PokemonStatName.DEFENSE
     ) {
-      return 'Lonely';
+      return NatureName.LONELY;
     } else if (
       decrease === PokemonStatId.SPECIAL_ATTACK ||
       decrease === PokemonStatName.SPECIAL_ATTACK
     ) {
-      return 'Adamant';
+      return NatureName.ADAMANT;
     } else if (
       decrease === PokemonStatId.SPECIAL_DEFENSE ||
       decrease === PokemonStatName.SPECIAL_DEFENSE
     ) {
-      return 'Naughty';
+      return NatureName.NAUGHTY;
     } else if (
       decrease === PokemonStatId.SPEED ||
       decrease === PokemonStatName.SPEED
     ) {
-      return 'Brave';
-    }
+      return NatureName.BRAVE;
+    } else return null;
   } else if (
     increase === PokemonStatId.DEFENSE ||
     increase === PokemonStatName.DEFENSE
@@ -53,28 +60,28 @@ export const getNatureName = (
       decrease === PokemonStatId.ATTACK ||
       decrease === PokemonStatName.ATTACK
     ) {
-      return 'Bold';
+      return NatureName.BOLD;
     } else if (
       decrease === PokemonStatId.DEFENSE ||
       decrease === PokemonStatName.DEFENSE
     ) {
-      return 'Docile';
+      return NatureName.DOCILE;
     } else if (
       decrease === PokemonStatId.SPECIAL_ATTACK ||
       decrease === PokemonStatName.SPECIAL_ATTACK
     ) {
-      return 'Impish';
+      return NatureName.IMPISH;
     } else if (
       decrease === PokemonStatId.SPECIAL_DEFENSE ||
       decrease === PokemonStatName.SPECIAL_DEFENSE
     ) {
-      return 'Lax';
+      return NatureName.LAX;
     } else if (
       decrease === PokemonStatId.SPEED ||
       decrease === PokemonStatName.SPEED
     ) {
-      return 'Relaxed';
-    }
+      return NatureName.RELAXED;
+    } else return null;
   } else if (
     increase === PokemonStatId.SPECIAL_ATTACK ||
     increase === PokemonStatName.SPECIAL_ATTACK
@@ -83,28 +90,28 @@ export const getNatureName = (
       decrease === PokemonStatId.ATTACK ||
       decrease === PokemonStatName.ATTACK
     ) {
-      return 'Modest';
+      return NatureName.MODEST;
     } else if (
       decrease === PokemonStatId.DEFENSE ||
       decrease === PokemonStatName.DEFENSE
     ) {
-      return 'Mild';
+      return NatureName.MILD;
     } else if (
       decrease === PokemonStatId.SPECIAL_ATTACK ||
       decrease === PokemonStatName.SPECIAL_ATTACK
     ) {
-      return 'Bashful';
+      return NatureName.BASHFUL;
     } else if (
       decrease === PokemonStatId.SPECIAL_DEFENSE ||
       decrease === PokemonStatName.SPECIAL_DEFENSE
     ) {
-      return 'Rash';
+      return NatureName.RASH;
     } else if (
       decrease === PokemonStatId.SPEED ||
       decrease === PokemonStatName.SPEED
     ) {
-      return 'Quiet';
-    }
+      return NatureName.QUIET;
+    } else return null;
   } else if (
     increase === PokemonStatId.SPECIAL_DEFENSE ||
     increase === PokemonStatName.SPECIAL_DEFENSE
@@ -113,28 +120,28 @@ export const getNatureName = (
       decrease === PokemonStatId.ATTACK ||
       decrease === PokemonStatName.ATTACK
     ) {
-      return 'Calm';
+      return NatureName.CALM;
     } else if (
       decrease === PokemonStatId.DEFENSE ||
       decrease === PokemonStatName.DEFENSE
     ) {
-      return 'Gentle';
+      return NatureName.GENTLE;
     } else if (
       decrease === PokemonStatId.SPECIAL_ATTACK ||
       decrease === PokemonStatName.SPECIAL_ATTACK
     ) {
-      return 'Careful';
+      return NatureName.CAREFUL;
     } else if (
       decrease === PokemonStatId.SPECIAL_DEFENSE ||
       decrease === PokemonStatName.SPECIAL_DEFENSE
     ) {
-      return 'Quirky';
+      return NatureName.QUIRKY;
     } else if (
       decrease === PokemonStatId.SPEED ||
       decrease === PokemonStatName.SPEED
     ) {
-      return 'Sassy';
-    }
+      return NatureName.SASSY;
+    } else return null;
   } else if (
     increase === PokemonStatId.SPEED ||
     increase === PokemonStatName.SPEED
@@ -143,27 +150,27 @@ export const getNatureName = (
       decrease === PokemonStatId.ATTACK ||
       decrease === PokemonStatName.ATTACK
     ) {
-      return 'Timid';
+      return NatureName.TIMID;
     } else if (
       decrease === PokemonStatId.DEFENSE ||
       decrease === PokemonStatName.DEFENSE
     ) {
-      return 'Hasty';
+      return NatureName.HASTY;
     } else if (
       decrease === PokemonStatId.SPECIAL_ATTACK ||
       decrease === PokemonStatName.SPECIAL_ATTACK
     ) {
-      return 'Jolly';
+      return NatureName.JOLLY;
     } else if (
       decrease === PokemonStatId.SPECIAL_DEFENSE ||
       decrease === PokemonStatName.SPECIAL_DEFENSE
     ) {
-      return 'Naive';
+      return NatureName.NAIVE;
     } else if (
       decrease === PokemonStatId.SPEED ||
       decrease === PokemonStatName.SPEED
     ) {
-      return 'Serious';
-    }
-  }
+      return NatureName.SERIOUS;
+    } else return null;
+  } else return null;
 };

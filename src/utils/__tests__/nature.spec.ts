@@ -1,190 +1,191 @@
 import { describe, expect, it } from '@jest/globals';
 import { PokemonStatId, PokemonStatName } from '../../core';
 import { getNatureName } from '../nature';
+import { NatureName } from '../../core/constants/nature-name.enum';
 
 describe('When using getNatureName()', () => {
   it('returns the nature name by PokemonStatId params', () => {
     expect(getNatureName(PokemonStatId.ATTACK, PokemonStatId.ATTACK)).toBe(
-      'Hardy',
+      NatureName.HARDY,
     );
     expect(getNatureName(PokemonStatId.ATTACK, PokemonStatId.DEFENSE)).toBe(
-      'Lonely',
+      NatureName.LONELY,
     );
     expect(
       getNatureName(PokemonStatId.ATTACK, PokemonStatId.SPECIAL_ATTACK),
-    ).toBe('Adamant');
+    ).toBe(NatureName.ADAMANT);
     expect(
       getNatureName(PokemonStatId.ATTACK, PokemonStatId.SPECIAL_DEFENSE),
-    ).toBe('Naughty');
+    ).toBe(NatureName.NAUGHTY);
     expect(getNatureName(PokemonStatId.ATTACK, PokemonStatId.SPEED)).toBe(
-      'Brave',
+      NatureName.BRAVE,
     );
 
     expect(getNatureName(PokemonStatId.DEFENSE, PokemonStatId.ATTACK)).toBe(
-      'Bold',
+      NatureName.BOLD,
     );
     expect(getNatureName(PokemonStatId.DEFENSE, PokemonStatId.DEFENSE)).toBe(
-      'Docile',
+      NatureName.DOCILE,
     );
     expect(
       getNatureName(PokemonStatId.DEFENSE, PokemonStatId.SPECIAL_ATTACK),
-    ).toBe('Impish');
+    ).toBe(NatureName.IMPISH);
     expect(
       getNatureName(PokemonStatId.DEFENSE, PokemonStatId.SPECIAL_DEFENSE),
-    ).toBe('Lax');
+    ).toBe(NatureName.LAX);
     expect(getNatureName(PokemonStatId.DEFENSE, PokemonStatId.SPEED)).toBe(
-      'Relaxed',
+      NatureName.RELAXED,
     );
 
     expect(
       getNatureName(PokemonStatId.SPECIAL_ATTACK, PokemonStatId.ATTACK),
-    ).toBe('Modest');
+    ).toBe(NatureName.MODEST);
     expect(
       getNatureName(PokemonStatId.SPECIAL_ATTACK, PokemonStatId.DEFENSE),
-    ).toBe('Mild');
+    ).toBe(NatureName.MILD);
     expect(
       getNatureName(PokemonStatId.SPECIAL_ATTACK, PokemonStatId.SPECIAL_ATTACK),
-    ).toBe('Bashful');
+    ).toBe(NatureName.BASHFUL);
     expect(
       getNatureName(
         PokemonStatId.SPECIAL_ATTACK,
         PokemonStatId.SPECIAL_DEFENSE,
       ),
-    ).toBe('Rash');
+    ).toBe(NatureName.RASH);
     expect(
       getNatureName(PokemonStatId.SPECIAL_ATTACK, PokemonStatId.SPEED),
-    ).toBe('Quiet');
+    ).toBe(NatureName.QUIET);
 
     expect(
       getNatureName(PokemonStatId.SPECIAL_DEFENSE, PokemonStatId.ATTACK),
-    ).toBe('Calm');
+    ).toBe(NatureName.CALM);
     expect(
       getNatureName(PokemonStatId.SPECIAL_DEFENSE, PokemonStatId.DEFENSE),
-    ).toBe('Gentle');
+    ).toBe(NatureName.GENTLE);
     expect(
       getNatureName(
         PokemonStatId.SPECIAL_DEFENSE,
         PokemonStatId.SPECIAL_ATTACK,
       ),
-    ).toBe('Careful');
+    ).toBe(NatureName.CAREFUL);
     expect(
       getNatureName(
         PokemonStatId.SPECIAL_DEFENSE,
         PokemonStatId.SPECIAL_DEFENSE,
       ),
-    ).toBe('Quirky');
+    ).toBe(NatureName.QUIRKY);
     expect(
       getNatureName(PokemonStatId.SPECIAL_DEFENSE, PokemonStatId.SPEED),
-    ).toBe('Sassy');
+    ).toBe(NatureName.SASSY);
 
     expect(getNatureName(PokemonStatId.SPEED, PokemonStatId.ATTACK)).toBe(
-      'Timid',
+      NatureName.TIMID,
     );
     expect(getNatureName(PokemonStatId.SPEED, PokemonStatId.DEFENSE)).toBe(
-      'Hasty',
+      NatureName.HASTY,
     );
     expect(
       getNatureName(PokemonStatId.SPEED, PokemonStatId.SPECIAL_ATTACK),
-    ).toBe('Jolly');
+    ).toBe(NatureName.JOLLY);
     expect(
       getNatureName(PokemonStatId.SPEED, PokemonStatId.SPECIAL_DEFENSE),
-    ).toBe('Naive');
+    ).toBe(NatureName.NAIVE);
     expect(getNatureName(PokemonStatId.SPEED, PokemonStatId.SPEED)).toBe(
-      'Serious',
+      NatureName.SERIOUS,
     );
   });
 
   it('returns the nature name by PokemonStatName params', () => {
     expect(getNatureName(PokemonStatName.ATTACK, PokemonStatName.ATTACK)).toBe(
-      'Hardy',
+      NatureName.HARDY,
     );
     expect(getNatureName(PokemonStatName.ATTACK, PokemonStatName.DEFENSE)).toBe(
-      'Lonely',
+      NatureName.LONELY,
     );
     expect(
       getNatureName(PokemonStatName.ATTACK, PokemonStatName.SPECIAL_ATTACK),
-    ).toBe('Adamant');
+    ).toBe(NatureName.ADAMANT);
     expect(
       getNatureName(PokemonStatName.ATTACK, PokemonStatName.SPECIAL_DEFENSE),
-    ).toBe('Naughty');
+    ).toBe(NatureName.NAUGHTY);
     expect(getNatureName(PokemonStatName.ATTACK, PokemonStatName.SPEED)).toBe(
-      'Brave',
+      NatureName.BRAVE,
     );
 
     expect(getNatureName(PokemonStatName.DEFENSE, PokemonStatName.ATTACK)).toBe(
-      'Bold',
+      NatureName.BOLD,
     );
     expect(
       getNatureName(PokemonStatName.DEFENSE, PokemonStatName.DEFENSE),
-    ).toBe('Docile');
+    ).toBe(NatureName.DOCILE);
     expect(
       getNatureName(PokemonStatName.DEFENSE, PokemonStatName.SPECIAL_ATTACK),
-    ).toBe('Impish');
+    ).toBe(NatureName.IMPISH);
     expect(
       getNatureName(PokemonStatName.DEFENSE, PokemonStatName.SPECIAL_DEFENSE),
-    ).toBe('Lax');
+    ).toBe(NatureName.LAX);
     expect(getNatureName(PokemonStatName.DEFENSE, PokemonStatName.SPEED)).toBe(
-      'Relaxed',
+      NatureName.RELAXED,
     );
 
     expect(
       getNatureName(PokemonStatName.SPECIAL_ATTACK, PokemonStatName.ATTACK),
-    ).toBe('Modest');
+    ).toBe(NatureName.MODEST);
     expect(
       getNatureName(PokemonStatName.SPECIAL_ATTACK, PokemonStatName.DEFENSE),
-    ).toBe('Mild');
+    ).toBe(NatureName.MILD);
     expect(
       getNatureName(
         PokemonStatName.SPECIAL_ATTACK,
         PokemonStatName.SPECIAL_ATTACK,
       ),
-    ).toBe('Bashful');
+    ).toBe(NatureName.BASHFUL);
     expect(
       getNatureName(
         PokemonStatName.SPECIAL_ATTACK,
         PokemonStatName.SPECIAL_DEFENSE,
       ),
-    ).toBe('Rash');
+    ).toBe(NatureName.RASH);
     expect(
       getNatureName(PokemonStatName.SPECIAL_ATTACK, PokemonStatName.SPEED),
-    ).toBe('Quiet');
+    ).toBe(NatureName.QUIET);
 
     expect(
       getNatureName(PokemonStatName.SPECIAL_DEFENSE, PokemonStatName.ATTACK),
-    ).toBe('Calm');
+    ).toBe(NatureName.CALM);
     expect(
       getNatureName(PokemonStatName.SPECIAL_DEFENSE, PokemonStatName.DEFENSE),
-    ).toBe('Gentle');
+    ).toBe(NatureName.GENTLE);
     expect(
       getNatureName(
         PokemonStatName.SPECIAL_DEFENSE,
         PokemonStatName.SPECIAL_ATTACK,
       ),
-    ).toBe('Careful');
+    ).toBe(NatureName.CAREFUL);
     expect(
       getNatureName(
         PokemonStatName.SPECIAL_DEFENSE,
         PokemonStatName.SPECIAL_DEFENSE,
       ),
-    ).toBe('Quirky');
+    ).toBe(NatureName.QUIRKY);
     expect(
       getNatureName(PokemonStatName.SPECIAL_DEFENSE, PokemonStatName.SPEED),
-    ).toBe('Sassy');
+    ).toBe(NatureName.SASSY);
 
     expect(getNatureName(PokemonStatName.SPEED, PokemonStatName.ATTACK)).toBe(
-      'Timid',
+      NatureName.TIMID,
     );
     expect(getNatureName(PokemonStatName.SPEED, PokemonStatName.DEFENSE)).toBe(
-      'Hasty',
+      NatureName.HASTY,
     );
     expect(
       getNatureName(PokemonStatName.SPEED, PokemonStatName.SPECIAL_ATTACK),
-    ).toBe('Jolly');
+    ).toBe(NatureName.JOLLY);
     expect(
       getNatureName(PokemonStatName.SPEED, PokemonStatName.SPECIAL_DEFENSE),
-    ).toBe('Naive');
+    ).toBe(NatureName.NAIVE);
     expect(getNatureName(PokemonStatName.SPEED, PokemonStatName.SPEED)).toBe(
-      'Serious',
+      NatureName.SERIOUS,
     );
   });
 });
