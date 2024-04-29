@@ -42,7 +42,7 @@ export enum PokemonTypeName {
   SHADOW = 'SHADOW',
 }
 
-export const TYPES_MATCHUP_MATRIX = [
+export const TYPES_CHART_MATRIX = [
   // Normal
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0, 1, 1, 0.5, 1],
   // Fire
@@ -81,7 +81,7 @@ export const TYPES_MATCHUP_MATRIX = [
   [1, 0.5, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 1, 1, 1, 2, 2, 0.5, 1],
 ];
 
-type AlterDamageAbility =
+export type AlterDamageAbility =
   | 'dry-skin'
   | 'earth-eater'
   | 'filter'

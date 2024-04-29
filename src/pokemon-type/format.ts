@@ -1,7 +1,14 @@
 import { PokemonTypeId } from '../core';
 import { PokemonTypeName, PokemonTypesArrayIndex } from './constants';
 
-export const formatTypeIdToTypeIndex = (
+/** Returns the `TYPES_CHART_MATRIX` index from given PokéAPI Pokémon Type resource id.
+ *
+ * See more about the `TYPES_CHART_MATRIX` at {@link https://pokemondb.net/type PokemonDB}.
+ * The index 0 stands for NORMAL type, index 1 stands for FIRE type etc.
+ * @param {PokemonTypeId} typeId - The PokéAPI Pokémon Type resource id.
+ * @returns {PokemonTypesArrayIndex} An index from Pokémon types chart matrix.
+ */
+export const formatTypeIdToIndex = (
   typeId: PokemonTypeId,
 ): PokemonTypesArrayIndex => {
   const typeMap = {
@@ -31,7 +38,14 @@ export const formatTypeIdToTypeIndex = (
   return typeMap[typeId];
 };
 
-export const formatTypeIndexToTypeId = (
+/** Returns the PokéAPI Pokémon Type resource id from given `TYPES_CHART_MATRIX` index.
+ *
+ * See more about the `TYPES_CHART_MATRIX` at {@link https://pokemondb.net/type PokemonDB}.
+ * The index 0 stands for NORMAL type, index 1 stands for FIRE type etc.
+ * @param {PokemonTypesArrayIndex} typeIndex - The index from Pokémon types chart matrix.
+ * @returns {PokemonTypeId} A PokéAPI Pokémon Type resource id.
+ */
+export const formatTypeIndexToId = (
   typeIndex: PokemonTypesArrayIndex,
 ): PokemonTypeId => {
   const typeMap = {
@@ -61,7 +75,16 @@ export const formatTypeIndexToTypeId = (
   return typeMap[typeIndex];
 };
 
-export const formatTypeIndexToName = (typeIndex: PokemonTypesArrayIndex) => {
+/** Returns the name of the Pokémon type from given `TYPES_CHART_MATRIX` index.
+ *
+ * See more about the `TYPES_CHART_MATRIX` at {@link https://pokemondb.net/type PokemonDB}.
+ * The index 0 stands for NORMAL type, index 1 stands for FIRE type etc.
+ * @param {PokemonTypesArrayIndex} typeIndex - The index of Pokémon types chart matrix from given Pokémon type.
+ * @returns {PokemonTypeName} A name of Pokémon type.
+ */
+export const formatTypeIndexToName = (
+  typeIndex: PokemonTypesArrayIndex,
+): PokemonTypeName => {
   const typeMap = {
     [PokemonTypesArrayIndex.NORMAL]: PokemonTypeName.NORMAL,
     [PokemonTypesArrayIndex.FIRE]: PokemonTypeName.FIRE,
@@ -86,61 +109,81 @@ export const formatTypeIndexToName = (typeIndex: PokemonTypesArrayIndex) => {
   return typeMap[typeIndex];
 };
 
+/** Returns the `TYPES_CHART_MATRIX` index from given Pokémon type name.
+ *
+ * See more about the `TYPES_CHART_MATRIX` at {@link https://pokemondb.net/type PokemonDB}.
+ * The index 0 stands for NORMAL type, index 1 stands for FIRE type etc.
+ * @param {PokemonTypeName} typeName - The string containing the Pokémon type name.
+ * @returns {PokemonTypesArrayIndex} An index from Pokémon types chart matrix.
+ */
 export const formatTypeNameToIndex = (
-  typeName: keyof typeof PokemonTypesArrayIndex,
-) => {
+  typeName: PokemonTypeName,
+): PokemonTypesArrayIndex => {
   const typeMap = {
-    NORMAL: PokemonTypesArrayIndex.NORMAL,
-    FIRE: PokemonTypesArrayIndex.FIRE,
-    WATER: PokemonTypesArrayIndex.WATER,
-    ELECTRIC: PokemonTypesArrayIndex.ELECTRIC,
-    GRASS: PokemonTypesArrayIndex.GRASS,
-    ICE: PokemonTypesArrayIndex.ICE,
-    FIGHTING: PokemonTypesArrayIndex.FIGHTING,
-    POISON: PokemonTypesArrayIndex.POISON,
-    GROUND: PokemonTypesArrayIndex.GROUND,
-    FLYING: PokemonTypesArrayIndex.FLYING,
-    PSYCHIC: PokemonTypesArrayIndex.PSYCHIC,
-    BUG: PokemonTypesArrayIndex.BUG,
-    ROCK: PokemonTypesArrayIndex.ROCK,
-    GHOST: PokemonTypesArrayIndex.GHOST,
-    DRAGON: PokemonTypesArrayIndex.DRAGON,
-    DARK: PokemonTypesArrayIndex.DARK,
-    STEEL: PokemonTypesArrayIndex.STEEL,
-    FAIRY: PokemonTypesArrayIndex.FAIRY,
+    [PokemonTypeName.NORMAL]: PokemonTypesArrayIndex.NORMAL,
+    [PokemonTypeName.FIRE]: PokemonTypesArrayIndex.FIRE,
+    [PokemonTypeName.WATER]: PokemonTypesArrayIndex.WATER,
+    [PokemonTypeName.ELECTRIC]: PokemonTypesArrayIndex.ELECTRIC,
+    [PokemonTypeName.GRASS]: PokemonTypesArrayIndex.GRASS,
+    [PokemonTypeName.ICE]: PokemonTypesArrayIndex.ICE,
+    [PokemonTypeName.FIGHTING]: PokemonTypesArrayIndex.FIGHTING,
+    [PokemonTypeName.POISON]: PokemonTypesArrayIndex.POISON,
+    [PokemonTypeName.GROUND]: PokemonTypesArrayIndex.GROUND,
+    [PokemonTypeName.FLYING]: PokemonTypesArrayIndex.FLYING,
+    [PokemonTypeName.PSYCHIC]: PokemonTypesArrayIndex.PSYCHIC,
+    [PokemonTypeName.BUG]: PokemonTypesArrayIndex.BUG,
+    [PokemonTypeName.ROCK]: PokemonTypesArrayIndex.ROCK,
+    [PokemonTypeName.GHOST]: PokemonTypesArrayIndex.GHOST,
+    [PokemonTypeName.DRAGON]: PokemonTypesArrayIndex.DRAGON,
+    [PokemonTypeName.DARK]: PokemonTypesArrayIndex.DARK,
+    [PokemonTypeName.STEEL]: PokemonTypesArrayIndex.STEEL,
+    [PokemonTypeName.FAIRY]: PokemonTypesArrayIndex.FAIRY,
+    // to do:
+    [PokemonTypeName.UNKNOWN]: PokemonTypesArrayIndex.FAIRY,
+    [PokemonTypeName.SHADOW]: PokemonTypesArrayIndex.FAIRY,
   };
 
   return typeMap[typeName];
 };
 
-export const formatTypeNameToId = (typeName: keyof typeof PokemonTypeId) => {
+/** Returns the PokéAPI Pokémon Type resource id from given Pokémon type name.
+ * @param {PokemonTypeName} typeName - The string containing the Pokémon type name.
+ * @returns {PokemonTypeId} A PokéAPI Pokémon Type resource id.
+ */
+export const formatTypeNameToId = (
+  typeName: PokemonTypeName,
+): PokemonTypeId => {
   const typeMap = {
-    NORMAL: PokemonTypeId.NORMAL,
-    FIRE: PokemonTypeId.FIRE,
-    WATER: PokemonTypeId.WATER,
-    ELECTRIC: PokemonTypeId.ELECTRIC,
-    GRASS: PokemonTypeId.GRASS,
-    ICE: PokemonTypeId.ICE,
-    FIGHTING: PokemonTypeId.FIGHTING,
-    POISON: PokemonTypeId.POISON,
-    GROUND: PokemonTypeId.GROUND,
-    FLYING: PokemonTypeId.FLYING,
-    PSYCHIC: PokemonTypeId.PSYCHIC,
-    BUG: PokemonTypeId.BUG,
-    ROCK: PokemonTypeId.ROCK,
-    GHOST: PokemonTypeId.GHOST,
-    DRAGON: PokemonTypeId.DRAGON,
-    DARK: PokemonTypeId.DARK,
-    STEEL: PokemonTypeId.STEEL,
-    FAIRY: PokemonTypeId.FAIRY,
-    UNKNOWN: PokemonTypeId.UNKNOWN,
-    SHADOW: PokemonTypeId.SHADOW,
+    [PokemonTypeName.NORMAL]: PokemonTypeId.NORMAL,
+    [PokemonTypeName.FIRE]: PokemonTypeId.FIRE,
+    [PokemonTypeName.WATER]: PokemonTypeId.WATER,
+    [PokemonTypeName.ELECTRIC]: PokemonTypeId.ELECTRIC,
+    [PokemonTypeName.GRASS]: PokemonTypeId.GRASS,
+    [PokemonTypeName.ICE]: PokemonTypeId.ICE,
+    [PokemonTypeName.FIGHTING]: PokemonTypeId.FIGHTING,
+    [PokemonTypeName.POISON]: PokemonTypeId.POISON,
+    [PokemonTypeName.GROUND]: PokemonTypeId.GROUND,
+    [PokemonTypeName.FLYING]: PokemonTypeId.FLYING,
+    [PokemonTypeName.PSYCHIC]: PokemonTypeId.PSYCHIC,
+    [PokemonTypeName.BUG]: PokemonTypeId.BUG,
+    [PokemonTypeName.ROCK]: PokemonTypeId.ROCK,
+    [PokemonTypeName.GHOST]: PokemonTypeId.GHOST,
+    [PokemonTypeName.DRAGON]: PokemonTypeId.DRAGON,
+    [PokemonTypeName.DARK]: PokemonTypeId.DARK,
+    [PokemonTypeName.STEEL]: PokemonTypeId.STEEL,
+    [PokemonTypeName.FAIRY]: PokemonTypeId.FAIRY,
+    [PokemonTypeName.UNKNOWN]: PokemonTypeId.UNKNOWN,
+    [PokemonTypeName.SHADOW]: PokemonTypeId.SHADOW,
   };
 
   return typeMap[typeName];
 };
 
-export const formatTypeIdToName = (typeId: PokemonTypeId) => {
+/** Returns the name of the Pokémon type from given PokéAPI Pokémon Type resource id.
+ * @param {PokemonTypeId} typeId - The PokéAPI Pokémon Type resource id.
+ * @returns {PokemonTypeName} A name of the Pokémon type.
+ */
+export const formatTypeIdToName = (typeId: PokemonTypeId): PokemonTypeName => {
   const typeMap = {
     [PokemonTypeId.NORMAL]: PokemonTypeName.NORMAL,
     [PokemonTypeId.FIRE]: PokemonTypeName.FIRE,
@@ -165,4 +208,13 @@ export const formatTypeIdToName = (typeId: PokemonTypeId) => {
   };
 
   return typeMap[typeId];
+};
+
+export const format = {
+  id2name: formatTypeIdToName,
+  id2index: formatTypeIdToIndex,
+  index2id: formatTypeIndexToId,
+  index2name: formatTypeIndexToName,
+  name2id: formatTypeNameToId,
+  name2index: formatTypeNameToIndex,
 };
