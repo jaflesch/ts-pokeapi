@@ -89,15 +89,15 @@ export const getPokemonTypeChartDefense = (index: PokemonTypesArrayIndex) => {
 export const getPokemonTypeChartDefensePros = (
   index: PokemonTypesArrayIndex,
 ) => {
-  const { superEffective } = getPokemonTypeChartDefense(index);
-  return superEffective;
+  const { noEffect, notEffective } = getPokemonTypeChartDefense(index);
+  return { noEffect, notEffective };
 };
 
 export const getPokemonTypeChartDefenseCons = (
   index: PokemonTypesArrayIndex,
 ) => {
-  const { noEffect, notEffective } = getPokemonTypeChartDefense(index);
-  return { noEffect, notEffective };
+  const { superEffective } = getPokemonTypeChartDefense(index);
+  return superEffective;
 };
 
 export const getAttackMultipleByTypeChart = (
