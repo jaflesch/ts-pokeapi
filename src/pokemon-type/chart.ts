@@ -34,6 +34,7 @@ export const getPokemonTypeChartAttack = (index: PokemonTypesArrayIndex) => {
     noEffect,
     notEffective,
     superEffective,
+    chart: TYPES_CHART_MATRIX[index],
   };
 };
 
@@ -57,8 +58,10 @@ export const getPokemonTypeChartDefense = (index: PokemonTypesArrayIndex) => {
   const noEffect = [];
   const superEffective = [];
   const notEffective = [];
+  const chart = [];
 
   for (let i = 0; i < TYPES_CHART_MATRIX.length; i++) {
+    chart.push(TYPES_CHART_MATRIX[i][index]);
     switch (TYPES_CHART_MATRIX[i][index]) {
       case 0:
         noEffect.push(i);
@@ -75,6 +78,7 @@ export const getPokemonTypeChartDefense = (index: PokemonTypesArrayIndex) => {
     }
   }
   return {
+    chart,
     normal,
     noEffect,
     notEffective,
@@ -96,7 +100,7 @@ export const getPokemonTypeChartDefenseCons = (
   return { noEffect, notEffective };
 };
 
-export const getOffenseMultipleByTypeChart = (
+export const getAttackMultipleByTypeChart = (
   moveType: PokemonTypesArrayIndex,
   targetTypes: PokemonTypesArrayIndex[],
   targetAbility?: AlterDamageAbility,
@@ -138,13 +142,11 @@ export const getPokemonTypeMatchups = (pokemon: Pokemon, verbose?: boolean) => {
 
   const offensive = [];
   for (const t of types) {
-    const chart = TYPES_CHART_MATRIX[t];
     const proscons = getPokemonTypeChartAttack(t);
     const name = format.index2name(t);
     offensive.push({
       typeIndex: t,
       name,
-      chart,
       ...proscons,
     });
   }
@@ -328,6 +330,6 @@ export const PokemonTypeChart = {
   getDefPros: getPokemonTypeChartDefensePros,
   getDefCons: getPokemonTypeChartDefenseCons,
   getByPokemon: getPokemonTypeMatchups,
-  getAtkMultiple: getOffenseMultipleByTypeChart,
+  getAtkMultiple: getAttackMultipleByTypeChart,
   getDefMultiple: getDefenseMultipleByTypeChart,
 };
