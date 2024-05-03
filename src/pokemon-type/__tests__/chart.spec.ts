@@ -4,6 +4,7 @@ import {
   getPokemonTypeChartAttack,
   getPokemonTypeChartAttackCons,
   getPokemonTypeChartAttackPros,
+  getPokemonTypeChartDefense,
   PokemonTypeChart,
 } from '../chart';
 
@@ -292,5 +293,93 @@ describe('when using getPokemonTypeChartAttackCons() function', () => {
     expect(
       cons.notEffective.some((type) => type === PokemonTypesArrayIndex.DARK),
     ).toBe(false);
+  });
+});
+
+describe('when using getPokemonTypeChartDefense() function', () => {
+  it("retuns an object with 'chart', 'normal', 'noEffect', 'superEffective', and 'notEffective' properties", async () => {
+    const normal = getPokemonTypeChartDefense(PokemonTypesArrayIndex.NORMAL);
+    expect(normal).toBeDefined();
+    expect(normal).toHaveProperty('chart');
+    expect(normal).toHaveProperty('normal');
+    expect(normal).toHaveProperty('noEffect');
+    expect(normal).toHaveProperty('notEffective');
+    expect(normal).toHaveProperty('superEffective');
+  });
+
+  it('returns the same results for getPokemonTypeChartDefense() function and PokemonTypeChart.getDefense() method', async () => {
+    expect(
+      getPokemonTypeChartDefense(PokemonTypesArrayIndex.NORMAL),
+    ).toStrictEqual(PokemonTypeChart.getDefense(PokemonTypesArrayIndex.NORMAL));
+    expect(
+      getPokemonTypeChartDefense(PokemonTypesArrayIndex.FIRE),
+    ).toStrictEqual(PokemonTypeChart.getDefense(PokemonTypesArrayIndex.FIRE));
+    expect(
+      getPokemonTypeChartDefense(PokemonTypesArrayIndex.WATER),
+    ).toStrictEqual(PokemonTypeChart.getDefense(PokemonTypesArrayIndex.WATER));
+    expect(
+      getPokemonTypeChartDefense(PokemonTypesArrayIndex.GRASS),
+    ).toStrictEqual(PokemonTypeChart.getDefense(PokemonTypesArrayIndex.GRASS));
+    expect(
+      getPokemonTypeChartDefense(PokemonTypesArrayIndex.ELECTRIC),
+    ).toStrictEqual(
+      PokemonTypeChart.getDefense(PokemonTypesArrayIndex.ELECTRIC),
+    );
+    expect(
+      getPokemonTypeChartDefense(PokemonTypesArrayIndex.ICE),
+    ).toStrictEqual(PokemonTypeChart.getDefense(PokemonTypesArrayIndex.ICE));
+    expect(
+      getPokemonTypeChartDefense(PokemonTypesArrayIndex.FIGHTING),
+    ).toStrictEqual(
+      PokemonTypeChart.getDefense(PokemonTypesArrayIndex.FIGHTING),
+    );
+    expect(
+      getPokemonTypeChartDefense(PokemonTypesArrayIndex.POISON),
+    ).toStrictEqual(PokemonTypeChart.getDefense(PokemonTypesArrayIndex.POISON));
+    expect(
+      getPokemonTypeChartDefense(PokemonTypesArrayIndex.GROUND),
+    ).toStrictEqual(PokemonTypeChart.getDefense(PokemonTypesArrayIndex.GROUND));
+    expect(
+      getPokemonTypeChartDefense(PokemonTypesArrayIndex.FLYING),
+    ).toStrictEqual(PokemonTypeChart.getDefense(PokemonTypesArrayIndex.FLYING));
+    expect(
+      getPokemonTypeChartDefense(PokemonTypesArrayIndex.PSYCHIC),
+    ).toStrictEqual(
+      PokemonTypeChart.getDefense(PokemonTypesArrayIndex.PSYCHIC),
+    );
+    expect(
+      getPokemonTypeChartDefense(PokemonTypesArrayIndex.BUG),
+    ).toStrictEqual(PokemonTypeChart.getDefense(PokemonTypesArrayIndex.BUG));
+    expect(
+      getPokemonTypeChartDefense(PokemonTypesArrayIndex.ROCK),
+    ).toStrictEqual(PokemonTypeChart.getDefense(PokemonTypesArrayIndex.ROCK));
+    expect(
+      getPokemonTypeChartDefense(PokemonTypesArrayIndex.GHOST),
+    ).toStrictEqual(PokemonTypeChart.getDefense(PokemonTypesArrayIndex.GHOST));
+    expect(
+      getPokemonTypeChartDefense(PokemonTypesArrayIndex.DRAGON),
+    ).toStrictEqual(PokemonTypeChart.getDefense(PokemonTypesArrayIndex.DRAGON));
+    expect(
+      getPokemonTypeChartDefense(PokemonTypesArrayIndex.DARK),
+    ).toStrictEqual(PokemonTypeChart.getDefense(PokemonTypesArrayIndex.DARK));
+    expect(
+      getPokemonTypeChartDefense(PokemonTypesArrayIndex.STEEL),
+    ).toStrictEqual(PokemonTypeChart.getDefense(PokemonTypesArrayIndex.STEEL));
+    expect(
+      getPokemonTypeChartDefense(PokemonTypesArrayIndex.FAIRY),
+    ).toStrictEqual(PokemonTypeChart.getDefense(PokemonTypesArrayIndex.FAIRY));
+  });
+
+  it('returns the correct PokemonTypesArrayIndex[] for no effect Normal defending type chart', async () => {
+    const normal = getPokemonTypeChartDefense(PokemonTypesArrayIndex.NORMAL);
+    expect(normal.noEffect).toContain(PokemonTypesArrayIndex.GHOST);
+  });
+  it('returns the correct PokemonTypesArrayIndex[] for not effective Normal defending type chart', async () => {
+    const normal = getPokemonTypeChartDefense(PokemonTypesArrayIndex.NORMAL);
+    expect(normal.notEffective).toHaveLength(0);
+  });
+  it('returns and empty array for super effective Normal defending type chart', async () => {
+    const normal = getPokemonTypeChartDefense(PokemonTypesArrayIndex.NORMAL);
+    expect(normal.superEffective).toContain(PokemonTypesArrayIndex.FIGHTING);
   });
 });
