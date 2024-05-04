@@ -1,6 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
 import { PokemonTypesArrayIndex } from '../constants';
 import {
+  getAttackMultipleByTypeChart,
   getPokemonTypeChartAttack,
   getPokemonTypeChartAttackCons,
   getPokemonTypeChartAttackPros,
@@ -583,3 +584,175 @@ describe('when using getPokemonTypeChartDefenseCons() function', () => {
     );
   });
 });
+
+describe('when using getAttackMultipleByTypeChart() function', () => {
+  it('returns x0.25 damage (resistance)', () => {
+    const multiple = getAttackMultipleByTypeChart(PokemonTypesArrayIndex.FIRE, [
+      PokemonTypesArrayIndex.FIRE,
+      PokemonTypesArrayIndex.WATER,
+    ]);
+    expect(multiple).toBe(0.25);
+
+    const multiple2 = PokemonTypeChart.getAtkMultiple(
+      PokemonTypesArrayIndex.FIRE,
+      [PokemonTypesArrayIndex.FIRE, PokemonTypesArrayIndex.WATER],
+    );
+    expect(multiple2).toBe(0.25);
+  });
+
+  it('returns x0.5 damage (resistance)', () => {
+    const multiple = getAttackMultipleByTypeChart(PokemonTypesArrayIndex.FIRE, [
+      PokemonTypesArrayIndex.FIRE,
+    ]);
+    expect(multiple).toBe(0.5);
+
+    const multiple2 = PokemonTypeChart.getAtkMultiple(
+      PokemonTypesArrayIndex.FIRE,
+      [PokemonTypesArrayIndex.FIRE],
+    );
+    expect(multiple2).toBe(0.5);
+  });
+
+  it('returns x1 damage (normal)', () => {
+    const multiple = getAttackMultipleByTypeChart(PokemonTypesArrayIndex.FIRE, [
+      PokemonTypesArrayIndex.FIRE,
+      PokemonTypesArrayIndex.GRASS,
+    ]);
+    expect(multiple).toBe(1);
+
+    const multiple2 = PokemonTypeChart.getAtkMultiple(
+      PokemonTypesArrayIndex.FIRE,
+      [PokemonTypesArrayIndex.FIRE, PokemonTypesArrayIndex.GRASS],
+    );
+    expect(multiple2).toBe(1);
+  });
+
+  it('returns x2 damage (weakness)', () => {
+    const multiple = getAttackMultipleByTypeChart(PokemonTypesArrayIndex.FIRE, [
+      PokemonTypesArrayIndex.GRASS,
+    ]);
+    expect(multiple).toBe(2);
+
+    const multiple2 = PokemonTypeChart.getAtkMultiple(
+      PokemonTypesArrayIndex.FIRE,
+      [PokemonTypesArrayIndex.GRASS],
+    );
+    expect(multiple2).toBe(2);
+  });
+
+  it('returns x4 damage (double weakness)', () => {
+    const multiple = getAttackMultipleByTypeChart(PokemonTypesArrayIndex.FIRE, [
+      PokemonTypesArrayIndex.BUG,
+      PokemonTypesArrayIndex.GRASS,
+    ]);
+    expect(multiple).toBe(4);
+
+    const multiple2 = PokemonTypeChart.getAtkMultiple(
+      PokemonTypesArrayIndex.FIRE,
+      [PokemonTypesArrayIndex.BUG, PokemonTypesArrayIndex.GRASS],
+    );
+    expect(multiple2).toBe(4);
+  });
+
+  it('returns x0 damage (immunity)', () => {
+    const multiple = getAttackMultipleByTypeChart(
+      PokemonTypesArrayIndex.GHOST,
+      [PokemonTypesArrayIndex.NORMAL],
+    );
+    expect(multiple).toBe(0);
+
+    const multiple2 = PokemonTypeChart.getAtkMultiple(
+      PokemonTypesArrayIndex.GHOST,
+      [PokemonTypesArrayIndex.NORMAL],
+    );
+    expect(multiple2).toBe(0);
+  });
+
+  it('returns x0.5 damage (resistance by ability)', () => {
+    const multiple = getAttackMultipleByTypeChart(
+      PokemonTypesArrayIndex.ICE,
+      [PokemonTypesArrayIndex.NORMAL],
+      'thick-fat',
+    );
+    expect(multiple).toBe(0.5);
+
+    const multiple2 = PokemonTypeChart.getAtkMultiple(
+      PokemonTypesArrayIndex.ICE,
+      [PokemonTypesArrayIndex.NORMAL],
+      'thick-fat',
+    );
+    expect(multiple2).toBe(0.5);
+  });
+
+  it('returns x1.25 damage (weakness by ability)', () => {
+    const multiple = getAttackMultipleByTypeChart(
+      PokemonTypesArrayIndex.FIRE,
+      [PokemonTypesArrayIndex.POISON],
+      'dry-skin',
+    );
+    expect(multiple).toBe(1.25);
+
+    const multiple2 = PokemonTypeChart.getAtkMultiple(
+      PokemonTypesArrayIndex.FIRE,
+      [PokemonTypesArrayIndex.POISON],
+      'dry-skin',
+    );
+    expect(multiple2).toBe(1.25);
+  });
+
+  it('returns x2.5 damage (weakness by type and ability)', () => {
+    const multiple = getAttackMultipleByTypeChart(
+      PokemonTypesArrayIndex.FIRE,
+      [PokemonTypesArrayIndex.ICE],
+      'dry-skin',
+    );
+    expect(multiple).toBe(2.5);
+
+    const multiple2 = PokemonTypeChart.getAtkMultiple(
+      PokemonTypesArrayIndex.FIRE,
+      [PokemonTypesArrayIndex.ICE],
+      'dry-skin',
+    );
+    expect(multiple2).toBe(2.5);
+  });
+
+  it('returns x5 damage (weakness by both types and ability)', () => {
+    const multiple = getAttackMultipleByTypeChart(
+      PokemonTypesArrayIndex.FIRE,
+      [PokemonTypesArrayIndex.GRASS, PokemonTypesArrayIndex.BUG],
+      'dry-skin',
+    );
+    expect(multiple).toBe(5);
+
+    const multiple2 = PokemonTypeChart.getAtkMultiple(
+      PokemonTypesArrayIndex.FIRE,
+      [PokemonTypesArrayIndex.GRASS, PokemonTypesArrayIndex.BUG],
+      'dry-skin',
+    );
+    expect(multiple2).toBe(5);
+  });
+
+  it('returns x0 damage (immunity by ability)', () => {
+    const multiple = getAttackMultipleByTypeChart(
+      PokemonTypesArrayIndex.FIRE,
+      [PokemonTypesArrayIndex.BUG, PokemonTypesArrayIndex.GRASS],
+      'flash-fire',
+    );
+    expect(multiple).toBe(0);
+
+    const multiple2 = PokemonTypeChart.getAtkMultiple(
+      PokemonTypesArrayIndex.FIRE,
+      [PokemonTypesArrayIndex.BUG, PokemonTypesArrayIndex.GRASS],
+      'flash-fire',
+    );
+    expect(multiple2).toBe(0);
+  });
+});
+
+// to do:
+// describe('when using getDefenseMultipleByTypeChart() function', () => {});
+// describe('when using getPokemonTypeMatchups() function', () => {});
+
+// describe('when using isMoveNullifyByAbility() function', () => {});
+// describe('when using damageMultipleByAbility() function', () => {});
+// describe('when using superEffectiveDamageMultipleByAbility() function', () => {});
