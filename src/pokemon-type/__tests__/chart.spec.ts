@@ -1,16 +1,17 @@
 import { describe, expect, it, beforeEach } from '@jest/globals';
 import { PokemonTypesArrayIndex } from '../constants';
 import {
-  getAttackMultipleByTypeChart,
+  PokemonTypeChart,
+  isMoveNullifyByAbility,
+  getPokemonTypeMatchups,
   getPokemonTypeChartAttack,
+  getPokemonTypeChartDefense,
+  GetPokemonTypeMatchupsReturn,
+  getAttackMultipleByTypeChart,
   getPokemonTypeChartAttackCons,
   getPokemonTypeChartAttackPros,
-  getPokemonTypeChartDefense,
   getPokemonTypeChartDefenseCons,
   getPokemonTypeChartDefensePros,
-  getPokemonTypeMatchups,
-  PokemonTypeChart,
-  GetPokemonTypeMatchupsReturn,
 } from '../chart';
 import { pokeapi } from '../../core';
 
@@ -817,5 +818,76 @@ describe('when using getPokemonTypeMatchups() function', () => {
     expect(waterAbsorb.noEffect).toContain(PokemonTypesArrayIndex.WATER);
     expect(illuminate.ability).toBe('illuminate');
     expect(illuminate.noEffect).toHaveLength(0);
+  });
+});
+
+describe('when using isMoveNullifyByAbility() function', () => {
+  it('returns true for abilities with FIRE type immunity', async () => {
+    expect(
+      isMoveNullifyByAbility(PokemonTypesArrayIndex.FIRE, 'flash-fire'),
+    ).toBe(true);
+    expect(
+      isMoveNullifyByAbility(PokemonTypesArrayIndex.FIRE, 'well-baked-body'),
+    ).toBe(true);
+  });
+
+  it('returns false for abilities with FIRE type weakness and/or resistance', () => {
+    expect(
+      isMoveNullifyByAbility(PokemonTypesArrayIndex.FIRE, 'dry-skin'),
+    ).toBe(false);
+    expect(
+      isMoveNullifyByAbility(PokemonTypesArrayIndex.FIRE, 'heatproof'),
+    ).toBe(false);
+    expect(
+      isMoveNullifyByAbility(PokemonTypesArrayIndex.FIRE, 'thick-fat'),
+    ).toBe(false);
+    expect(isMoveNullifyByAbility(PokemonTypesArrayIndex.FIRE, 'fluffy')).toBe(
+      false,
+    );
+    expect(
+      isMoveNullifyByAbility(PokemonTypesArrayIndex.FIRE, 'water-bubble'),
+    ).toBe(false);
+  });
+
+  it('returns true for abilities with WATER type immunity', async () => {
+    expect(
+      isMoveNullifyByAbility(PokemonTypesArrayIndex.WATER, 'water-absorb'),
+    ).toBe(true);
+    expect(
+      isMoveNullifyByAbility(PokemonTypesArrayIndex.WATER, 'storm-drain'),
+    ).toBe(true);
+  });
+
+  it('returns true for abilities with GRASS type immunity', async () => {
+    expect(
+      isMoveNullifyByAbility(PokemonTypesArrayIndex.GRASS, 'sap-sipper'),
+    ).toBe(true);
+  });
+
+  it('returns true for abilities with ELECTRIC type immunity', async () => {
+    expect(
+      isMoveNullifyByAbility(PokemonTypesArrayIndex.ELECTRIC, 'lightning-rod'),
+    ).toBe(true);
+    expect(
+      isMoveNullifyByAbility(PokemonTypesArrayIndex.ELECTRIC, 'volt-absorb'),
+    ).toBe(true);
+    expect(
+      isMoveNullifyByAbility(PokemonTypesArrayIndex.ELECTRIC, 'motor-drive'),
+    ).toBe(true);
+  });
+
+  it('returns true for abilities with GROUND type immunity', async () => {
+    expect(
+      isMoveNullifyByAbility(PokemonTypesArrayIndex.GROUND, 'levitate'),
+    ).toBe(true);
+    expect(
+      isMoveNullifyByAbility(PokemonTypesArrayIndex.GROUND, 'earth-eater'),
+    ).toBe(true);
+  });
+
+  it('returns true for abilities with FLYING type immunity', async () => {
+    expect(
+      isMoveNullifyByAbility(PokemonTypesArrayIndex.FLYING, 'wind-rider'),
+    ).toBe(true);
   });
 });
