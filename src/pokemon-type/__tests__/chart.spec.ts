@@ -2,8 +2,9 @@ import { describe, expect, it, beforeEach } from '@jest/globals';
 import { PokemonTypesArrayIndex } from '../constants';
 import {
   PokemonTypeChart,
-  isMoveNullifyByAbility,
   getPokemonTypeMatchups,
+  isMoveNullifyByAbility,
+  damageMultipleByAbility,
   getPokemonTypeChartAttack,
   getPokemonTypeChartDefense,
   GetPokemonTypeMatchupsReturn,
@@ -12,7 +13,7 @@ import {
   getPokemonTypeChartAttackPros,
   getPokemonTypeChartDefenseCons,
   getPokemonTypeChartDefensePros,
-  damageMultipleByAbility,
+  superEffectiveDamageMultipleByAbility,
 } from '../chart';
 import { pokeapi } from '../../core';
 
@@ -967,5 +968,36 @@ describe('when using damageMultipleByAbility() function', () => {
     expect(
       damageMultipleByAbility(PokemonTypesArrayIndex.FIRE, 'wonder-guard'),
     ).toBe(1);
+  });
+});
+
+describe('when using superEffectiveDamageMultipleByAbility() function', () => {
+  it('returns super effective damage multiplier for Filter ability', async () => {
+    expect(superEffectiveDamageMultipleByAbility(0.25, 'filter')).toBe(1);
+    expect(superEffectiveDamageMultipleByAbility(0.5, 'filter')).toBe(1);
+    expect(superEffectiveDamageMultipleByAbility(1, 'filter')).toBe(1);
+    expect(superEffectiveDamageMultipleByAbility(2, 'filter')).toBe(0.75);
+    expect(superEffectiveDamageMultipleByAbility(4, 'filter')).toBe(0.75);
+  });
+  it('returns super effective damage multiplier for Prism Armor ability', async () => {
+    expect(superEffectiveDamageMultipleByAbility(0.25, 'prism-armor')).toBe(1);
+    expect(superEffectiveDamageMultipleByAbility(0.5, 'prism-armor')).toBe(1);
+    expect(superEffectiveDamageMultipleByAbility(1, 'prism-armor')).toBe(1);
+    expect(superEffectiveDamageMultipleByAbility(2, 'prism-armor')).toBe(0.75);
+    expect(superEffectiveDamageMultipleByAbility(4, 'prism-armor')).toBe(0.75);
+  });
+  it('returns super effective damage multiplier for Solid Rock ability', async () => {
+    expect(superEffectiveDamageMultipleByAbility(0.25, 'solid-rock')).toBe(1);
+    expect(superEffectiveDamageMultipleByAbility(0.5, 'solid-rock')).toBe(1);
+    expect(superEffectiveDamageMultipleByAbility(1, 'solid-rock')).toBe(1);
+    expect(superEffectiveDamageMultipleByAbility(2, 'solid-rock')).toBe(0.75);
+    expect(superEffectiveDamageMultipleByAbility(4, 'solid-rock')).toBe(0.75);
+  });
+  it('returns super effective damage multiplier for Wonder Guard ability', async () => {
+    expect(superEffectiveDamageMultipleByAbility(0.25, 'wonder-guard')).toBe(0);
+    expect(superEffectiveDamageMultipleByAbility(0.5, 'wonder-guard')).toBe(0);
+    expect(superEffectiveDamageMultipleByAbility(1, 'wonder-guard')).toBe(0);
+    expect(superEffectiveDamageMultipleByAbility(2, 'wonder-guard')).toBe(1);
+    expect(superEffectiveDamageMultipleByAbility(4, 'wonder-guard')).toBe(1);
   });
 });
