@@ -1,4 +1,4 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it, beforeEach } from '@jest/globals';
 import { PokemonTypesArrayIndex } from '../constants';
 import {
   getAttackMultipleByTypeChart,
@@ -8,8 +8,11 @@ import {
   getPokemonTypeChartDefense,
   getPokemonTypeChartDefenseCons,
   getPokemonTypeChartDefensePros,
+  getPokemonTypeMatchups,
   PokemonTypeChart,
+  GetPokemonTypeMatchupsReturn,
 } from '../chart';
+import { pokeapi } from '../../core';
 
 describe('when using getPokemonTypeChartAttack() function', () => {
   it("retuns an object with 'chart', 'normal', 'noEffect', 'superEffective', and 'notEffective' properties", async () => {
@@ -749,10 +752,70 @@ describe('when using getAttackMultipleByTypeChart() function', () => {
   });
 });
 
-// to do:
-// describe('when using getDefenseMultipleByTypeChart() function', () => {});
-// describe('when using getPokemonTypeMatchups() function', () => {});
+describe('when using getPokemonTypeMatchups() function', () => {
+  const pokemon = pokeapi('pokemon').get('lanturn');
+  let result: GetPokemonTypeMatchupsReturn = {
+    types: [],
+    offensive: [],
+    defensive: [],
+  };
 
-// describe('when using isMoveNullifyByAbility() function', () => {});
-// describe('when using damageMultipleByAbility() function', () => {});
-// describe('when using superEffectiveDamageMultipleByAbility() function', () => {});
+  beforeEach(async () => {
+    result = getPokemonTypeMatchups(await pokemon);
+  });
+
+  it('returns the same results for getPokemonTypeMatchups() function and PokemonTypeChart.getAttack() method', async () => {
+    const result2 = PokemonTypeChart.getByPokemon(await pokemon);
+    expect(result.types).toStrictEqual(result2.types);
+    expect(result.offensive).toStrictEqual(result2.offensive);
+    expect(result.defensive).toStrictEqual(result2.defensive);
+  });
+
+  it('returns an array of PokemonTypesArrayIndex from Pokémon PokéAPI resource', async () => {
+    expect(result.types).toHaveLength(2);
+    expect(result.types).toContain(PokemonTypesArrayIndex.WATER);
+    expect(result.types).toContain(PokemonTypesArrayIndex.ELECTRIC);
+  });
+
+  it('returns an array types chart for each Pokémon type Pokémon PokéAPI resource', async () => {
+    const [type1, type2] = result.offensive;
+
+    expect(type1.typeIndex).toBe(PokemonTypesArrayIndex.WATER);
+    expect(type1.noEffect).toHaveLength(0);
+    expect(type1.superEffective).toHaveLength(3);
+    expect(type1.superEffective).toContain(PokemonTypesArrayIndex.FIRE);
+    expect(type1.superEffective).toContain(PokemonTypesArrayIndex.GROUND);
+    expect(type1.superEffective).toContain(PokemonTypesArrayIndex.ROCK);
+    expect(type1.notEffective).toHaveLength(3);
+    expect(type1.notEffective).toContain(PokemonTypesArrayIndex.WATER);
+    expect(type1.notEffective).toContain(PokemonTypesArrayIndex.GRASS);
+    expect(type1.notEffective).toContain(PokemonTypesArrayIndex.DRAGON);
+    expect(type1.chart).toHaveLength(18);
+
+    expect(type2.typeIndex).toBe(PokemonTypesArrayIndex.ELECTRIC);
+    expect(type2.noEffect).toHaveLength(1);
+    expect(type2.noEffect).toContain(PokemonTypesArrayIndex.GROUND);
+    expect(type2.superEffective).toHaveLength(2);
+    expect(type2.superEffective).toContain(PokemonTypesArrayIndex.WATER);
+    expect(type2.superEffective).toContain(PokemonTypesArrayIndex.FLYING);
+    expect(type2.notEffective).toHaveLength(3);
+    expect(type2.notEffective).toContain(PokemonTypesArrayIndex.GRASS);
+    expect(type2.notEffective).toContain(PokemonTypesArrayIndex.ELECTRIC);
+    expect(type2.notEffective).toContain(PokemonTypesArrayIndex.DRAGON);
+    expect(type2.chart).toHaveLength(18);
+  });
+
+  it('returns an array of type charts for each Pokémon ability from Pokémon PokéAPI resource', async () => {
+    const [voltAbsorb, illuminate, waterAbsorb] = result.defensive;
+
+    expect(result.defensive).toHaveLength(3);
+    expect(voltAbsorb.ability).toBe('volt-absorb');
+    expect(voltAbsorb.noEffect).toHaveLength(1);
+    expect(voltAbsorb.noEffect).toContain(PokemonTypesArrayIndex.ELECTRIC);
+    expect(waterAbsorb.ability).toBe('water-absorb');
+    expect(waterAbsorb.noEffect).toHaveLength(1);
+    expect(waterAbsorb.noEffect).toContain(PokemonTypesArrayIndex.WATER);
+    expect(illuminate.ability).toBe('illuminate');
+    expect(illuminate.noEffect).toHaveLength(0);
+  });
+});

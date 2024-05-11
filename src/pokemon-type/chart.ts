@@ -4,10 +4,21 @@ import {
   AlterDamageAbility,
   damageAlterAbilities,
   PokemonTypesArrayIndex,
+  PokemonTypeName,
 } from './constants';
 import { format } from './format';
 
-export const getPokemonTypeChartAttack = (index: PokemonTypesArrayIndex) => {
+interface TypeChartReturn {
+  normal: PokemonTypesArrayIndex[];
+  noEffect: PokemonTypesArrayIndex[];
+  notEffective: PokemonTypesArrayIndex[];
+  superEffective: PokemonTypesArrayIndex[];
+  chart: PokemonTypesArrayIndex[];
+}
+
+export const getPokemonTypeChartAttack = (
+  index: PokemonTypesArrayIndex,
+): TypeChartReturn => {
   const normal = [];
   const noEffect = [];
   const superEffective = [];
@@ -52,7 +63,6 @@ export const getPokemonTypeChartAttackCons = (
   return { noEffect, notEffective };
 };
 
-//
 export const getPokemonTypeChartDefense = (index: PokemonTypesArrayIndex) => {
   const normal = [];
   const noEffect = [];
@@ -100,6 +110,7 @@ export const getPokemonTypeChartDefenseCons = (
   return superEffective;
 };
 
+//
 export const getAttackMultipleByTypeChart = (
   moveType: PokemonTypesArrayIndex,
   targetTypes: PokemonTypesArrayIndex[],
@@ -135,7 +146,28 @@ export const getDefenseMultipleByTypeChart = (
   return defensive;
 };
 
-export const getPokemonTypeMatchups = (pokemon: Pokemon, verbose?: boolean) => {
+export interface GetPokemonTypeMatchupsReturn {
+  types: PokemonTypesArrayIndex[];
+  offensive: Array<
+    {
+      typeIndex: PokemonTypesArrayIndex;
+      name: string;
+    } & TypeChartReturn
+  >;
+  defensive: Array<{
+    ability: string;
+    noEffect: (number | PokemonTypeName)[];
+    normal: (number | PokemonTypeName)[];
+    weakness: (number | PokemonTypeName)[];
+    resistance: (number | PokemonTypeName)[];
+    doubleWeakness: (number | PokemonTypeName)[];
+    doubleResistance: (number | PokemonTypeName)[];
+  }>;
+}
+export const getPokemonTypeMatchups = (
+  pokemon: Pokemon,
+  verbose?: boolean,
+): GetPokemonTypeMatchupsReturn => {
   const types = pokemon.types.map((t) =>
     format.id2index(getResourceIdFromURL(t.type.url)),
   );
@@ -200,14 +232,13 @@ export const getPokemonTypeMatchups = (pokemon: Pokemon, verbose?: boolean) => {
     }
 
     defensive.push({
-      [abilities[i]]: {
-        noEffect,
-        normal,
-        weakness,
-        resistance,
-        doubleWeakness,
-        doubleResistance,
-      },
+      ability: abilities[i],
+      noEffect,
+      normal,
+      weakness,
+      resistance,
+      doubleWeakness,
+      doubleResistance,
     });
   }
 
