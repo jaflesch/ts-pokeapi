@@ -82,26 +82,29 @@ export const TYPES_CHART_MATRIX = [
 ];
 
 export type AlterDamageAbility =
+  | AlterSuperEffectiveDamageAbility
   | 'dry-skin'
   | 'earth-eater'
-  | 'filter'
   | 'flash-fire'
   | 'fluffy'
   | 'heatproof'
   | 'levitate'
   | 'lightning-rod'
   | 'motor-drive'
-  | 'prism-armor'
   | 'purifying-salt'
   | 'sap-sipper'
-  | 'solid-rock'
   | 'storm-drain'
   | 'thick-fat'
   | 'volt-absorb'
   | 'water-absorb'
   | 'water-bubble'
   | 'well-baked-body'
-  | 'wind-rider'
+  | 'wind-rider';
+
+export type AlterSuperEffectiveDamageAbility =
+  | 'filter'
+  | 'prism-armor'
+  | 'solid-rock'
   | 'wonder-guard';
 
 export const damageAlterAbilities: AlterDamageAbility[] = [

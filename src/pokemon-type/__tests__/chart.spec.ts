@@ -12,6 +12,7 @@ import {
   getPokemonTypeChartAttackPros,
   getPokemonTypeChartDefenseCons,
   getPokemonTypeChartDefensePros,
+  damageMultipleByAbility,
 } from '../chart';
 import { pokeapi } from '../../core';
 
@@ -889,5 +890,82 @@ describe('when using isMoveNullifyByAbility() function', () => {
     expect(
       isMoveNullifyByAbility(PokemonTypesArrayIndex.FLYING, 'wind-rider'),
     ).toBe(true);
+  });
+});
+
+describe('when using damageMultipleByAbility() function', () => {
+  it('returns damage multiplier (0) for abilities with FIRE type immunity', async () => {
+    expect(
+      damageMultipleByAbility(PokemonTypesArrayIndex.FIRE, 'flash-fire'),
+    ).toBe(0);
+    expect(
+      damageMultipleByAbility(PokemonTypesArrayIndex.FIRE, 'well-baked-body'),
+    ).toBe(0);
+  });
+
+  it('returns damage multiplier (1/2) for abilities with FIRE type resistance', async () => {
+    expect(
+      damageMultipleByAbility(PokemonTypesArrayIndex.FIRE, 'heatproof'),
+    ).toBe(0.5);
+    expect(
+      damageMultipleByAbility(PokemonTypesArrayIndex.FIRE, 'water-bubble'),
+    ).toBe(0.5);
+  });
+
+  it('returns damage multiplier (2) for abilities with FIRE type weakness', async () => {
+    expect(damageMultipleByAbility(PokemonTypesArrayIndex.FIRE, 'fluffy')).toBe(
+      2,
+    );
+  });
+
+  it('returns proper damage multiplier for Dry Skin ability', () => {
+    expect(
+      damageMultipleByAbility(PokemonTypesArrayIndex.FIRE, 'dry-skin'),
+    ).toBe(1.25);
+    expect(
+      damageMultipleByAbility(PokemonTypesArrayIndex.WATER, 'dry-skin'),
+    ).toBe(0);
+  });
+
+  it('returns proper damage multiplier for Thick Fat ability', () => {
+    expect(
+      damageMultipleByAbility(PokemonTypesArrayIndex.FIRE, 'thick-fat'),
+    ).toBe(0.5);
+    expect(
+      damageMultipleByAbility(PokemonTypesArrayIndex.ICE, 'thick-fat'),
+    ).toBe(0.5);
+    expect(
+      damageMultipleByAbility(PokemonTypesArrayIndex.NORMAL, 'thick-fat'),
+    ).toBe(1);
+  });
+
+  it('returns proper damage multiplier for Purifying Salt ability', () => {
+    expect(
+      damageMultipleByAbility(PokemonTypesArrayIndex.GHOST, 'purifying-salt'),
+    ).toBe(0.5);
+    expect(
+      damageMultipleByAbility(PokemonTypesArrayIndex.ROCK, 'purifying-salt'),
+    ).toBe(1);
+    expect(
+      damageMultipleByAbility(PokemonTypesArrayIndex.GROUND, 'purifying-salt'),
+    ).toBe(1);
+    expect(
+      damageMultipleByAbility(PokemonTypesArrayIndex.NORMAL, 'purifying-salt'),
+    ).toBe(1);
+  });
+
+  it('returns damge multiplier (1) for abilities that manipulate super effective damage multiplier', () => {
+    expect(damageMultipleByAbility(PokemonTypesArrayIndex.FIRE, 'filter')).toBe(
+      1,
+    );
+    expect(
+      damageMultipleByAbility(PokemonTypesArrayIndex.ICE, 'solid-rock'),
+    ).toBe(1);
+    expect(
+      damageMultipleByAbility(PokemonTypesArrayIndex.NORMAL, 'prism-armor'),
+    ).toBe(1);
+    expect(
+      damageMultipleByAbility(PokemonTypesArrayIndex.FIRE, 'wonder-guard'),
+    ).toBe(1);
   });
 });
