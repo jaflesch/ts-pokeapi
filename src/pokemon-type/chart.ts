@@ -1,14 +1,14 @@
 import { Pokemon, getResourceIdFromURL } from '../core';
 import {
+  PokemonTypeName,
   TYPES_CHART_MATRIX,
   AlterDamageAbility,
   damageAlterAbilities,
   PokemonTypesArrayIndex,
-  PokemonTypeName,
 } from './constants';
 import { format } from './format';
 
-interface TypeChartReturn {
+export interface TypeChartReturn {
   normal: PokemonTypesArrayIndex[];
   noEffect: PokemonTypesArrayIndex[];
   notEffective: PokemonTypesArrayIndex[];
@@ -16,6 +16,37 @@ interface TypeChartReturn {
   chart: PokemonTypesArrayIndex[];
 }
 
+export interface GetPokemonTypeMatchupsReturn {
+  types: PokemonTypesArrayIndex[];
+  offensive: Array<
+    {
+      typeIndex: PokemonTypesArrayIndex;
+      name: string;
+    } & TypeChartReturn
+  >;
+  defensive: Array<{
+    ability: string;
+    noEffect: (PokemonTypesArrayIndex | PokemonTypeName)[];
+    normal: (PokemonTypesArrayIndex | PokemonTypeName)[];
+    weakness: (PokemonTypesArrayIndex | PokemonTypeName)[];
+    resistance: (PokemonTypesArrayIndex | PokemonTypeName)[];
+    doubleWeakness: (PokemonTypesArrayIndex | PokemonTypeName)[];
+    doubleResistance: (PokemonTypesArrayIndex | PokemonTypeName)[];
+  }>;
+}
+
+type TypeChartReturnDamageReduction = {
+  noEffect: TypeChartReturn['noEffect'];
+  notEffective: TypeChartReturn['notEffective'];
+};
+
+/** Returns types which given type's attack has no effet, is normal, not effective, and super effective. Also, returns an array of PokemonTypesArrayIndex with damage multiples for given type.
+ *
+ * See more about the `TYPES_CHART_MATRIX` at {@link https://pokemondb.net/type PokemonDB}.
+ * The index 0 stands for NORMAL type, index 1 stands for FIRE type etc.
+ * @param {PokemonTypesArrayIndex} index - An index from Pokémon types chart matrix.
+ * @returns {TypeChartReturn} An object with complete type chart, and normal, no effect, super effective, not effective types against given type.
+ */
 export const getPokemonTypeChartAttack = (
   index: PokemonTypesArrayIndex,
 ): TypeChartReturn => {
@@ -49,21 +80,44 @@ export const getPokemonTypeChartAttack = (
   };
 };
 
+/** Returns only types which given type's attack has super effective damage.
+ *
+ * See more about the `TYPES_CHART_MATRIX` at {@link https://pokemondb.net/type PokemonDB}.
+ * The index 0 stands for NORMAL type, index 1 stands for FIRE type etc.
+ * @param {PokemonTypesArrayIndex} index - An index from Pokémon types chart matrix.
+ * @returns {PokemonTypesArrayIndex[]} An array of indexes from Pokémon types chart.
+ */
 export const getPokemonTypeChartAttackPros = (
   index: PokemonTypesArrayIndex,
-) => {
+): PokemonTypesArrayIndex[] => {
   const { superEffective } = getPokemonTypeChartAttack(index);
   return superEffective;
 };
 
+/** Returns only types which given type's attack has no effect or not effective damage.
+ *
+ * See more about the `TYPES_CHART_MATRIX` at {@link https://pokemondb.net/type PokemonDB}.
+ * The index 0 stands for NORMAL type, index 1 stands for FIRE type etc.
+ * @param {PokemonTypesArrayIndex} index - An index from Pokémon types chart matrix.
+ * @returns {TypeChartReturnDamageReduction} An object with array of indexes from Pokémon types chart.
+ */
 export const getPokemonTypeChartAttackCons = (
   index: PokemonTypesArrayIndex,
-) => {
+): TypeChartReturnDamageReduction => {
   const { noEffect, notEffective } = getPokemonTypeChartAttack(index);
   return { noEffect, notEffective };
 };
 
-export const getPokemonTypeChartDefense = (index: PokemonTypesArrayIndex) => {
+/** Returns types which given type's defense has no effet, is normal, not effective, and super effective. Also, returns an array of PokemonTypesArrayIndex with damage multiples for given type.
+ *
+ * See more about the `TYPES_CHART_MATRIX` at {@link https://pokemondb.net/type PokemonDB}.
+ * The index 0 stands for NORMAL type, index 1 stands for FIRE type etc.
+ * @param {PokemonTypesArrayIndex} index - An index from Pokémon types chart matrix.
+ * @returns {TypeChartReturn} An object with complete type chart, and normal, no effect, super effective, not effective types against given type.
+ */
+export const getPokemonTypeChartDefense = (
+  index: PokemonTypesArrayIndex,
+): TypeChartReturn => {
   const normal = [];
   const noEffect = [];
   const superEffective = [];
@@ -96,74 +150,68 @@ export const getPokemonTypeChartDefense = (index: PokemonTypesArrayIndex) => {
   };
 };
 
+/** Returns only types which given type's defense has resistance.
+ *
+ * See more about the `TYPES_CHART_MATRIX` at {@link https://pokemondb.net/type PokemonDB}.
+ * The index 0 stands for NORMAL type, index 1 stands for FIRE type etc.
+ * @param {PokemonTypesArrayIndex} index - An index from Pokémon types chart matrix.
+ * @returns {TypeChartReturnDamageReduction} An object with array of indexes from Pokémon types chart.
+ */
 export const getPokemonTypeChartDefensePros = (
   index: PokemonTypesArrayIndex,
-) => {
+): TypeChartReturnDamageReduction => {
   const { noEffect, notEffective } = getPokemonTypeChartDefense(index);
   return { noEffect, notEffective };
 };
 
+/** Returns only types which given type's defense has weakness.
+ *
+ * See more about the `TYPES_CHART_MATRIX` at {@link https://pokemondb.net/type PokemonDB}.
+ * The index 0 stands for NORMAL type, index 1 stands for FIRE type etc.
+ * @param {PokemonTypesArrayIndex} index - An index from Pokémon types chart matrix.
+ * @returns {PokemonTypesArrayIndex[]} An array of indexes from Pokémon types chart.
+ */
 export const getPokemonTypeChartDefenseCons = (
   index: PokemonTypesArrayIndex,
-) => {
+): PokemonTypesArrayIndex[] => {
   const { superEffective } = getPokemonTypeChartDefense(index);
   return superEffective;
 };
 
-//
+/** Returns the damage multiplier considering the attacking move type, the targeted Pokémon types and ability.
+ *
+ * See more about the `TYPES_CHART_MATRIX` at {@link https://pokemondb.net/type PokemonDB}.
+ * The index 0 stands for NORMAL type, index 1 stands for FIRE type etc.
+ * @param {PokemonTypesArrayIndex} moveType - The type of move that will produce the damage.
+ * @param {PokemonTypesArrayIndex[]} targetTypes - The types of target Pokémon which will receive the damage.
+ * @param {AlterDamageAbility} [targetAbility] - A string of few selected abilities which affect damage calculation.
+ * @returns {number} The damage multiplier.
+ */
 export const getAttackMultipleByTypeChart = (
   moveType: PokemonTypesArrayIndex,
   targetTypes: PokemonTypesArrayIndex[],
   targetAbility?: AlterDamageAbility,
-) => {
-  let defensive = 1;
+): number => {
+  let multiple = 1;
 
   for (const t of targetTypes) {
-    defensive *= TYPES_CHART_MATRIX[moveType][t];
+    multiple *= TYPES_CHART_MATRIX[moveType][t];
   }
 
   if (targetAbility) {
-    defensive *= damageMultipleByAbility(moveType, targetAbility);
-    defensive *= superEffectiveDamageMultipleByAbility(
-      defensive,
-      targetAbility,
-    );
+    multiple *= damageMultipleByAbility(moveType, targetAbility);
+    multiple *= superEffectiveDamageMultipleByAbility(multiple, targetAbility);
   }
 
-  return defensive;
+  return multiple;
 };
 
-export const getDefenseMultipleByTypeChart = (
-  userTypes: PokemonTypesArrayIndex[],
-  moveType: PokemonTypesArrayIndex,
-  userAbility?: AlterDamageAbility,
-) => {
-  let defensive = 1;
-  for (const t of userTypes) {
-    defensive *= TYPES_CHART_MATRIX[moveType][t];
-  }
-
-  return defensive;
-};
-
-export interface GetPokemonTypeMatchupsReturn {
-  types: PokemonTypesArrayIndex[];
-  offensive: Array<
-    {
-      typeIndex: PokemonTypesArrayIndex;
-      name: string;
-    } & TypeChartReturn
-  >;
-  defensive: Array<{
-    ability: string;
-    noEffect: (number | PokemonTypeName)[];
-    normal: (number | PokemonTypeName)[];
-    weakness: (number | PokemonTypeName)[];
-    resistance: (number | PokemonTypeName)[];
-    doubleWeakness: (number | PokemonTypeName)[];
-    doubleResistance: (number | PokemonTypeName)[];
-  }>;
-}
+/** Returns a detailed offensive an defensive data from given PokéAPI Pokémon resource.
+ * It also returns the Pokémon types converted from Type resource id to PokemonTypesArrayIndex.
+ * @param {Pokemon} pokemon - The PokéAPI Pokémon resource.
+ * @param {boolean} [verbose=false] - True if defensive data will return the type names instead of its indexes.
+ * @returns {GetPokemonTypeMatchupsReturn} An object with detailed offensive an defensive data.
+ */
 export const getPokemonTypeMatchups = (
   pokemon: Pokemon,
   verbose?: boolean,
@@ -249,10 +297,15 @@ export const getPokemonTypeMatchups = (
   };
 };
 
+/** Returns true if ability is immune to type of given move; false otherwise.
+ * @param {PokemonTypesArrayIndex} moveType - The type of attacking move.
+ * @param {AlterDamageAbility} ability - A string of few selected abilities which affect damage calculation.
+ * @returns {boolean} True if ability receives no damage from given move type.
+ */
 export const isMoveNullifyByAbility = (
   moveType: PokemonTypesArrayIndex,
   ability: AlterDamageAbility,
-) => {
+): boolean => {
   if (
     ['storm-drain', 'water-absorb', 'dry-skin'].includes(ability) &&
     moveType === PokemonTypesArrayIndex.WATER
@@ -296,10 +349,15 @@ export const isMoveNullifyByAbility = (
   return false;
 };
 
+/** Returns the damage multiple of attacking move by oponent's ability.
+ * @param {PokemonTypesArrayIndex} moveType - The type of attacking move.
+ * @param {AlterDamageAbility} ability - A string of few selected abilities which affect damage calculation.
+ * @returns {boolean} The damage multiple.
+ */
 export const damageMultipleByAbility = (
   moveType: PokemonTypesArrayIndex,
   ability: AlterDamageAbility,
-) => {
+): number => {
   if (isMoveNullifyByAbility(moveType, ability)) {
     return 0;
   }
@@ -335,10 +393,16 @@ export const damageMultipleByAbility = (
   return 1;
 };
 
+/** Returns the correct super effective damage multiple applied to a oponent's ability.
+ * Some abilities affect the damage multiple only if it is a super effective damage.
+ * @param {PokemonTypesArrayIndex} multiple - The current multiple of damage.
+ * @param {AlterDamageAbility} ability - A string of few selected abilities which affect damage calculation.
+ * @returns {boolean} The super effective damage multiple.
+ */
 export const superEffectiveDamageMultipleByAbility = (
   multiple: number,
   ability: AlterDamageAbility,
-) => {
+): number => {
   if (multiple >= 2) {
     if (['prism-armor', 'solid-rock', 'filter'].includes(ability)) {
       return 0.75;
@@ -362,5 +426,4 @@ export const PokemonTypeChart = {
   getDefCons: getPokemonTypeChartDefenseCons,
   getByPokemon: getPokemonTypeMatchups,
   getAtkMultiple: getAttackMultipleByTypeChart,
-  getDefMultiple: getDefenseMultipleByTypeChart,
 };
