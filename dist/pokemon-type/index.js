@@ -1,63 +1,20 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getDefensiveMatchups = exports.getOffensiveMatchups = void 0;
-const constants_1 = require("./constants");
-const getOffensiveMatchups = (index) => {
-    const normal = [];
-    const noEffect = [];
-    const superEffective = [];
-    const notEffective = [];
-    for (let i = 0; i < constants_1.TYPES_MATCHUP_MATRIX[index].length; i++) {
-        switch (constants_1.TYPES_MATCHUP_MATRIX[index][i]) {
-            case 0:
-                noEffect.push(i);
-                break;
-            case 1:
-                normal.push(i);
-                break;
-            case 0.5:
-                notEffective.push(i);
-                break;
-            case 2:
-                superEffective.push(i);
-                break;
-        }
-    }
-    return {
-        normal,
-        noEffect,
-        notEffective,
-        superEffective,
-    };
-};
-exports.getOffensiveMatchups = getOffensiveMatchups;
-const getDefensiveMatchups = (index) => {
-    const normal = [];
-    const noEffect = [];
-    const superEffective = [];
-    const notEffective = [];
-    for (let i = 0; i < constants_1.TYPES_MATCHUP_MATRIX.length; i++) {
-        switch (constants_1.TYPES_MATCHUP_MATRIX[i][index]) {
-            case 0:
-                noEffect.push(i);
-                break;
-            case 1:
-                normal.push(i);
-                break;
-            case 0.5:
-                notEffective.push(i);
-                break;
-            case 2:
-                superEffective.push(i);
-                break;
-        }
-    }
-    return {
-        normal,
-        noEffect,
-        notEffective,
-        superEffective,
-    };
-};
-exports.getDefensiveMatchups = getDefensiveMatchups;
+__exportStar(require("./constants"), exports);
+__exportStar(require("./chart"), exports);
+__exportStar(require("./format"), exports);
 //# sourceMappingURL=index.js.map

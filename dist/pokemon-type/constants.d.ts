@@ -40,7 +40,7 @@ export declare enum PokemonTypeName {
     UNKNOWN = "UNKNOWN",
     SHADOW = "SHADOW"
 }
-export declare const TYPES_MATCHUP_MATRIX: number[][];
-type AlterDamageAbility = 'dry-skin' | 'earth-eater' | 'filter' | 'flash-fire' | 'fluffy' | 'heatproof' | 'levitate' | 'lightning-rod' | 'motor-drive' | 'prism-armor' | 'purifying-salt' | 'sap-sipper' | 'solid-rock' | 'storm-drain' | 'thick-fat' | 'volt-absorb' | 'water-absorb' | 'water-bubble' | 'well-baked-body' | 'wind-rider' | 'wonder-guard';
+export declare const TYPES_CHART_MATRIX: number[][];
+export type AlterDamageAbility = AlterSuperEffectiveDamageAbility | 'dry-skin' | 'earth-eater' | 'flash-fire' | 'fluffy' | 'heatproof' | 'levitate' | 'lightning-rod' | 'motor-drive' | 'purifying-salt' | 'sap-sipper' | 'storm-drain' | 'thick-fat' | 'volt-absorb' | 'water-absorb' | 'water-bubble' | 'well-baked-body' | 'wind-rider';
+export type AlterSuperEffectiveDamageAbility = 'filter' | 'prism-armor' | 'solid-rock' | 'wonder-guard';
 export declare const damageAlterAbilities: AlterDamageAbility[];
-export {};

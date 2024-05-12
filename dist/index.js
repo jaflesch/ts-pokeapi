@@ -17,4 +17,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./core"), exports);
 __exportStar(require("./math"), exports);
 __exportStar(require("./errors"), exports);
+__exportStar(require("./pokemon-type"), exports);
 //# sourceMappingURL=index.js.map

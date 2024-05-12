@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.damageAlterAbilities = exports.TYPES_MATCHUP_MATRIX = exports.PokemonTypeName = exports.PokemonTypesArrayIndex = void 0;
+exports.damageAlterAbilities = exports.TYPES_CHART_MATRIX = exports.PokemonTypeName = exports.PokemonTypesArrayIndex = void 0;
 var PokemonTypesArrayIndex;
 (function (PokemonTypesArrayIndex) {
     PokemonTypesArrayIndex[PokemonTypesArrayIndex["NORMAL"] = 0] = "NORMAL";
@@ -45,7 +45,7 @@ var PokemonTypeName;
     PokemonTypeName["UNKNOWN"] = "UNKNOWN";
     PokemonTypeName["SHADOW"] = "SHADOW";
 })(PokemonTypeName || (exports.PokemonTypeName = PokemonTypeName = {}));
-exports.TYPES_MATCHUP_MATRIX = [
+exports.TYPES_CHART_MATRIX = [
     // Normal
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0, 1, 1, 0.5, 1],
     // Fire
