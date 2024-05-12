@@ -3,9 +3,17 @@
 Here we write upgrading notes for brands. It's a team effort to make them as
 straightforward as possible.
 
-## 0.3.0 - 2024-04-21
+## 0.4.0 - 2024-05-12
 
-## What's Changed
+### Added
+- Nature name by increased and decreased stat
+- Pokémon Types matchup and chart methods
+
+### Fixed
+- PokéAPI Pokémon Type resource tests after database update
+
+
+## 0.3.0 - 2024-04-21
 
 ### Added
 - Catch Combo Bonus formulas
