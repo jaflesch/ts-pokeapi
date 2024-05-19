@@ -28,7 +28,7 @@ interface CatchComboRange {
     max: number | undefined;
     value: number;
 }
-type CatchComboReward = 'same-species' | 'max-iv' | 'shiny' | 'shiny-lure' | 'shiny-charm' | 'shiny-max' | 'rare-spawn';
+export type CatchComboReward = 'same-species' | 'max-iv' | 'shiny' | 'shiny-lure' | 'shiny-charm' | 'shiny-max' | 'rare-spawn';
 /** Returns all the ranges for a specific type of reward regarding Catch Combo Bonus in Pokémon: Let's Go Pikachu & Lets'Go Eevee.
  * @param {CatchComboReward} reward - The type of reward for Catch Combo Bonus.
  * @returns {CatchComboRange[]} An array with min, max and the reward value for each Catch Combo Range.

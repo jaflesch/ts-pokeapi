@@ -275,7 +275,7 @@ const damageMultipleByAbility = (moveType, ability) => {
     if (ability === 'heatproof' && moveType === constants_1.PokemonTypesArrayIndex.FIRE) {
         return 0.5;
     }
-    if (ability === 'heatproof' && moveType === constants_1.PokemonTypesArrayIndex.FIRE) {
+    if (ability === 'water-bubble' && moveType === constants_1.PokemonTypesArrayIndex.FIRE) {
         return 0.5;
     }
     if (ability === 'purifying-salt' &&
@@ -285,9 +285,6 @@ const damageMultipleByAbility = (moveType, ability) => {
     if (ability === 'thick-fat' &&
         (moveType === constants_1.PokemonTypesArrayIndex.FIRE ||
             moveType === constants_1.PokemonTypesArrayIndex.ICE)) {
-        return 0.5;
-    }
-    if (ability === 'water-bubble' && moveType === constants_1.PokemonTypesArrayIndex.FIRE) {
         return 0.5;
     }
     return 1;
