@@ -7,15 +7,19 @@ import {
   MIN_POKEMON_LEVEL,
   MAX_POKEMON_LEVEL,
   MAX_TOTAL_EVS_VALUE,
+  MIN_AWAKENING_VALUE,
+  MAX_AWAKENING_VALUE,
+  MIN_FRIENDSHIP_VALUE,
+  MAX_FRIENDSHIP_VALUE,
   MIN_EFFORT_LEVEL_PLA,
   MAX_EFFORT_LEVEL_PLA,
   MIN_IV_VALUE_PRIOR_GEN3,
   MAX_IV_VALUE_PRIOR_GEN3,
   MIN_EV_VALUE_PRIOR_GEN3,
   MAX_EV_VALUE_PRIOR_GEN3,
-  MAX_AWAKENING_VALUE,
 } from '../constants';
 import {
+  isValidAV,
   isValidEV,
   isValidIV,
   isValidTotalAVs,
@@ -25,6 +29,7 @@ import {
   isValidEVPriorGen3,
   isValidIVPriorGen3,
   isValidPokemonLevel,
+  isValidFrienshipValue,
 } from '../validation';
 
 describe('when validating Pokémon level', () => {
@@ -129,7 +134,7 @@ describe('when validating PLA Effort level', () => {
 
 describe("when validating Pokémon Let's Go Pikachu/Eevee formulas", () => {
   it('returns true when using valid total AV values', () => {
-    expect(isValidTotalAVs(0)).toBe(true);
+    expect(isValidTotalAVs(MIN_AWAKENING_VALUE)).toBe(true);
     expect(isValidTotalAVs(MAX_AWAKENING_VALUE)).toBe(true);
     expect(isValidTotalAVs(MAX_AWAKENING_VALUE * 6)).toBe(true);
   });
@@ -137,5 +142,31 @@ describe("when validating Pokémon Let's Go Pikachu/Eevee formulas", () => {
   it('returns false when using invalid total AV values', () => {
     expect(isValidTotalAVs(-1)).toBe(false);
     expect(isValidTotalAVs(MAX_AWAKENING_VALUE * 6 + 1)).toBe(false);
+  });
+
+  it('returns true when using valid friendship values', () => {
+    expect(isValidAV(MIN_AWAKENING_VALUE)).toBe(true);
+    expect(isValidAV(MIN_AWAKENING_VALUE + 1)).toBe(true);
+    expect(isValidAV(MAX_AWAKENING_VALUE - 1)).toBe(true);
+    expect(isValidAV(MAX_AWAKENING_VALUE)).toBe(true);
+  });
+
+  it('returns false when using invalid friendship values', () => {
+    expect(isValidAV(MIN_AWAKENING_VALUE - 1)).toBe(false);
+    expect(isValidAV(MAX_AWAKENING_VALUE + 1)).toBe(false);
+  });
+});
+
+describe('when validating Pokémon Friendship formula', () => {
+  it('returns true when using valid friendship values', () => {
+    expect(isValidFrienshipValue(MIN_FRIENDSHIP_VALUE)).toBe(true);
+    expect(isValidFrienshipValue(MIN_FRIENDSHIP_VALUE + 1)).toBe(true);
+    expect(isValidFrienshipValue(MAX_FRIENDSHIP_VALUE - 1)).toBe(true);
+    expect(isValidFrienshipValue(MAX_FRIENDSHIP_VALUE)).toBe(true);
+  });
+
+  it('returns false when using invalid friendship values', () => {
+    expect(isValidFrienshipValue(MIN_FRIENDSHIP_VALUE - 1)).toBe(false);
+    expect(isValidFrienshipValue(MAX_FRIENDSHIP_VALUE + 1)).toBe(false);
   });
 });

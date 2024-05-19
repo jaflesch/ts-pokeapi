@@ -113,7 +113,7 @@ interface CatchComboRange {
   value: number;
 }
 
-type CatchComboReward =
+export type CatchComboReward =
   | 'same-species'
   | 'max-iv'
   | 'shiny'

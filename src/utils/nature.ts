@@ -1,6 +1,6 @@
 import { NatureName, PokemonStatId, PokemonStatName } from '../core';
 
-type GetNatureNameParam =
+export type GetNatureNameParam =
   | PokemonStatId.ATTACK
   | PokemonStatId.DEFENSE
   | PokemonStatId.SPECIAL_ATTACK
