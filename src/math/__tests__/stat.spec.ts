@@ -4,16 +4,22 @@ import {
   getStatValue,
   getMaxStatValue,
   getMinStatValue,
+  getStatWithStage,
   getPriorGenIIIStatValue,
   getLegendsArceusStatValue,
   getLetsGoPikachuStatValue,
-  getStatWithStage,
 } from '../stat';
 import {
   MIN_IV_VALUE,
   MAX_IV_VALUE,
   MIN_EV_VALUE,
   MAX_EV_VALUE,
+  MIN_POKEMON_LEVEL,
+  MAX_POKEMON_LEVEL,
+  MIN_AWAKENING_VALUE,
+  MAX_AWAKENING_VALUE,
+  MIN_FRIENDSHIP_VALUE,
+  MAX_FRIENDSHIP_VALUE,
   MIN_EFFORT_LEVEL_PLA,
   MAX_EFFORT_LEVEL_PLA,
   MIN_IV_VALUE_PRIOR_GEN3,
@@ -27,6 +33,11 @@ import {
 } from '../../errors';
 
 describe('when using math module for current stats formula', () => {
+  it('gets a Pokémon stat with default parameters', () => {
+    const stat = getStatValue({ base: 100 });
+    expect(stat).toBeDefined();
+  });
+
   it('gets a Pokémon stat at level 100, 0 IVs and 0 EVs', () => {
     expect(
       getStatValue({
@@ -305,6 +316,22 @@ describe('when using math module for current stats formula', () => {
     }).toThrow(InvalidParameterValueError);
   });
 
+  it('throws InvalidParameterRangeError exception when using invalid Pokémon level values', () => {
+    expect(() => {
+      getStatValue({
+        base: 100,
+        level: MIN_POKEMON_LEVEL - 1,
+      });
+    }).toThrow(InvalidParameterRangeError);
+
+    expect(() => {
+      getStatValue({
+        base: 100,
+        level: MAX_POKEMON_LEVEL + 1,
+      });
+    }).toThrow(InvalidParameterRangeError);
+  });
+
   it('throws InvalidParameterRangeError exception when using invalid EV values', () => {
     expect(() => {
       getStatValue({
@@ -387,6 +414,10 @@ describe('when using math module for Maximum and Minimum possible stats', () => 
 });
 
 describe('when using math module with prior Generation III stats formula', () => {
+  it('gets prior Generation III Pokémon stat value with default parameters', () => {
+    expect(getPriorGenIIIStatValue({ base: 100 })).toBeDefined();
+  });
+
   it('gets prior Generation III stats values for Pikachu', () => {
     expect(
       getPriorGenIIIStatValue({
@@ -444,6 +475,22 @@ describe('when using math module with prior Generation III stats formula', () =>
     }).toThrow(InvalidParameterValueError);
   });
 
+  it('throws InvalidParameterRangeError exception when using invalid Pokémon level values', () => {
+    expect(() => {
+      getPriorGenIIIStatValue({
+        base: 100,
+        level: MIN_POKEMON_LEVEL - 1,
+      });
+    }).toThrow(InvalidParameterRangeError);
+
+    expect(() => {
+      getPriorGenIIIStatValue({
+        base: 100,
+        level: MAX_POKEMON_LEVEL + 1,
+      });
+    }).toThrow(InvalidParameterRangeError);
+  });
+
   it('throws InvalidParameterRangeError exception when invalid EV values', () => {
     expect(() => {
       getPriorGenIIIStatValue({
@@ -485,7 +532,11 @@ describe('when using math module with prior Generation III stats formula', () =>
   });
 });
 
-describe('when using math module from different games stats formula', () => {
+describe('when using math stats formula from Pokémon Legends Arceus game', () => {
+  it('gets Pokémon Legends Arceus stat value with default parameters', () => {
+    expect(getLegendsArceusStatValue({ base: 100 })).toBeDefined();
+  });
+
   it('gets Pokémon Legends Arceus stats values for Arceus', () => {
     expect(
       getLegendsArceusStatValue({
@@ -523,6 +574,22 @@ describe('when using math module from different games stats formula', () => {
     ).toBe(366);
   });
 
+  it('throws InvalidParameterRangeError exception when using invalid Pokémon level values', () => {
+    expect(() => {
+      getLegendsArceusStatValue({
+        base: 100,
+        level: MIN_POKEMON_LEVEL - 1,
+      });
+    }).toThrow(InvalidParameterRangeError);
+
+    expect(() => {
+      getLegendsArceusStatValue({
+        base: 100,
+        level: MAX_POKEMON_LEVEL + 1,
+      });
+    }).toThrow(InvalidParameterRangeError);
+  });
+
   it('throws InvalidParameterValueError exception when using invalid Effort Level values', () => {
     expect(() => {
       getLegendsArceusStatValue({
@@ -547,8 +614,14 @@ describe('when using math module from different games stats formula', () => {
       });
     }).toThrow(InvalidParameterRangeError);
   });
+});
 
-  it("gets Pokémon Let's Go Pikachu & Eeevee stats values for Mew", () => {
+describe("when using math stats formulas from Pokémon Let's Go Pikachu & Eeevee games", () => {
+  it("gets Pokémon Let's Go Pikachu & Eeevee stat value with default parameters", () => {
+    expect(getLetsGoPikachuStatValue({ base: 100 })).toBeDefined();
+  });
+
+  it('gets stats values for Mew', () => {
     expect(
       getLetsGoPikachuStatValue({
         isHp: true,
@@ -581,22 +654,19 @@ describe('when using math module from different games stats formula', () => {
     ).toBe(212);
   });
 
-  it('throws InvalidParameterValueError exception when using invalid Effort Level values', () => {
-    expect(() => {
-      getLetsGoPikachuStatValue({
-        isHp: true,
-        level: 100,
-        base: 0,
-      });
-    }).toThrow(InvalidParameterValueError);
-
-    expect(() => {
-      getLetsGoPikachuStatValue({
-        isHp: false,
-        level: 100,
-        base: 0,
-      });
-    }).toThrow(InvalidParameterValueError);
+  it('gets Combat Power value with default parameters', () => {
+    expect(
+      getCPValue({
+        stat: {
+          hp: 100,
+          attack: 100,
+          defense: 100,
+          specialAttack: 100,
+          specialDefense: 100,
+          speed: 100,
+        },
+      }),
+    ).toBeDefined();
   });
 
   it('gets Pikachu Combat Power', () => {
@@ -686,6 +756,137 @@ describe('when using math module from different games stats formula', () => {
         },
       }),
     ).toBe(1458);
+  });
+
+  it('throws InvalidParameterRangeError exception when using invalid Pokémon level values', () => {
+    expect(() => {
+      getLetsGoPikachuStatValue({
+        base: 100,
+        level: MIN_POKEMON_LEVEL - 1,
+      });
+    }).toThrow(InvalidParameterRangeError);
+
+    expect(() => {
+      getLetsGoPikachuStatValue({
+        base: 100,
+        level: MAX_POKEMON_LEVEL + 1,
+      });
+    }).toThrow(InvalidParameterRangeError);
+  });
+
+  it('throws InvalidParameterValueError exception when using invalid Effort Level values', () => {
+    expect(() => {
+      getLetsGoPikachuStatValue({
+        isHp: true,
+        level: 100,
+        base: 0,
+      });
+    }).toThrow(InvalidParameterValueError);
+
+    expect(() => {
+      getLetsGoPikachuStatValue({
+        isHp: false,
+        level: 100,
+        base: 0,
+      });
+    }).toThrow(InvalidParameterValueError);
+  });
+
+  it('throws InvalidParameterRangeError exception when using invalid AV values', () => {
+    expect(() => {
+      getLetsGoPikachuStatValue({
+        base: 100,
+        av: MIN_AWAKENING_VALUE - 1,
+      });
+    }).toThrow(InvalidParameterRangeError);
+
+    expect(() => {
+      getLetsGoPikachuStatValue({
+        base: 100,
+        av: MAX_AWAKENING_VALUE + 1,
+      });
+    }).toThrow(InvalidParameterRangeError);
+  });
+
+  it('throws InvalidParameterRangeError exception when using invalid IV values', () => {
+    expect(() => {
+      getLetsGoPikachuStatValue({
+        base: 100,
+        iv: MIN_IV_VALUE - 1,
+      });
+    }).toThrow(InvalidParameterRangeError);
+
+    expect(() => {
+      getLetsGoPikachuStatValue({
+        base: 100,
+        iv: MAX_IV_VALUE + 1,
+      });
+    }).toThrow(InvalidParameterRangeError);
+  });
+
+  it('throws InvalidParameterRangeError exception when using invalid friendship values', () => {
+    expect(() => {
+      getLetsGoPikachuStatValue({
+        base: 100,
+        friendship: MIN_FRIENDSHIP_VALUE - 1,
+      });
+    }).toThrow(InvalidParameterRangeError);
+
+    expect(() => {
+      getLetsGoPikachuStatValue({
+        base: 100,
+        friendship: MAX_FRIENDSHIP_VALUE + 1,
+      });
+    }).toThrow(InvalidParameterRangeError);
+  });
+
+  it('throws InvalidParameterValueError when using invalid Pokémon level values', () => {
+    const stat = {
+      hp: 100,
+      attack: 100,
+      defense: 100,
+      specialAttack: 100,
+      specialDefense: 100,
+      speed: 100,
+    };
+    expect(() => {
+      getCPValue({
+        stat,
+        level: MIN_POKEMON_LEVEL - 1,
+      });
+    }).toThrow(InvalidParameterRangeError);
+
+    expect(() => {
+      getCPValue({
+        stat,
+        level: MAX_POKEMON_LEVEL + 1,
+      });
+    }).toThrow(InvalidParameterRangeError);
+  });
+
+  it('throws InvalidParameterValueError when using invalid Max Total AVs value', () => {
+    const stat = {
+      hp: 100,
+      attack: 100,
+      defense: 100,
+      specialAttack: 100,
+      specialDefense: 100,
+      speed: 100,
+    };
+
+    expect(() => {
+      getCPValue({
+        stat,
+        totalAv: MIN_AWAKENING_VALUE - 1,
+      });
+    }).toThrow(InvalidParameterRangeError);
+
+    expect(() => {
+      getCPValue({
+        stat,
+        totalAv: MAX_AWAKENING_VALUE * 6 + 1,
+      });
+    }).toThrow(InvalidParameterRangeError);
   });
 
   it('throws InvalidParameterValueError when usind when using invalid stats', () => {
