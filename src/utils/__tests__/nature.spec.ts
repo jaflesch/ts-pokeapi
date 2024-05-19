@@ -1,7 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
 import { PokemonStatId, PokemonStatName } from '../../core';
-import { getNatureName } from '../nature';
 import { NatureName } from '../../core/constants/nature-name.enum';
+import { GetNatureNameParam, getNatureName } from '../nature';
 
 describe('When using getNatureName()', () => {
   it('returns the nature name by PokemonStatId params', () => {
@@ -187,5 +187,83 @@ describe('When using getNatureName()', () => {
     expect(getNatureName(PokemonStatName.SPEED, PokemonStatName.SPEED)).toBe(
       NatureName.SERIOUS,
     );
+  });
+
+  it("returns null when params aren't correct PokemonStatId enum values", () => {
+    expect(
+      getNatureName(
+        PokemonStatId.ATTACK,
+        PokemonStatId.HP as GetNatureNameParam,
+      ),
+    ).toBe(null);
+    expect(
+      getNatureName(
+        PokemonStatId.DEFENSE,
+        PokemonStatId.HP as GetNatureNameParam,
+      ),
+    ).toBe(null);
+    expect(
+      getNatureName(
+        PokemonStatId.SPECIAL_ATTACK,
+        PokemonStatId.HP as GetNatureNameParam,
+      ),
+    ).toBe(null);
+    expect(
+      getNatureName(
+        PokemonStatId.SPECIAL_DEFENSE,
+        PokemonStatId.HP as GetNatureNameParam,
+      ),
+    ).toBe(null);
+    expect(
+      getNatureName(
+        PokemonStatId.SPEED,
+        PokemonStatId.HP as GetNatureNameParam,
+      ),
+    ).toBe(null);
+    expect(
+      getNatureName(
+        PokemonStatId.HP as GetNatureNameParam,
+        PokemonStatId.HP as GetNatureNameParam,
+      ),
+    ).toBe(null);
+  });
+
+  it("returns null when params aren't correct PokemonStatName enum values", () => {
+    expect(
+      getNatureName(
+        PokemonStatName.ATTACK,
+        PokemonStatName.HP as GetNatureNameParam,
+      ),
+    ).toBe(null);
+    expect(
+      getNatureName(
+        PokemonStatName.DEFENSE,
+        PokemonStatName.HP as GetNatureNameParam,
+      ),
+    ).toBe(null);
+    expect(
+      getNatureName(
+        PokemonStatName.SPECIAL_ATTACK,
+        PokemonStatName.HP as GetNatureNameParam,
+      ),
+    ).toBe(null);
+    expect(
+      getNatureName(
+        PokemonStatName.SPECIAL_DEFENSE,
+        PokemonStatName.HP as GetNatureNameParam,
+      ),
+    ).toBe(null);
+    expect(
+      getNatureName(
+        PokemonStatName.SPEED,
+        PokemonStatName.HP as GetNatureNameParam,
+      ),
+    ).toBe(null);
+    expect(
+      getNatureName(
+        PokemonStatName.HP as GetNatureNameParam,
+        PokemonStatName.HP as GetNatureNameParam,
+      ),
+    ).toBe(null);
   });
 });
