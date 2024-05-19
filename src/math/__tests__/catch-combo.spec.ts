@@ -1,5 +1,9 @@
 import { describe, expect, it } from '@jest/globals';
-import { getCatchComboBonusLGP, getCatchComboRangesLGP } from '../catch-combo';
+import {
+  CatchComboReward,
+  getCatchComboBonusLGP,
+  getCatchComboRangesLGP,
+} from '../catch-combo';
 
 describe("Pokémon Let's GO Pikachu & Eevee Same Species Chance Catch Combo Bonus", () => {
   it('returns no bonus when combo is zero', () => {
@@ -617,5 +621,13 @@ describe("Pokémon Let's GO Pikachu & Eevee Rewards Shiny (Lure and Charm) Bonus
       });
       expect(bonusMax.shinyOdds).toBe(rate.value);
     }
+  });
+});
+
+describe("Pokémon Let's GO Pikachu & Eevee invalid Catch Combo Range", () => {
+  const rates = getCatchComboRangesLGP('an-invalid-value' as CatchComboReward);
+
+  it('should return an empty array', () => {
+    expect(rates).toHaveLength(0);
   });
 });
