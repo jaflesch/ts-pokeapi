@@ -821,6 +821,20 @@ describe('when using getPokemonTypeMatchups() function', () => {
     expect(illuminate.ability).toBe('illuminate');
     expect(illuminate.noEffect).toHaveLength(0);
   });
+
+  it('returns double reistance and double weakness of types from given Pokémon', async () => {
+    const volcarona = await pokeapi('pokemon').get('volcarona');
+    const { defensive } = PokemonTypeChart.getByPokemon(volcarona);
+    expect(defensive).toHaveLength(2);
+    expect(defensive[0].doubleWeakness).toContain(PokemonTypesArrayIndex.ROCK);
+    expect(defensive[0].doubleResistance).toContain(
+      PokemonTypesArrayIndex.GRASS,
+    );
+    expect(defensive[1].doubleWeakness).toContain(PokemonTypesArrayIndex.ROCK);
+    expect(defensive[1].doubleResistance).toContain(
+      PokemonTypesArrayIndex.GRASS,
+    );
+  });
 });
 
 describe('when using isMoveNullifyByAbility() function', () => {
