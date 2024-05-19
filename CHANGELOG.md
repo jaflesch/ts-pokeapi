@@ -3,6 +3,14 @@
 Here we write upgrading notes for brands. It's a team effort to make them as
 straightforward as possible.
 
+## 0.4.1 - 2024-05-19
+
+### Changed
+- Types `CatchComboReward` and `GetNatureNameParam` are now exported in Catch Combo and Stats modules, respectively
+
+### Fixed
+- Code coverage tests for many library functions, methods, and modules
+
 ## 0.4.0 - 2024-05-12
 
 ### Added
