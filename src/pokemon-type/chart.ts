@@ -371,7 +371,7 @@ export const damageMultipleByAbility = (
   if (ability === 'heatproof' && moveType === PokemonTypesArrayIndex.FIRE) {
     return 0.5;
   }
-  if (ability === 'heatproof' && moveType === PokemonTypesArrayIndex.FIRE) {
+  if (ability === 'water-bubble' && moveType === PokemonTypesArrayIndex.FIRE) {
     return 0.5;
   }
   if (
@@ -385,9 +385,6 @@ export const damageMultipleByAbility = (
     (moveType === PokemonTypesArrayIndex.FIRE ||
       moveType === PokemonTypesArrayIndex.ICE)
   ) {
-    return 0.5;
-  }
-  if (ability === 'water-bubble' && moveType === PokemonTypesArrayIndex.FIRE) {
     return 0.5;
   }
   return 1;
