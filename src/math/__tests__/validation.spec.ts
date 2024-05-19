@@ -14,6 +14,8 @@ import {
   MIN_EV_VALUE_PRIOR_GEN3,
   MAX_EV_VALUE_PRIOR_GEN3,
   MAX_AWAKENING_VALUE,
+  MIN_FRIENDSHIP_VALUE,
+  MAX_FRIENDSHIP_VALUE,
 } from '../constants';
 import {
   isValidEV,
@@ -25,6 +27,7 @@ import {
   isValidEVPriorGen3,
   isValidIVPriorGen3,
   isValidPokemonLevel,
+  isValidFrienshipValue,
 } from '../validation';
 
 describe('when validating Pokémon level', () => {
@@ -137,5 +140,19 @@ describe("when validating Pokémon Let's Go Pikachu/Eevee formulas", () => {
   it('returns false when using invalid total AV values', () => {
     expect(isValidTotalAVs(-1)).toBe(false);
     expect(isValidTotalAVs(MAX_AWAKENING_VALUE * 6 + 1)).toBe(false);
+  });
+});
+
+describe('when validating Pokémon Friendship formula', () => {
+  it('returns true when using valid friendship values', () => {
+    expect(isValidFrienshipValue(MIN_FRIENDSHIP_VALUE)).toBe(true);
+    expect(isValidFrienshipValue(MIN_FRIENDSHIP_VALUE + 1)).toBe(true);
+    expect(isValidFrienshipValue(MAX_FRIENDSHIP_VALUE - 1)).toBe(true);
+    expect(isValidFrienshipValue(MAX_FRIENDSHIP_VALUE)).toBe(true);
+  });
+
+  it('returns false when using invalid friendship values', () => {
+    expect(isValidFrienshipValue(MIN_FRIENDSHIP_VALUE - 1)).toBe(false);
+    expect(isValidFrienshipValue(MAX_FRIENDSHIP_VALUE + 1)).toBe(false);
   });
 });
