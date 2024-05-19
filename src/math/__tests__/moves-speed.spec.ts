@@ -9,6 +9,7 @@ describe('Electro ball damage power', () => {
     regielekiMaxPositivePlus2: 1096,
     electrode: 438,
     jolteon: 394,
+    tornadusTherian: 353,
     rillaboom: 206,
     bronzong: 63,
   };
@@ -42,8 +43,11 @@ describe('Electro ball damage power', () => {
 
   it('returns 120 BP move', () => {
     expect(
-      getElectroBallBasePower(speeds.regielekiMaxPositivePlus2, speeds.jolteon),
-    ).toBe(80);
+      getElectroBallBasePower(
+        speeds.regielekiMaxPositivePlus2,
+        speeds.tornadusTherian,
+      ),
+    ).toBe(120);
   });
 
   it('returns 150 BP move', () => {
@@ -58,33 +62,6 @@ describe('Electro ball damage power', () => {
       150,
     );
   });
-
-  // it('returns 80 BP move', () => {
-  //   expect(
-  //     getElectroBallBasePower({
-  //       user: weights.snorlax,
-  //       target: weights.emboar,
-  //     }),
-  //   ).toBe(80);
-  // });
-
-  // it('returns 100 BP move', () => {
-  //   expect(
-  //     getElectroBallBasePower({
-  //       user: weights.snorlax,
-  //       target: weights.graveler,
-  //     }),
-  //   ).toBe(100);
-  // });
-
-  // it('returns 120 BP move', () => {
-  //   expect(
-  //     getElectroBallBasePower({
-  //       user: weights.snorlax,
-  //       target: weights.jumpluff,
-  //     }),
-  //   ).toBe(120);
-  // });
 });
 
 describe('Gyro ball damage power', () => {
@@ -97,6 +74,10 @@ describe('Gyro ball damage power', () => {
   };
 
   it('returns 1 BP move', () => {
+    expect(getGyroBallBasePower(0, speeds.bronzong)).toBe(1);
+  });
+
+  it('returns 26 BP move', () => {
     expect(getGyroBallBasePower(speeds.bronzong, speeds.bronzong)).toBe(26);
   });
 
