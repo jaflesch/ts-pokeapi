@@ -43,7 +43,7 @@ describe('PokéAPI Item resource', () => {
   it('retuns the total number of Item resources', async () => {
     const count = await api.count();
     expect(count).toBeDefined();
-    expect(count).toBe(2110);
+    expect(count).toBe(2169);
   });
 
   it('retuns pagination info about Item resources', async () => {
