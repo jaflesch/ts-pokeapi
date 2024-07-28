@@ -3,6 +3,18 @@
 Here we write upgrading notes for brands. It's a team effort to make them as
 straightforward as possible.
 
+## 0.5.0 - 2024-07-28
+
+### Added
+- Pokémon Showdown text template helpe  
+- Base Power Calculation by Pokémon HP
+
+### Changed
+- Module importing hierarchy
+
+### Fixed
+- PokéAPI Pokémon Type resource tests after database update (Items, and Machines)
+
 ## 0.4.1 - 2024-05-19
 
 ### Changed
