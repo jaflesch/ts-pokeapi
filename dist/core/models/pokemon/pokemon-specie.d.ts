@@ -92,6 +92,6 @@ export interface Genus {
  * @property pokemon - The Pokémon variety.
  * */
 export interface PokemonSpecieVariety {
-    is_default: number;
+    is_default: boolean;
     pokemon: NamedAPIResource;
 }

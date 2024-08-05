@@ -3,6 +3,18 @@
 Here we write upgrading notes for brands. It's a team effort to make them as
 straightforward as possible.
 
+## 0.5.1 - 2024-08-04
+
+### Added
+- Base power calculation methods for weight-oriented moves.
+
+### Changed
+- Function `getMoveBasePowerByWeight()` is not available anymore.
+
+### Fixed
+- Minor type annotations across PokéAPI responses and PokémonType.Chart
+
+
 ## 0.5.0 - 2024-07-28
 
 ### Added

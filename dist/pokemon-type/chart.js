@@ -292,7 +292,7 @@ const damageMultipleByAbility = (moveType, ability) => {
 exports.damageMultipleByAbility = damageMultipleByAbility;
 /** Returns the correct super effective damage multiple applied to a oponent's ability.
  * Some abilities affect the damage multiple only if it is a super effective damage.
- * @param {PokemonTypesArrayIndex} multiple - The current multiple of damage.
+ * @param {number} multiple - The current multiple of damage.
  * @param {AlterDamageAbility} ability - A string of few selected abilities which affect damage calculation.
  * @returns {boolean} The super effective damage multiple.
  */
