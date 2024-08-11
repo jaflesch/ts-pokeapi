@@ -65,7 +65,7 @@ export interface MachineVersionDetail {
 }
 /**
  * @property name - The localized name for an API resource in a specific language.
- * @property name - The language this name is in.
+ * @property language - The language this name is in.
  * */
 export interface Name {
     name: string;

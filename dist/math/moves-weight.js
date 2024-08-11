@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getMoveBasePowerByWeight = exports.getMoveBasePowerByRelativeWeightPriorGenVII = exports.getMoveBasePowerByRelativeWeight = void 0;
+exports.getLowKickBasePower = exports.getGrassKnotBasePower = exports.getMoveBasePowerByRelativeWeightPriorGenVII = exports.getHeatCrashBasePower = exports.getHeavySlamBasePower = exports.getMoveBasePowerByRelativeWeight = void 0;
 /** Returns the move Base Power (BP) according the weight ratio between two Pokémon.
- * This formula is used to calculate the BP for moves such as {@link https://bulbapedia.bulbagarden.net/wiki/Heavy_Slam_(move) Heavy Slam} and {@link https://bulbapedia.bulbagarden.net/wiki/Heat_Crash_(move) Heat Crash}.
  * @param {Object} params - The general parameters used for get move Base Power according weight ratio.
  * @param {number} params.user - The user Pokémon's weight.
  * @param {number} params.target - True target Pokémon's weight.
@@ -15,6 +14,30 @@ const getMoveBasePowerByRelativeWeight = ({ user, target, minimize = false, }) =
     return r * minimizeBonus;
 };
 exports.getMoveBasePowerByRelativeWeight = getMoveBasePowerByRelativeWeight;
+/** Returns the move Base Power (BP) according the weight ratio between two Pokémon for move
+ * {@link https://bulbapedia.bulbagarden.net/wiki/Heavy_Slam_(move) Heavy Slam}.
+ * @param {Object} params - The general parameters used for get move Base Power according weight ratio.
+ * @param {number} params.user - The user Pokémon's weight.
+ * @param {number} params.target - True target Pokémon's weight.
+ * @param {boolean} [params.minimize = false] - If the target Pokémon has used the move {@link https://bulbapedia.bulbagarden.net/wiki/Minimize_(move) Minimize}.
+ * @returns {number} The move BP.
+ */
+const getHeavySlamBasePower = (params) => {
+    return (0, exports.getMoveBasePowerByRelativeWeight)(params);
+};
+exports.getHeavySlamBasePower = getHeavySlamBasePower;
+/** Returns the move Base Power (BP) according the weight ratio between two Pokémon for move
+ * {@link https://bulbapedia.bulbagarden.net/wiki/Heat_Crash_(move) Heat Crash}.
+ * @param {Object} params - The general parameters used for get move Base Power according weight ratio.
+ * @param {number} params.user - The user Pokémon's weight.
+ * @param {number} params.target - True target Pokémon's weight.
+ * @param {boolean} [params.minimize = false] - If the target Pokémon has used the move {@link https://bulbapedia.bulbagarden.net/wiki/Minimize_(move) Minimize}.
+ * @returns {number} The move BP.
+ */
+const getHeatCrashBasePower = (params) => {
+    return (0, exports.getMoveBasePowerByRelativeWeight)(params);
+};
+exports.getHeatCrashBasePower = getHeatCrashBasePower;
 /** Returns the move Base Power (BP) according the weight ratio between two Pokémon prior to Generation VII games.
  * This formula is used to calculate the BP for moves such as {@link https://bulbapedia.bulbagarden.net/wiki/Heavy_Slam_(move) Heavy Slam} and {@link https://bulbapedia.bulbagarden.net/wiki/Heat_Crash_(move) Heat Crash}.
  * @param {number} userWeight - The user Pokémon's weight.
@@ -41,8 +64,7 @@ const getMoveBasePowerByRelativeWeightPriorGenVII = (userWeight, targetWeight) =
 };
 exports.getMoveBasePowerByRelativeWeightPriorGenVII = getMoveBasePowerByRelativeWeightPriorGenVII;
 /**
- * Returns the move Base Power (BP) according the Pokémon weight. This formula is used to calculate the BP for moves such as
- * {@link https://bulbapedia.bulbagarden.net/wiki/Grass_Knot_(move) Grass Knot} and {@link https://bulbapedia.bulbagarden.net/wiki/Low_Kick_(move) Low kick}.
+ * Returns the move Base Power (BP) according the Pokémon weight.
  * @param {number} weight - The Pokémon's weight.
  * @returns {number} The move BP.
  */
@@ -66,5 +88,23 @@ const getMoveBasePowerByWeight = (weight) => {
         return 20;
     }
 };
-exports.getMoveBasePowerByWeight = getMoveBasePowerByWeight;
+/**
+ * Returns the move Base Power (BP) according the Pokémon weight for move
+ * {@link https://bulbapedia.bulbagarden.net/wiki/Grass_Knot_(move) Grass Knot}.
+ * @param {number} weight - The Pokémon's weight.
+ * @returns {number} The move BP.
+ */
+const getGrassKnotBasePower = (weight) => {
+    return getMoveBasePowerByWeight(weight);
+};
+exports.getGrassKnotBasePower = getGrassKnotBasePower;
+/**
+ * Returns the move Base Power (BP) according the Pokémon weight for move {@link https://bulbapedia.bulbagarden.net/wiki/Low_Kick_(move) Low kick}.
+ * @param {number} weight - The Pokémon's weight.
+ * @returns {number} The move BP.
+ */
+const getLowKickBasePower = (weight) => {
+    return getMoveBasePowerByWeight(weight);
+};
+exports.getLowKickBasePower = getLowKickBasePower;
 //# sourceMappingURL=moves-weight.js.map
