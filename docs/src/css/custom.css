@@ -1,38 +1,26 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #3178c6;
-  --ifm-color-primary-dark: #2c6cb2;
-  --ifm-color-primary-darker: #2a66a8;
-  --ifm-color-primary-darkest: #22548b;
-  --ifm-color-primary-light: #4084d0;
-  --ifm-color-primary-lighter: #4a8bd2;
-  --ifm-color-primary-lightest: #689eda;
+  --ifm-color-primary: #0079ca;
+  --ifm-color-primary-dark: #006db6;
+  --ifm-color-primary-darker: #0067ac;
+  --ifm-color-primary-darkest: #00558d;
+  --ifm-color-primary-light: #0085de;
+  --ifm-color-primary-lighter: #008be8;
+  --ifm-color-primary-lightest: #089cff;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #358ef1;
-  --ifm-color-primary-dark: #1a7fef;
-  --ifm-color-primary-darker: #1077ea;
-  --ifm-color-primary-darkest: #0d62c0;
-  --ifm-color-primary-light: #509df3;
-  --ifm-color-primary-lighter: #5ea5f4;
-  --ifm-color-primary-lightest: #87bcf7;
+  --ifm-color-primary: #3f98fd;
+  --ifm-color-primary-dark: #2087fd;
+  --ifm-color-primary-darker: #107ffd;
+  --ifm-color-primary-darkest: #0268db;
+  --ifm-color-primary-light: #5ea9fd;
+  --ifm-color-primary-lighter: #6eb1fd;
+  --ifm-color-primary-lightest: #9dcafe;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-/* table.full-width tbody, table.full-width thead, table.full-width tr, table.full-width td, table.full-width th {
-  display: block;
-}
-table.full-width th, table.full-width tr { text-align: left; border-bottom: 0;} */
 table.full-width {
   display: table;
   width: 100%;
@@ -48,4 +36,28 @@ table.full-width .upc {
 table.full-width p {
   margin-bottom: 0;
   vertical-align: middle;
+}
+
+.hero__title {
+  text-align: left;
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero__subtitle {
+  text-align-last: left;
+}
+
+.footer__copyright {
+  position: absolute;
+  right: 0;
+  left: 0;
+  background: black;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+[data-theme='dark'] .footer__copyright {
+  background: #fafafa;
+  color: black;
 }
