@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # PokeApi
 
-The `PokeApi` is a wrapper class that allows fetching and handling resources from [PokéAPI/v2](https://pokeapi.co/docs/v2) endpoints. All the methods returns typed interfaces regarding the desired PokéAPI resource. For example, a `'/pokemon'` endpoint, can return one single `interface` `Pokemon` resource, or many paginated resources, according to which method was used.
+The `PokeApi` is a wrapper class that allows fetching and handling resources from [PokéAPI/v2](https://pokeapi.co/docs/v2) endpoints. All the methods returns typed interfaces regarding the desired PokéAPI resource. For example, a `'/pokemon'` endpoint, can return one single `interface` [`Pokemon`](../interfaces/pokemon) resource, or many paginated resources, according to which method was used.
 
 ## Methods
 ### get()

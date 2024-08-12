@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Contributing
 
-Want to help improve TS-PokéAPI? We would greatly appreciated!
+Want to help us improve TS-PokéAPI? We would greatly appreciated!
 
 There are some ways to contribute to the project on the following sections.
 
@@ -19,8 +19,9 @@ git remote add upstream https://github.com/jaflesch/ts-pokeapi
 npm install
 ```
 
+::::info
 This project uses a monorepo structure for both `src` and `docs` folders.
-
+::::
 
 ### Code Review Guidelines
 
@@ -71,10 +72,10 @@ These commands will be run by our CI and are required to pass before any contrib
 ### Issue Template
 Before submitting an issue, please take a look at the [**issue template**](https://github.com/jaflesch/ts-pokeapi/blob/main/.github/ISSUE_TEMPLATE) and follow it to help anyone willing to take the time to review your issue. 
 
-Consider that this is in place to help everyone better understand the issue you're having and a good explanation, following the patterns and templates, will reduce the back and forth to get the necessary information.
+Consider that this is in place to help everyone better understand the issue you're having. And a good explanation, following the proposed patterns and templates, will reduce the back and forth to get the necessary information.
 
 ### Pull Request Template
-When creating a pull-request, make sure to follow the [**pull request template**](https://github.com/jaflesch/ts-pokeapi/blob/main/.github/pull_request_template.md). The template presents instructions to ensure your pull request gets reviewed properly.
+When creating a pull-request, make sure to follow the [**pull-request template**](https://github.com/jaflesch/ts-pokeapi/blob/main/.github/pull_request_template.md). The template presents instructions to ensure your pull-request gets reviewed properly.
 
 Pull-requests will be squash-committed, so no need to prefix your individual commits with the conventional changelog format as long as the commit messages are descriptive.
 
@@ -84,24 +85,24 @@ Well, bugs happen. And with TS-PokéAPI is no different. When you think you've f
 
 Search the existing issues for one like what you're seeing. If you see one, add a 👍 reaction. Read through the comments and see if you can provide any more valuable information to the thread.
 
-If there are no other issues like yours, then create a new one. Be sure to follow the issue template.
+If there are no other issues like yours, then create a new one. Be sure to follow the [issue template](https://github.com/jaflesch/ts-pokeapi/blob/main/.github/ISSUE_TEMPLATE).
 Creating a high quality reproduction is critical. Without it we likely can't fix the bug.
 
 ### Improving the Documentation
-Any successful projects demands quality documentation and TS-PokéAPI is no different. When submiting a pull request, or reporting an issue about any inconsistency on texts and documentation, please be sure to add the `documentation` label on them. This step is important in order to help maintainers understand future contributions and fix possible bugs.
+Any successful projects demands quality documentation. When submiting a pull-request, or reporting an issue about any inconsistency on texts and documentation, please be sure to add the `type:documentation` label on them. This step is important in order to help maintainers understand future contributions and fix possible bugs.
 
 
 ### Responding to Issues
 Another great way to contribute to TS-PokéAPI is by responding to issues. Maybe it's answering someone's question, pointing out a small typo in their code, or helping them put together a reproduction.
 
 ### Bug Fixes
-Check if a pull request already exists addressing that bug. If it does give it a review and leave your comments
+Check if a pull request already exists addressing that bug. If it does give it a review and leave your comments.
 If there isn't already a pull request then figure out the fix! If it's relatively small go ahead and fix it and submit a pull request. If it's a decent number of changes file an issue first so we can discuss it.
 
-If there is an issue related to that bug leave a comment on it, linking to your pull request, so others know it's been addressed.
+If there is an issue related to that bug leave a comment on it, linking to your pull-request, so others know it's been addressed.
 
 ### Suggesting a Feature
-Is there something you want to see from TS-PokéAPI? Please create an issue and tag with `feature-request` label.
+Is there something you want to see from TS-PokéAPI? Please create an issue and tag with `type:feature-request` label.
 
 ## Feedback
 
@@ -109,6 +110,6 @@ TS-PokéApi was built by someone passionate about the Pokémon franchise and com
 My goal with this project is to help as many people as possible, in some way, to have a better experience manipulating data in the Pokémon universe, whether in games or with other renowned APIs, such as PokéAPI.
 
 
-Therefore, your feedback is extremely important! It is only in this way that I will know if I am on the right path and where I can improve and contribute even more to this community. 💙
+Therefore, your feedback is extremely important! It is only in this way that I will know if we are on the right path and where we can improve and contribute even more to this community. 💙
 
 Did you like TS-PokéAPI? [Consider giving us a star 🌟](https://github.com/jaflesch/ts-pokeapi)

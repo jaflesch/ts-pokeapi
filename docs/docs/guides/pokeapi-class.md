@@ -73,7 +73,7 @@ The logging format follows the template:
 Interceptors are middleware that allows common patterns around retrying, caching, logging, and authentication to be abstracted away from individual requests. They are functions which you can run for each request, and have broad capabilities to affect the contents and overall flow of requests and responses. TS-PokéAPI provides an `interceptor` property that allows customization for both request and response callbacks. 
 
 - The `interceptor.request` callback receives an URL string and HTTP method as parameters, which can be used to access the proper methods of libraries instances. 
-- The `interceptor.response` callback receives the returning data from request and must adapt the library instance data to match at least the property `.data` from [Fetch API Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object.
+- The `interceptor.response` callback receives the returning data from request and must adapt the library instance data to match at least the returning value from property `.data` of [Fetch API Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object.
 - The `interceptor.statusKey` is an optional parameter to help PokeApi class map the status code key utilized by library instance. Default value is `status` (same as Fetch API), but in some libraries the values diff, so further configuration is needed.
 
 The following code shows the `PokeApiConfig.interceptor` property:
@@ -163,10 +163,8 @@ If none of above solutions works for you and/or you need more control over your 
 
 #### Class-based approach
 ```typescript
-import { PokeApi } from "@jaflesch/poke-api";
-import { PokeApiProps, TypeMapKeys } from "@jaflesch/poke-api.types";
+import { PokeApi, PokeApiProps, TypeMapKeys } from "@jaflesch/ts-pokeapi";
 
-// Class-based approach
 export class MyCustomClass<T extends TypeMapKeys> extends PokeApi<T> implements PokeApiProps<T> {
   constructor(endpoint: T) {
     super(endpoint);
@@ -187,8 +185,7 @@ export class MyCustomClass<T extends TypeMapKeys> extends PokeApi<T> implements 
 
 #### Procedural approach
 ```typescript
-import { pokeapi } from "@jaflesch/poke-api";
-import { PokeApiProps, TypeMapKeys } from "@jaflesch/poke-api.types";
+import { pokeApi, TypeMapKeys } from "@jaflesch/ts-pokeapi";
 
 export const myPokeapi = <T extends TypeMapKeys>(endpoint: T) => {
   return pokeapi(endpoint, {
@@ -276,7 +273,7 @@ export const myPokeapi = <T extends TypeMapKeys>(endpoint: T) => {
       <td>`interceptor.statusKey`</td>
       <td>`string`</td>
       <td>No</td>
-      <td>The type of move that will produce the damage.</td>
+      <td>The key to access the value of status property.</td>
     </tr>
 
   </tbody>

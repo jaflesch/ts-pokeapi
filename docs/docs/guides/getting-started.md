@@ -50,7 +50,7 @@ For each PokéAPI endpoint response, there is an `interface` that represents tha
 Also, every `interface` is an exportable module, which you can use for your own type annotations.
 
 :::info
-More details of every interface can be found here
+More details of every interface can be found [here](../../category/interfaces/)
 :::
 
 ### Resource enumerables
@@ -72,7 +72,7 @@ console.log(pokemon.name); // Outputs "bulbasaur"
 ```
 
 :::info
-More details of every enumerable can be found here
+More details of every enumerable can be found [here](../pokeapi-class#pokeapiendpoint)
 :::
 
 ## Pokémon utils
@@ -80,5 +80,5 @@ More details of every enumerable can be found here
 [TS-PokéAPI](https://www.npmjs.com/package/@jaflesch/ts-pokeapi) also provides a handful of utilities functions for Pokémon universe. For instance, there are main series Pokémon games formulas, such as stat calculation, stat validation, catching chance, damage output etc; Pokémon Showdown parsers and validators for competitive team building; and miscelaneous content which we are futher improving.
 
 :::info
-More details of every utility can be found here
+More details of every utility can be found at [Math](../../category/math), [Pokémon Types](../../category/pokémon-types), and [Utils](../../category/utils) modules.
 :::
