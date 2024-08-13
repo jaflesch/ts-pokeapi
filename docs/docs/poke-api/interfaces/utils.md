@@ -4,6 +4,8 @@ sidebar_position: 10
 
 # Utillity
 
+Language resource and PokéAPI's common models. TS-PokéAPI utility helpers.
+
 ## Language
 
 Languages for translations of API resource information.
@@ -22,19 +24,19 @@ Languages for translations of API resource information.
       <td>`id`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The identifier for this resource</td>
+      <td>The identifier for this resource.</td>
     </tr>
     <tr>
       <td>`name`</td>
       <td>`string`</td>
       <td>Yes</td>
-      <td>The identifier for this resource</td>
+      <td>The identifier for this resource.</td>
     </tr>
     <tr>
       <td>`names`</td>
       <td>[`Array<Name>`](../utils#name)</td>
       <td>Yes</td>
-      <td>The identifier for this resource</td>
+      <td>The identifier for this resource.</td>
     </tr>
     <tr>
       <td>`official`</td>
@@ -46,13 +48,13 @@ Languages for translations of API resource information.
       <td>`iso639`</td>
       <td>`string`</td>
       <td>Yes</td>
-      <td>The two-letter code of the country where this language is spoken. Note that it is not unique</td>
+      <td>The two-letter code of the country where this language is spoken. Note that it is not unique.</td>
     </tr>
     <tr>
       <td>`iso3166`</td>
       <td>`string`</td>
       <td>Yes</td>
-      <td>The two-letter code of the language. Note that it is not unique</td>
+      <td>The two-letter code of the language. Note that it is not unique.</td>
     </tr>
   </tbody>
 </table>
@@ -159,12 +161,6 @@ Languages for translations of API resource information.
       <td>The highest level the Pokémon could be encountered at.</td>
     </tr>
     <tr>
-      <td>`condition_values`</td>
-      <td>[`Array<NamedAPIResource>`](#namedapiresource)</td>
-      <td>Yes</td>
-      <td>A list of condition values that must be in effect for this encounter to occur.</td>
-    </tr>
-    <tr>
       <td>`chance`</td>
       <td>`number`</td>
       <td>Yes</td>
@@ -175,6 +171,12 @@ Languages for translations of API resource information.
       <td>[`NamedAPIResource`](#namedapiresource)</td>
       <td>Yes</td>
       <td>The method by which this encounter happens.</td>
+    </tr>
+    <tr>
+      <td>`condition_values`</td>
+      <td>[`Array<NamedAPIResource>`](#namedapiresource)</td>
+      <td>Yes</td>
+      <td>A list of condition values that must be in effect for this encounter to occur.</td>
     </tr>
   </tbody>
 </table>
@@ -399,7 +401,7 @@ Languages for translations of API resource information.
   </thead>
   <tbody>
     <tr>
-      <td>`game_ondex`</td>
+      <td>`game_index`</td>
       <td>`number`</td>
       <td>Yes</td>
       <td>The internal id of an API resource within game data.</td>
@@ -450,7 +452,8 @@ Languages for translations of API resource information.
 
 ## Other
 
-Other interfaces and data structures exclusive from TS PokéAPI to help you handle PokéAPI resource responses.
+Other interfaces and data structures exclusive from TS-PokéAPI to help you handle PokéAPI resource responses.
+### GenderId
 
 ### PaginatedResult
 <table className='full-width'>
@@ -467,25 +470,25 @@ Other interfaces and data structures exclusive from TS PokéAPI to help you hand
       <td>`count`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The localized name for an API resource in a specific language.</td>
+      <td>The total number of resources available from this API.</td>
     </tr>
     <tr>
       <td>`next`</td>
-      <td>`number`, or `null`</td>
+      <td>`string`, or `null`</td>
       <td>Yes</td>
-      <td>The localized name for an API resource in a specific language.</td>
+      <td>The URL for the next page in the list.</td>
     </tr>
     <tr>
       <td>`previous`</td>
-      <td>`number`, or `null`</td>
+      <td>`string`, or `null`</td>
       <td>Yes</td>
-      <td>The localized name for an API resource in a specific language.</td>
+      <td>The URL for the previous page in the list.</td>
     </tr>
     <tr>
       <td>`results`</td>
       <td>[`Array<NamedAPIResource>`](#namedapiresource)</td>
       <td>Yes</td>
-      <td>The language this flavor text is in.</td>
+      <td>A list of named API resources.</td>
     </tr>
   </tbody>
 </table>
@@ -511,7 +514,7 @@ An enumeration of `string` values for each Pokémon type's name.
 <table className='full-width'>
   <thead className='left upc'>
     <tr>
-      <th>Name</th>
+      <th width="50%">Name</th>
       <th>Value</th>
     </tr>
   </thead>
@@ -569,7 +572,7 @@ An enumeration of `string` values for each Pokémon type's name.
 <table className='full-width'>
   <thead className='left upc'>
     <tr>
-      <th>Name</th>
+      <th width="50%">Name</th>
       <th>Value</th>
     </tr>
   </thead>

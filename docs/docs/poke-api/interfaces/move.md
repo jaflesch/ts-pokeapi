@@ -20,49 +20,49 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
       <td>`id`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The identifier for this resource</td>
+      <td>The identifier for this resource.</td>
     </tr>
     <tr>
       <td>`name`</td>
       <td>`string`</td>
       <td>Yes</td>
-      <td>The name for this resource</td>
+      <td>The name for this resource.</td>
     </tr>
     <tr>
       <td>`names`</td>
       <td>[`Array<Name>`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>The name of this resource listed in different languages</td>
+      <td>The name of this resource listed in different languages.</td>
     </tr>
     <tr>
       <td>`accuracy`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The percent value of how likely this move is to be successful</td>
+      <td>The percent value of how likely this move is to be successful.</td>
     </tr>
     <tr>
       <td>`effect_chance`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The percent value of how likely it is this moves effect will happen</td>
+      <td>The percent value of how likely it is this moves effect will happen.</td>
     </tr>
     <tr>
       <td>`pp`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>Power points. The number of times this move can be use</td>
+      <td>Power points. The number of times this move can be use.</td>
     </tr>
     <tr>
       <td>`priority`</td>
       <td>[`MovePriority`](#movepriority)</td>
       <td>Yes</td>
-      <td>A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail</td>
+      <td>A value between -8 and 8. Sets the order in which moves are executed during battle. See [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Priority) for greater detail.</td>
     </tr>
     <tr>
       <td>`power`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The base power of this move with a value of 0 if it does not have a base power</td>
+      <td>The base power of this move with a value of 0 if it does not have a base power.</td>
     </tr>
     <tr>
       <td>`contest_combos`</td>
@@ -74,91 +74,91 @@ Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move 
       <td>`contest_type`</td>
       <td>[`NamedAPIResource`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>The type of appeal this move gives a Pokémon when used in a contest</td>
+      <td>The type of appeal this move gives a Pokémon when used in a contest.</td>
     </tr>
     <tr>
       <td>`contest_effect`</td>
       <td>[`APIResource`](../utils#apiresource)</td>
       <td>Yes</td>
-      <td>The effect the move has when used in a contest</td>
+      <td>The effect the move has when used in a contest.</td>
     </tr>
     <tr>
       <td>`damage_class`</td>
       <td>[`NamedAPIResource`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>The type of damage the move inflicts on the target, e.g. physical</td>
+      <td>The type of damage the move inflicts on the target, e.g. physical.</td>
     </tr>
     <tr>
       <td>`effect_entries`</td>
       <td>[`VerboseEffect`](../utils#verboseeffect)</td>
       <td>Yes</td>
-      <td>The effect of this move listed in different languages</td>
+      <td>The effect of this move listed in different languages.</td>
     </tr>
     <tr>
       <td>`effect_changes`</td>
       <td>[`Array<AbiilityEffectChange>`](../pokemon#abilityeffectchange)</td>
       <td>Yes</td>
-      <td>The list of previous effects this move has had across version groups of the games</td>
+      <td>The list of previous effects this move has had across version groups of the games.</td>
     </tr>
     <tr>
       <td>`learned_by_pokemon`</td>
       <td>[`Array<NamedAPIResource>`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>List of Pokemon that can learn the move</td>
+      <td>List of Pokemon that can learn the move.</td>
     </tr>
     <tr>
       <td>`flavor_text_entries`</td>
       <td>[`Array<MoveFlavorText>`](#moveflavortext)</td>
       <td>Yes</td>
-      <td>The flavor text of this move listed in different languages</td>
+      <td>The flavor text of this move listed in different languages.</td>
     </tr>
     <tr>
       <td>`generation`</td>
       <td>[`NamedAPIResource`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>The generation in which this move was introduced</td>
+      <td>The generation in which this move was introduced.</td>
     </tr>
     <tr>
       <td>`machines`</td>
-      <td>[`Array<MachineVersionDetail>`](../utils#namedapiresource)</td>
+      <td>[`Array<MachineVersionDetail>`](../utils#machineversiondetail)</td>
       <td>Yes</td>
-      <td>A list of the machines that teach this move</td>
+      <td>A list of the machines that teach this move.</td>
     </tr>
     <tr>
       <td>`meta`</td>
-      <td>[`MoveMetadata`](../utils#namedapiresource)</td>
+      <td>[`MoveMetadata`](#movemetadata)</td>
       <td>Yes</td>
-      <td>Metadata about this move</td>
+      <td>Metadata about this move.</td>
     </tr>
     <tr>
       <td>`past_values`</td>
-      <td>[`Array<PastMoveStatValues>`](../utils#namedapiresource)</td>
+      <td>[`Array<PastMoveStatValues>`](#pastmovestatvalues)</td>
       <td>Yes</td>
-      <td>A list of move resource value changes across version groups of the game</td>
+      <td>A list of move resource value changes across version groups of the game.</td>
     </tr>
     <tr>
       <td>`stat_changes`</td>
-      <td>[`Array<MoveStatChange>`](../utils#namedapiresource)</td>
+      <td>[`Array<MoveStatChange>`](#movestatchange)</td>
       <td>Yes</td>
-      <td>A list of stats this moves effects and how much it effects them</td>
+      <td>A list of stats this moves effects and how much it effects them.</td>
     </tr>
     <tr>
       <td>`super_contest_effect`</td>
       <td>[`APIResource`](../utils#apiresource)</td>
       <td>Yes</td>
-      <td>The effect the move has when used in a super contest</td>
+      <td>The effect the move has when used in a super contest.</td>
     </tr>
     <tr>
       <td>`target`</td>
       <td>[`NamedAPIResource`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>The type of target that will receive the effects of the attack</td>
+      <td>The type of target that will receive the effects of the attack.</td>
     </tr>
     <tr>
       <td>`type`</td>
       <td>[`NamedAPIResource`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>The elemental type of this move</td>
+      <td>The elemental type of this move.</td>
     </tr>
   </tbody>
 </table>
@@ -251,13 +251,13 @@ Mach Punch, Quick Attack, Shadow Sneak, Sucker Punch, Thunderclap, Vacuum Wave, 
       <td>`normal`</td>
       <td>[`ContestComboDetail`](#contestcombodetail)</td>
       <td>Yes</td>
-      <td>A detail of moves this move can be used before or after, granting additional appeal points in contests</td>
+      <td>A detail of moves this move can be used before or after, granting additional appeal points in contests.</td>
     </tr>
     <tr>
       <td>`super`</td>
       <td>[`ContestComboDetail`](#contestcombodetail)</td>
       <td>Yes</td>
-      <td>A detail of moves this move can be used before or after, granting additional appeal points in super contests</td>
+      <td>A detail of moves this move can be used before or after, granting additional appeal points in super contests.</td>
     </tr>
   </tbody>
 </table>
@@ -278,13 +278,13 @@ Mach Punch, Quick Attack, Shadow Sneak, Sucker Punch, Thunderclap, Vacuum Wave, 
       <td>`use_before`</td>
       <td>[`Array<NamedAPIResource>`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>A list of moves to use before this move</td>
+      <td>A list of moves to use before this move.</td>
     </tr>
     <tr>
       <td>`use_after`</td>
       <td>[`Array<NamedAPIResource>`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>A list of moves to use after this move</td>
+      <td>A list of moves to use after this move.</td>
     </tr>
   </tbody>
 </table>
@@ -305,19 +305,19 @@ Mach Punch, Quick Attack, Shadow Sneak, Sucker Punch, Thunderclap, Vacuum Wave, 
       <td>`flavor_text`</td>
       <td>`string`</td>
       <td>Yes</td>
-      <td>The localized flavor text for an api resource in a specific language</td>
+      <td>The localized flavor text for an api resource in a specific language.</td>
     </tr>
     <tr>
       <td>`language`</td>
       <td>[`NamedAPIResource`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>The language this name is in</td>
+      <td>The language this name is in.</td>
     </tr>
     <tr>
       <td>`version_group`</td>
       <td>[`NamedAPIResource`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>The version group that uses this flavor text</td>
+      <td>The version group that uses this flavor text.</td>
     </tr>
   </tbody>
 </table>
@@ -338,73 +338,73 @@ Mach Punch, Quick Attack, Shadow Sneak, Sucker Punch, Thunderclap, Vacuum Wave, 
       <td>`ailment`</td>
       <td>[`NamedAPIResource`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>The status ailment this move inflicts on its target</td>
+      <td>The status ailment this move inflicts on its target.</td>
     </tr>
     <tr>
       <td>`category`</td>
       <td>[`NamedAPIResource`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>The category of move this move falls under, e.g. damage or ailment</td>
+      <td>The category of move this move falls under, e.g. damage or ailment.</td>
     </tr>
     <tr>
       <td>`min_hits`</td>
       <td>`number`, or `null`</td>
       <td>Yes</td>
-      <td>The minimum number of times this move hits. Null if it always only hits once</td>
+      <td>The minimum number of times this move hits. Null if it always only hits once.</td>
     </tr>
     <tr>
       <td>`max_hits`</td>
       <td>`number`, or `null`</td>
       <td>Yes</td>
-      <td>The maximum number of times this move hits. Null if it always only hits once</td>
+      <td>The maximum number of times this move hits. Null if it always only hits once.</td>
     </tr>
     <tr>
       <td>`min_turns`</td>
       <td>`number`, or `null`</td>
       <td>Yes</td>
-      <td>The minimum number of turns this move continues to take effect. Null if it always only lasts one turn</td>
+      <td>The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.</td>
     </tr>
     <tr>
       <td>`max_turns`</td>
       <td>`number`, or `null`</td>
       <td>Yes</td>
-      <td>The maximum number of turns this move continues to take effect. Null if it always only lasts one turn</td>
+      <td>The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.</td>
     </tr>
     <tr>
       <td>`drain`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>HP drain (if positive) or Recoil damage (if negative), in percent of damage done</td>
+      <td>HP drain (if positive) or Recoil damage (if negative), in percent of damage done.</td>
     </tr>
     <tr>
       <td>`healing`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP</td>
+      <td>The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.</td>
     </tr>
     <tr>
       <td>`crit_rate`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>Critical hit rate bonus</td>
+      <td>Critical hit rate bonus.</td>
     </tr>
     <tr>
       <td>`ailment_chance`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The likelihood this attack will cause an ailment</td>
+      <td>The likelihood this attack will cause an ailment.</td>
     </tr>
     <tr>
       <td>`flinch_chance`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The likelihood this attack will cause the target Pokémon to flinch</td>
+      <td>The likelihood this attack will cause the target Pokémon to flinch.</td>
     </tr>
     <tr>
       <td>`stat_chance`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The likelihood this attack will cause a stat change in the target Pokémon</td>
+      <td>The likelihood this attack will cause a stat change in the target Pokémon.</td>
     </tr>
   </tbody>
 </table>
@@ -425,13 +425,13 @@ Mach Punch, Quick Attack, Shadow Sneak, Sucker Punch, Thunderclap, Vacuum Wave, 
       <td>`change`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The amount of change</td>
+      <td>The amount of change.</td>
     </tr>
     <tr>
       <td>`stat`</td>
       <td>[`NamedAPIResource`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>The stat being affected</td>
+      <td>The stat being affected.</td>
     </tr>
   </tbody>
 </table>
@@ -452,43 +452,43 @@ Mach Punch, Quick Attack, Shadow Sneak, Sucker Punch, Thunderclap, Vacuum Wave, 
       <td>`accuracy`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The percent value of how likely this move is to be successful</td>
+      <td>The percent value of how likely this move is to be successful.</td>
     </tr>
     <tr>
       <td>`effect_chance`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The percent value of how likely it is this moves effect will take effect</td>
+      <td>The percent value of how likely it is this moves effect will take effect.</td>
     </tr>
     <tr>
       <td>`power`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The base power of this move with a value of 0 if it does not have a base power</td>
+      <td>The base power of this move with a value of 0 if it does not have a base power.</td>
     </tr>
     <tr>
       <td>`pp`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>Power points. The number of times this move can be used</td>
+      <td>Power points. The number of times this move can be used.</td>
     </tr>
     <tr>
       <td>`effect_entries`</td>
       <td>[`Array<VerboseEffect>`](../utils#verboseeffect)</td>
       <td>Yes</td>
-      <td>The effect of this move listed in different languages</td>
+      <td>The effect of this move listed in different languages.</td>
     </tr>
     <tr>
       <td>`type`</td>
       <td>[`NamedAPIResource`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>The elemental type of this mov</td>
+      <td>The elemental type of this move.</td>
     </tr>
     <tr>
       <td>`version_group`</td>
       <td>[`NamedAPIResource`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>The version group in which these move stat values were in effect</td>
+      <td>The version group in which these move stat values were in effect.</td>
     </tr>
   </tbody>
 </table>
@@ -511,25 +511,25 @@ Move Ailments are status conditions caused by moves used during battle. See [Bul
       <td>`id`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The identifier for this resource</td>
+      <td>The identifier for this resource.</td>
     </tr>
     <tr>
       <td>`name`</td>
       <td>`string`</td>
       <td>Yes</td>
-      <td>The name for this resource</td>
+      <td>The name for this resource.</td>
     </tr>
     <tr>
       <td>`names`</td>
       <td>[`Array<Name>`](../utils#name)</td>
       <td>Yes</td>
-      <td>The name of this resource listed in different languages</td>
+      <td>The name of this resource listed in different languages.</td>
     </tr>
     <tr>
       <td>`move`</td>
       <td>[`Array<NamedAPIResource>`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>A list of moves that cause this ailment</td>
+      <td>A list of moves that cause this ailment.</td>
     </tr>
   </tbody>
 </table>
@@ -552,19 +552,19 @@ Styles of moves when used in the Battle Palace. See [Bulbapedia](https://bulbape
       <td>`id`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The identifier for this resource</td>
+      <td>The identifier for this resource.</td>
     </tr>
     <tr>
       <td>`name`</td>
       <td>`string`</td>
       <td>Yes</td>
-      <td>The name for this resource</td>
+      <td>The name for this resource.</td>
     </tr>
     <tr>
       <td>`names`</td>
       <td>[`Array<Name>`](../utils#name)</td>
       <td>Yes</td>
-      <td>The name of this resource listed in different languages</td>
+      <td>The name of this resource listed in different languages.</td>
     </tr>
   </tbody>
 </table>
@@ -587,25 +587,25 @@ Very general categories that loosely group move effects.
       <td>`id`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The identifier for this resource</td>
+      <td>The identifier for this resource.</td>
     </tr>
     <tr>
       <td>`name`</td>
       <td>`string`</td>
       <td>Yes</td>
-      <td>The name for this resource</td>
+      <td>The name for this resource.</td>
     </tr>
     <tr>
       <td>`moves`</td>
       <td>[`Array<NamedAPIResource>`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>A list of moves that fall into this category</td>
+      <td>A list of moves that fall into this category.</td>
     </tr>
     <tr>
       <td>`descriptions`</td>
       <td>[`Array<Description>`](../utils#description)</td>
       <td>Yes</td>
-      <td>The description of this resource listed in different languages</td>
+      <td>The description of this resource listed in different languages.</td>
     </tr>
   </tbody>
 </table>
@@ -628,31 +628,31 @@ Damage classes moves can have, e.g. physical, special, or non-damaging.
       <td>`id`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The identifier for this resource</td>
+      <td>The identifier for this resource.</td>
     </tr>
     <tr>
       <td>`name`</td>
       <td>`string`</td>
       <td>Yes</td>
-      <td>The name for this resource</td>
+      <td>The name for this resource.</td>
     </tr>
     <tr>
       <td>`names`</td>
       <td>[`Array<Name>`](../utils#name)</td>
       <td>Yes</td>
-      <td>The name of this resource listed in different languages</td>
+      <td>The name of this resource listed in different languages.</td>
     </tr>
     <tr>
       <td>`moves`</td>
       <td>[`Array<NamedAPIResource>`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>A list of moves that fall into this damage class</td>
+      <td>A list of moves that fall into this damage class.</td>
     </tr>
     <tr>
       <td>`descriptions`</td>
       <td>[`Array<Description>`](../utils#description)</td>
       <td>Yes</td>
-      <td>The description of this resource listed in different languages</td>
+      <td>The description of this resource listed in different languages.</td>
     </tr>
   </tbody>
 </table>
@@ -675,31 +675,31 @@ Methods by which Pokémon can learn moves.
       <td>`id`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The identifier for this resource</td>
+      <td>The identifier for this resource.</td>
     </tr>
     <tr>
       <td>`name`</td>
       <td>`string`</td>
       <td>Yes</td>
-      <td>The name for this resource</td>
+      <td>The name for this resource.</td>
     </tr>
     <tr>
       <td>`names`</td>
       <td>[`Array<Name>`](../utils#name)</td>
       <td>Yes</td>
-      <td>The name of this resource listed in different languages</td>
+      <td>The name of this resource listed in different languages.</td>
     </tr>
     <tr>
       <td>`descriptions`</td>
       <td>[`Array<Description>`](../utils#description)</td>
       <td>Yes</td>
-      <td>The description of this resource listed in different languages</td>
+      <td>The description of this resource listed in different languages.</td>
     </tr>
     <tr>
       <td>`version_groups`</td>
       <td>[`Array<NamedAPIResource>`](../utils#namedapiresource)</td>
       <td>Yes</td>
-      <td>A list of version groups where moves can be learned through this method</td>
+      <td>A list of version groups where moves can be learned through this method.</td>
     </tr>
   </tbody>
 </table>
@@ -722,31 +722,31 @@ Targets moves can be directed at during battle. Targets can be Pokémon, environ
       <td>`id`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The identifier for this resource</td>
+      <td>The identifier for this resource.</td>
     </tr>
     <tr>
       <td>`name`</td>
       <td>`string`</td>
       <td>Yes</td>
-      <td>The name for this resource</td>
+      <td>The name for this resource.</td>
     </tr>
     <tr>
       <td>`names`</td>
       <td>[`Array<Name>`](../utils#name)</td>
       <td>Yes</td>
-      <td>The name of this resource listed in different languages</td>
-    </tr>
-    <tr>
-      <td>`descriptions`</td>
-      <td>[`Array<Description>`](../utils#description)</td>
-      <td>Yes</td>
-      <td>The description of this resource listed in different languages</td>
+      <td>The name of this resource listed in different languages.</td>
     </tr>
     <tr>
       <td>`moves`</td>
       <td>[`Array<NamedAPIResource>`](../utils#namedapiresource)</td>
       <td>Yes</td>
       <td>A list of moves that that are directed at this target.</td>
+    </tr>
+    <tr>
+      <td>`descriptions`</td>
+      <td>[`Array<Description>`](../utils#description)</td>
+      <td>Yes</td>
+      <td>The description of this resource listed in different languages.</td>
     </tr>
   </tbody>
 </table>
