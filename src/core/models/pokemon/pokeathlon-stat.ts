@@ -3,7 +3,8 @@ import { Name, NamedAPIResource } from '../utility/common';
 /**
  * (GET) {@link https://pokeapi.co/api/v2/pokeathlon-stat/1 https://pokeapi.co/api/v2/pokeathlon-stat/[id or name]}
  *
- * Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.
+ * Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats.
+ * See {@link http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9athlon Bulbapedia} for greater detail.
  *
  * @property id - The identifier for this resource.
  * @property name - The name for this resource.
@@ -14,14 +15,14 @@ export interface PokeathlonStat {
   id: number;
   name: string;
   names: Name[];
-  pokemon_entries: NaturePokeathlonStatAffectSet[];
+  affecting_natures: NaturePokeathlonStatAffectSets;
 }
 
 /**
  * @property increase - A list of natures and how they change the referenced Pokéathlon stat.
  * @property decrease - A list of natures and how they change the referenced Pokéathlon stat.
  * */
-export interface NaturePokeathlonStatAffectSet {
+export interface NaturePokeathlonStatAffectSets {
   increase: NaturePokeathlonStatAffect[];
   decrease: NaturePokeathlonStatAffect[];
 }

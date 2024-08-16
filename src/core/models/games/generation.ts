@@ -7,9 +7,9 @@ import { Name, NamedAPIResource } from '../utility/common';
  *
  * @property id - The identifier for this resource.
  * @property name - The name for this resource.
- * @property abilities - A list of abilities that were introduced in this generation.
  * @property names - The name of this resource listed in different languages.
  * @property main_region - The main region travelled in this generation.
+ * @property abilities - A list of abilities that were introduced in this generation.
  * @property moves - A list of moves that were introduced in this generation.
  * @property types - A list of types that were introduced in this generation.
  * @property pokemon_species - A list of Pokémon species that were introduced in this generation.

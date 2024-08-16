@@ -28,16 +28,16 @@ export interface Effect {
 /**
  * @property min_level - The lowest level the Pokémon could be encountered at.
  * @property max_level - The highest level the Pokémon could be encountered at.
- * @property condition_values - A list of condition values that must be in effect for this encounter to occur.
  * @property chance - Percent chance that this encounter will occur.
  * @property method - The method by which this encounter happens.
+ * @property condition_values - A list of condition values that must be in effect for this encounter to occur.
  */
 export interface Encounter {
   min_level: number;
   max_level: number;
-  condition_values: NamedAPIResource[];
   chance: number;
   method: NamedAPIResource;
+  condition_values: NamedAPIResource[];
 }
 
 /**
@@ -129,9 +129,15 @@ export interface VersionGroupFlavorText {
   version_group: NamedAPIResource;
 }
 
+/**
+ * @property count - The total number of resources available from this API.
+ * @property next - The URL for the next page in the list.
+ * @property previous - The URL for the previous page in the list.
+ * @property results - A list of named API resources.
+ */
 export interface PaginatedResult {
   count: number;
-  next: number | null;
-  previous: number | null;
+  next: string | null;
+  previous: string | null;
   results: NamedAPIResource[];
 }

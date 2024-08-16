@@ -5,18 +5,18 @@ import { Name } from './common';
  *
  * Languages for translations of API resource information.
  *
- * @property id - The identifier for this resource
+ * @property id - The identifier for this resource.
  * @property name - The name for this resource.
- * @property official - Whether or not the games are published in this language.
+ * @property names - The name of this resource listed in different languages.
  * @property iso639 - The two-letter code of the country where this language is spoken. Note that it is not unique.
  * @property iso3166 - The two-letter code of the language. Note that it is not unique.
- * @property names - The name of this resource listed in different languages.
+ * @property official - Whether or not the games are published in this language.
  */
 export interface Language {
   id: number;
   name: string;
-  official: boolean;
+  names: Name[];
   iso639: string;
   iso3166: string;
-  names: Name;
+  official: boolean;
 }
