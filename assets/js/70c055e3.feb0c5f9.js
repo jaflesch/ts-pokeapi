@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[3769],{3219:e=>{e.exports=JSON.parse('{"title":"Guides","description":"Start here","slug":"/category/guides","permalink":"/ts-pokeapi/docs/category/guides","navigation":{"next":{"title":"Getting started","permalink":"/ts-pokeapi/docs/guides/getting-started"}}}')}}]);
