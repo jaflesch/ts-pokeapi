@@ -1,0 +1,63 @@
+:root {
+  --ifm-color-primary: #0079ca;
+  --ifm-color-primary-dark: #006db6;
+  --ifm-color-primary-darker: #0067ac;
+  --ifm-color-primary-darkest: #00558d;
+  --ifm-color-primary-light: #0085de;
+  --ifm-color-primary-lighter: #008be8;
+  --ifm-color-primary-lightest: #089cff;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #3f98fd;
+  --ifm-color-primary-dark: #2087fd;
+  --ifm-color-primary-darker: #107ffd;
+  --ifm-color-primary-darkest: #0268db;
+  --ifm-color-primary-light: #5ea9fd;
+  --ifm-color-primary-lighter: #6eb1fd;
+  --ifm-color-primary-lightest: #9dcafe;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+table.full-width {
+  display: table;
+  width: 100%;
+}
+table.full-width .left {
+  text-align: left;
+}
+table.full-width .upc {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+table.full-width p {
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.hero__title {
+  text-align: left;
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero__subtitle {
+  text-align-last: left;
+}
+
+.footer__copyright {
+  position: absolute;
+  right: 0;
+  left: 0;
+  background: black;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+[data-theme='dark'] .footer__copyright {
+  background: #fafafa;
+  color: black;
+}

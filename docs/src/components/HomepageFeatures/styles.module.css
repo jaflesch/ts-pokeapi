@@ -1,0 +1,19 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 4rem 0;
+  width: 100%;
+}
+
+.features .row + .row {
+  margin-top: 32px;
+}
+
+.featureImage {
+  height: 128px;
+  width: 128px;
+}
+
+.rowBreak {
+  margin-top: 2rem;
+}
