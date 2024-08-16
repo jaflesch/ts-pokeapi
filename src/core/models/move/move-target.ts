@@ -8,13 +8,13 @@ import { Description, Name, NamedAPIResource } from '../utility/common';
  * @property id - The identifier for this resource.
  * @property name - The name for this resource.
  * @property names - The name of this resource listed in different languages.
- * @property descriptions - The description of this resource listed in different languages.
  * @property moves - A list of moves that that are directed at this target.
+ * @property descriptions - The description of this resource listed in different languages.
  * */
 export interface MoveTarget {
   id: number;
   name: string;
-  descriptions: Description[];
   names: Name[];
   moves: NamedAPIResource[];
+  descriptions: Description[];
 }

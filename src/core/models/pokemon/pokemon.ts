@@ -7,11 +7,11 @@ import { Name, NamedAPIResource, VersionGameIndex } from '../utility/common';
  *
  * @property id - The identifier for this resource.
  * @property name - The name for this resource.
- * @property base_experience - The base experience gained for defeating this Pokémon.
  * @property height - The height of this Pokémon in decimetres.
- * @property is_default - Set for exactly one Pokémon used as the default for each species.
- * @property order - Order for sorting. Almost national order, except families are grouped together.
  * @property weight - The weight of this Pokémon in hectograms.
+ * @property order - Order for sorting. Almost national order, except families are grouped together.
+ * @property is_default - Set for exactly one Pokémon used as the default for each species.
+ * @property base_experience - The base experience gained for defeating this Pokémon.
  * @property abilities - A list of abilities this Pokémon could potentially have.
  * @property forms - A list of forms this Pokémon can take on.
  * @property game_indices - A list of game indices relevent to Pokémon item by generation.
@@ -19,7 +19,7 @@ import { Name, NamedAPIResource, VersionGameIndex } from '../utility/common';
  * @property location_area_encounters - A link to a list of location areas, as well as encounter details pertaining to specific versions.
  * @property moves - A list of moves along with learn methods and level details pertaining to specific version groups.
  * @property past_types - A list of details showing types this pokémon had in previous generations.
- * @property sprites - A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at PokeAPI/sprites
+ * @property sprites - A set of sprites used to depict this Pokémon in the game. A visual representation of the various sprites can be found at PokeAPI/sprites.
  * @property species - The species this Pokémon belongs to.
  * @property stats - A list of base stat values for this Pokémon.
  * @property types - A list of details showing types this Pokémon has.
@@ -27,11 +27,11 @@ import { Name, NamedAPIResource, VersionGameIndex } from '../utility/common';
 export interface Pokemon {
   id: number;
   name: string;
-  base_experience: number;
-  height: number;
-  is_default: boolean;
   order: number;
+  height: number;
   weight: number;
+  is_default: boolean;
+  base_experience: number;
   abilities: PokemonAbility[];
   forms: NamedAPIResource[];
   game_indices: VersionGameIndex[];
@@ -66,12 +66,12 @@ export interface PokemonHeldItem {
 }
 
 /**
- * @property version - The version in which the item is held.
  * @property rarity- How often the item is held.
+ * @property version - The version in which the item is held.
  * */
 export interface PokemonHeldItemVersion {
-  version: NamedAPIResource;
   rarity: number;
+  version: NamedAPIResource;
 }
 
 /**
@@ -80,18 +80,18 @@ export interface PokemonHeldItemVersion {
  * */
 export interface PokemonMove {
   move: NamedAPIResource;
-  version_group_details: PokemonMovieVersion[];
+  version_group_details: PokemonMoveVersion[];
 }
 
 /**
- * @property move_learn_method: The method by which the move is learned.
- * @property version_group: The version group in which the move is learned.
  * @property level_learned_at: The minimum level to learn the move.
+ * @property version_group: The version group in which the move is learned.
+ * @property move_learn_method: The method by which the move is learned.
  * */
-export interface PokemonMovieVersion {
-  move_learn_method: NamedAPIResource;
-  version_group: NamedAPIResource;
+export interface PokemonMoveVersion {
   level_learned_at: number;
+  version_group: NamedAPIResource;
+  move_learn_method: NamedAPIResource;
 }
 
 /**

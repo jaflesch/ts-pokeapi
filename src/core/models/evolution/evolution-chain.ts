@@ -10,9 +10,9 @@ import { NamedAPIResource } from '../utility/common';
  *
  * Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
  *
- * @property id - The identifier for this resource
- * @property baby_trigger_item - The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon
- * @property chain - The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order
+ * @property id - The identifier for this resource.
+ * @property chain - The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
+ * @property baby_trigger_item - The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon.
  * */
 export interface EvolutionChain {
   id: number;
@@ -20,6 +20,12 @@ export interface EvolutionChain {
   baby_trigger_item: NamedAPIResource;
 }
 
+/**
+ * @property is_baby - Whether or not this link is for a baby Pokémon. This would only ever be true on the base link.
+ * @property species - The Pokémon species at this point in the evolution chain.
+ * @property evolution_details - All details regarding the specific details of the referenced Pokémon species evolution.
+ * @property evolves_to - A List of chain objects.
+ * */
 export interface ChainLink {
   is_baby: boolean;
   species: NamedAPIResource;
@@ -28,8 +34,7 @@ export interface ChainLink {
 }
 
 /**
- * Evolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy.
- *
+ * The detailed Pokémon species evolution.
  * @property item - The item required to cause evolution this into Pokémon species.
  * @property trigger - The type of event that triggers evolution into this Pokémon species.
  * @property gender - The id of the gender of the evolving Pokémon species must be in order to evolve into this Pokémon species.

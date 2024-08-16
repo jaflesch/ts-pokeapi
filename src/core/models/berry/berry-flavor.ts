@@ -19,6 +19,10 @@ export interface BerryFlavor {
   names: Name[];
 }
 
+/**
+ * @property potency - The potency of the flavor.
+ * @property berry - The berry associated with the flavor.
+ */
 export interface FlavorBerryMap {
   potency: number;
   berry: NamedAPIResource;

@@ -84,8 +84,8 @@ export type MovePriority =
   | 8;
 
 /**
- * @property normal - A detail of moves this move can be used before or after, granting additional appeal points in contests
- * @property super - A detail of moves this move can be used before or after, granting additional appeal points in super contests
+ * @property normal - A detail of moves this move can be used before or after, granting additional appeal points in contests.
+ * @property super - A detail of moves this move can be used before or after, granting additional appeal points in super contests.
  */
 export interface ContestComboSet {
   normal: ContestComboDetail;
@@ -93,8 +93,8 @@ export interface ContestComboSet {
 }
 
 /**
- * @property use_before - A list of moves to use before this move
- * @property use_after - A list of moves to use after this move
+ * @property use_before - A list of moves to use before this move.
+ * @property use_after - A list of moves to use after this move.
  */
 export interface ContestComboDetail {
   use_before: NamedAPIResource[];
@@ -102,9 +102,9 @@ export interface ContestComboDetail {
 }
 
 /**
- * @property flavor_text - The localized flavor text for an api resource in a specific language
- * @property language - The language this name is in
- * @property version_group - The version group that uses this flavor text
+ * @property flavor_text - The localized flavor text for an api resource in a specific language.
+ * @property language - The language this name is in.
+ * @property version_group - The version group that uses this flavor text.
  */
 export interface MoveFlavorText {
   flavor_text: string;
@@ -113,7 +113,7 @@ export interface MoveFlavorText {
 }
 
 /**
- * @property ailment - The status ailment this move inflicts on its target
+ * @property ailment - The status ailment this move inflicts on its target.
  * @property category - The category of move this move falls under, e.g. damage or ailment.
  * @property min_hits - The minimum number of times this move hits. Null if it always only hits once.
  * @property max_hits - The maximum number of times this move hits. Null if it always only hits once.
@@ -142,8 +142,8 @@ export interface MoveMetaData {
 }
 
 /**
- * @property change	- The amount of change
- * @property stat - The stat being affected
+ * @property change	- The amount of change.
+ * @property stat - The stat being affected.
  */
 export interface MoveStatChange {
   change: number;
@@ -151,19 +151,19 @@ export interface MoveStatChange {
 }
 
 /**
- * @property accuracy	- The percent value of how likely this move is to be successful
- * @property effect_chance - The percent value of how likely it is this moves effect will take effect
- * @property power - The base power of this move with a value of 0 if it does not have a base power
- * @property pp	- Power points. The number of times this move can be used
- * @property effect_entries	- The effect of this move listed in different languages
- * @property type	- The elemental type of this move
- * @property version_group - The version group in which these move stat values were in effect
+ * @property pp	- Power points. The number of times this move can be used.
+ * @property power - The base power of this move with a value of 0 if it does not have a base power.
+ * @property accuracy	- The percent value of how likely this move is to be successful.
+ * @property effect_chance - The percent value of how likely it is this moves effect will take effect.
+ * @property effect_entries	- The effect of this move listed in different languages.
+ * @property type	- The elemental type of this move.
+ * @property version_group - The version group in which these move stat values were in effect.
  */
 export interface PastMoveStatValues {
+  pp: number;
+  power: number;
   accuracy: number;
   effect_chance: number;
-  power: number;
-  pp: number;
   effect_entries: VerboseEffect[];
   type: NamedAPIResource;
   version_group: NamedAPIResource;

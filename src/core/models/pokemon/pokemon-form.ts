@@ -34,7 +34,7 @@ export interface PokemonForm {
   is_battle_only: boolean;
   pokemon: NamedAPIResource;
   types: PokemonFormType[];
-  sprites: PokemonFormSprite;
+  sprites: PokemonFormSprites;
   version_group: NamedAPIResource;
 }
 
@@ -44,7 +44,7 @@ export interface PokemonForm {
  * @property back_default - The default depiction of this Pokémon form from the back in battle.
  * @property back_shiny - The shiny depiction of this Pokémon form from the back in battle.
  * */
-export interface PokemonFormSprite {
+export interface PokemonFormSprites {
   front_default: string;
   front_shiny: string;
   back_default: string;

@@ -47,7 +47,7 @@ type GetStatValueParams = {
 };
 
 /**
- * Returns the Pokémon's final stat value regarding parameters sent
+ * Returns the Pokémon's final stat value regarding parameters sent.
  * @param {Object} params - The general parameters used for Pokémon's stat calculation.
  * @param {number} params.base - The Pokémon's base stat value (HP, Attack, Defense, Special Attack, Special Defense, or Speed).
  * @param {number} [params.ev = 0] - The Pokémon's Effort Value (EV) for given stat.
@@ -105,7 +105,7 @@ export const getStatValue = ({
 };
 
 /**
- * Returns the Pokémon's final maximum possible stat value regarding parameters sent
+ * Returns the Pokémon's final maximum possible stat value regarding parameters sent.
  * @param {Object} params - The general parameters used for Pokémon's maximum possible stat calculation.
  * @param {number} params.base - The Pokémon's base stat value (HP, Attack, Defense, Special Attack, Special Defense, or Speed).
  * @param {boolean} [params.isHp = false] - True if evaluating HP stat value for given Pokémon.
@@ -125,7 +125,7 @@ export const getMaxStatValue = (
 };
 
 /**
- * Returns the Pokémon's final minimum possible stat value regarding parameters sent
+ * Returns the Pokémon's final minimum possible stat value regarding parameters sent.
  * @param {Object} params - The general parameters used for Pokémon's minimum possible stat calculation.
  * @param {number} params.base - The Pokémon's base stat value (HP, Attack, Defense, Special Attack, Special Defense, or Speed).
  * @param {boolean} [params.isHp = false] - True if evaluating HP stat value for given Pokémon.
@@ -382,13 +382,13 @@ type GetCPValueParams = {
 /**
  * Returns the Pokémon's Combat Power in Pokémon: Let's Go, Pikachu! and Let's Go, Eevee! games.
  * @param {Object} params - The general parameters used for Pokémon's stat calculation.
- * @param {number} params.stat - The Pokémon's base stats
- * @param {number} params.stat.hp - The Pokémon's HP stat value
- * @param {number} params.stat.attack - The Pokémon's Attack stat value
- * @param {number} params.stat.defense - The Pokémon's Defense stat value
- * @param {number} params.stat.specialAttack - The Pokémon's Special Attack stat value
- * @param {number} params.stat.specialDefense - The Pokémon's Special Defense stat value
- * @param {number} params.stat.speed - The Pokémon's Speed stat value
+ * @param {number} params.stat - The Pokémon's base stats.
+ * @param {number} params.stat.hp - The Pokémon's HP stat value.
+ * @param {number} params.stat.attack - The Pokémon's Attack stat value.
+ * @param {number} params.stat.defense - The Pokémon's Defense stat value.
+ * @param {number} params.stat.specialAttack - The Pokémon's Special Attack stat value.
+ * @param {number} params.stat.specialDefense - The Pokémon's Special Defense stat value.
+ * @param {number} params.stat.speed - The Pokémon's Speed stat value.
  * @param {number} [params.totalAv = 0] - True if evaluating HP stat value for given Pokémon.
  * @param {number} [params.level = 100] - The Pokémon's level.
  * @returns {number}

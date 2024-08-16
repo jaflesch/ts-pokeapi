@@ -8,7 +8,7 @@ import { Name, NamedAPIResource } from '../utility/common';
  * @property id - The identifier for this resource.
  * @property name - The name for this resource.
  * @property names - The name of this resource listed in different languages.
- * @property pokemon_encounters - A list of Pokémon encountered in thi pal park area along with details.
+ * @property pokemon_encounters - A list of Pokémon encountered in this pal park area along with details.
  * */
 export interface PalParkArea {
   id: number;
@@ -18,12 +18,12 @@ export interface PalParkArea {
 }
 
 /**
- * @property base_score - The base score given to the player when this Pokémon is caught during a pal park run.
  * @property rate - The base rate for encountering this Pokémon in this pal park area.
+ * @property base_score - The base score given to the player when this Pokémon is caught during a pal park run.
  * @property pokemon_species - The Pokémon species being encountered.
  * */
 export interface PalParkEncounterSpecie {
-  base_score: number;
   rate: number;
+  base_score: number;
   pokemon_species: NamedAPIResource;
 }
