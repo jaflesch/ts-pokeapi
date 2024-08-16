@@ -12,7 +12,7 @@ See more on [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Stat).
 
 ## Methods
 ### getStatValue()
-Returns the Pokémon's final stat value regarding parameters sent
+Returns the Pokémon's final stat value regarding parameters sent.
 
 #### Signature
 ```typescript
@@ -90,7 +90,7 @@ getStatValue(params: GetStatValueParams) => number
       <td>`boolean`</td>
       <td>No</td>
       <td>
-      True if evaluating a stat for [Shedinja](https://bulbapedia.bulbagarden.net/wiki/Shedinja_(Pok%C3%A9mon))
+      True if evaluating a stat for [Shedinja](https://bulbapedia.bulbagarden.net/wiki/Shedinja_(Pok%C3%A9mon)).
       </td>
     </tr>
   </tbody>
@@ -106,25 +106,25 @@ A number with the Pokémon's final stat value.
 getStatValue({
   base: 100,
   ev: 255,
-}); // outputs 328
+}); // returns 328
 
 getStatValue({
   base: 100,
   ev: 255,
   isHp: true,
-}); // outputs 404
+}); // returns 404
 
 getStatValue({
   base: 100,
   iv: 0,
   isHp: true,
-}); // outputs 310
+}); // returns 310
 
 getStatValue({
   base: 100,
   isHp: true,
   isShedinja: true,
-}); // outputs 1
+}); // returns 1
 ```
 
 ### getMaxStatValue()
@@ -182,7 +182,7 @@ getMaxStatValue(params: Omit<GetStatValueParams, 'iv' | 'ev' | 'nature'>) => num
       <td>`boolean`</td>
       <td>No</td>
       <td>
-      True if evaluating a stat for [Shedinja](https://bulbapedia.bulbagarden.net/wiki/Shedinja_(Pok%C3%A9mon))
+      True if evaluating a stat for [Shedinja](https://bulbapedia.bulbagarden.net/wiki/Shedinja_(Pok%C3%A9mon)).
       </td>
     </tr>
   </tbody>
@@ -197,12 +197,12 @@ A number with the Pokémon's final maximum possible stat value.
 ```typescript
 getMaxStatValue({
   base: 100,
-}); // outputs 328
+}); // returns 328
 
 getMaxStatValue({
   base: 100,
   isHp: true,
-}); // outputs 404
+}); // returns 404
 ```
 
 ### getMinStatValue()
@@ -260,7 +260,7 @@ getMinStatValue(params: Omit<GetStatValueParams, 'iv' | 'ev' | 'nature'>) => num
       <td>`boolean`</td>
       <td>No</td>
       <td>
-      True if evaluating a stat for [Shedinja](https://bulbapedia.bulbagarden.net/wiki/Shedinja_(Pok%C3%A9mon))
+      True if evaluating a stat for [Shedinja](https://bulbapedia.bulbagarden.net/wiki/Shedinja_(Pok%C3%A9mon)).
       </td>
     </tr>
   </tbody>
@@ -275,12 +275,12 @@ A number with the Pokémon's final minimum possible stat value.
 ```typescript
 getMinStatValue({
   base: 100,
-}); // outputs 184
+}); // returns 184
 
 getMinStatValue({
   base: 100,
   isHp: true,
-}); // outputs 310
+}); // returns 310
 ```
 
 ### getPriorGenIIIStatValue()
@@ -365,7 +365,7 @@ getPriorGenIIIStatValue({
   base: 35,
   iv: 7,
   ev: 22850,
-}); // outputs 189
+}); // returns 189
 ```
 
 
@@ -448,13 +448,13 @@ getLegendsArceusStatValue({
   level: 100,
   base: 120,
   effortLevel: 10,
-}); // outputs 490
+}); // returns 490
 
 getLegendsArceusStatValue({
   level: 100,
   base: 120,
   effortLevel: 10,
-}) // outputs 390
+}) // returns 390
 ```
 
 
@@ -492,8 +492,8 @@ A number with the multiplier for given effort level.
 #### Example
 
 ```typescript
-getPLAEfforLevelMultiplier(0); // outputs 0
-getPLAEfforLevelMultiplier(10); // outputs 25
+getPLAEfforLevelMultiplier(0); // returns 0
+getPLAEfforLevelMultiplier(10); // returns 25
 ```
 
 
@@ -576,7 +576,7 @@ getLetsGoPikachuStatValue({
   isHp: true,
   level: 100,
   base: 100,
-}); // outputs 341
+}); // returns 341
 ```
 
 ### getLGPFriendshipMultiplier()
@@ -612,8 +612,8 @@ A number with the Pokémon's friendship level.
 
 #### Example
 ```typescript
-getLGPFriendshipMultiplier(0); // outputs 1
-getLGPFriendshipMultiplier(255); // outputs 1.1
+getLGPFriendshipMultiplier(0); // returns 1
+getLGPFriendshipMultiplier(255); // returns 1.1
 ```
 
 ### getCPValue()
@@ -715,7 +715,7 @@ getCPValue({
     specialDefense: 70,
     speed: 110,
   },
-}); // outputs 1485
+}); // returns 1485
 ```
 
 
@@ -751,7 +751,7 @@ getStatWithStage(statValue: number, multiplier: StageMultiplier) => number
       <td>`multiplier`</td>
       <td>[`StageMultiplier`](#stagemultiplier)</td>
       <td>Yes</td>
-      <td>The stage multiplier to apply on Pokémon stat</td>
+      <td>The stage multiplier to apply on Pokémon stat.</td>
     </tr>
   </tbody>
 </table>
@@ -762,8 +762,8 @@ A number with the stat after stage multiplier applied.
 
 #### Example
 ```typescript
-getStatWithStage(300, 1); // outputs 450
-getStatWithStage(300, -2); // outputs 75
+getStatWithStage(300, 1); // returns 450
+getStatWithStage(300, -2); // returns 75
 ```
 
 ## Type Definitions

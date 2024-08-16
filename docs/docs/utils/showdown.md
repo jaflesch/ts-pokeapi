@@ -39,9 +39,9 @@ format(params: FormatParams) => string
     </tr>
     <tr>
       <td>`params.pokemon`</td>
-      <td>`PokemonSpecie` or `string`</td>
+      <td>[`PokemonSpecie`](../poke-api/interfaces/pokemon.md#pokemonspecie) or `string`</td>
       <td>Yes</td>
-      <td>The Pokémon name</td>
+      <td>The Pokémon name.</td>
     </tr>
     <tr>
       <td>`params.level`</td>
@@ -99,7 +99,7 @@ format(params: FormatParams) => string
     </tr>
     <tr>
       <td>`params.nature`</td>
-      <td>`NatureName`</td>
+      <td>[`NatureName`](../utils/nature.md#naturename)</td>
       <td>No</td>
       <td>The Pokémon's nature.</td>
     </tr>

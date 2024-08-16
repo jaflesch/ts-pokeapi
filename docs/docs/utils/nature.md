@@ -58,7 +58,7 @@ A string from [`NatureName`](#naturename) enum.
 getNatureName({
   increase: PokemonStatName.ATTACK,
   decrease: PokemonStatName.SPECIAL_ATTACK,
-}); // outputs 'Adamant'
+}); // returns 'Adamant'
 ```
 
 
@@ -66,44 +66,55 @@ getNatureName({
 
 ### GetNatureNameParam
 
-An enumeration of stats from [PokemonStatId](#example) and [PokemonStatName](#example), excluding HP.
+An enumeration of stats from [PokemonStatId](#example) and [PokemonStatName](#example), excluding HP, Accuracy, and Evasion.
 
 <table className='full-width'>
   <thead className='left upc'>
     <tr>
-      <th>Types</th>
+      <th width="50%">Name</th>
+      <th>Value</th>
     </tr>
     </thead>
     <tbody>
       <tr>
-        <td>PokemonStatId.ATTACK</td>
+        <td>`PokemonStatId.ATTACK`</td>
+        <td>`2`</td>
       </tr>
       <tr>
-        <td>PokemonStatId.DEFENSE</td>
+        <td>`PokemonStatId.DEFENSE`</td>
+        <td>`3`</td>
       </tr>
       <tr>
-        <td>PokemonStatId.SPECIAL_ATTACK</td>
+        <td>`PokemonStatId.SPECIAL_ATTACK`</td>
+        <td>`4`</td>
       </tr>
       <tr>
-        <td>PokemonStatId.SPECIAL_DEFENSE</td>
+        <td>`PokemonStatId.SPECIAL_DEFENSE`</td>
+        <td>`5`</td>
       </tr>
       <tr>
-        <td>PokemonStatId.SPEED</td>
+        <td>`PokemonStatId.SPEED`</td>
+        <td>`6`</td>
       </tr>
       <tr>
-        <td>PokemonStatName.ATTACK</td>
+        <td>`PokemonStatName.ATTACK`</td>
+        <td>`'attack'`</td>
       </tr>
       <tr>
-        <td>PokemonStatName.DEFENSE</td>
+        <td>`PokemonStatName.DEFENSE`</td>
+        <td>`'defense'`</td>
       </tr>
       <tr>
-        <td>PokemonStatName.SPECIAL_ATTACK</td>
+        <td>`PokemonStatName.SPECIAL_ATTACK`</td>
+        <td>`'special-attack'`</td>
       </tr>
       <tr>
-        <td>PokemonStatName.SPECIAL_DEFENSE</td>
+        <td>`PokemonStatName.SPECIAL_DEFENSE`</td>
+        <td>`'special-defense'`</td>
       </tr>
       <tr>
-        <td>PokemonStatName.SPEED</td>
+        <td>`PokemonStatName.SPEED`</td>
+        <td>`'speed'`</td>
       </tr>
   </tbody>
 </table>
@@ -115,84 +126,110 @@ An enumeration of all Pokémon natures.
 <table className='full-width'>
   <thead className='left upc'>
     <tr>
-      <th>Types</th>
+      <th width="50%">Name</th>
+      <th>Value</th>
     </tr>
     </thead>
     <tbody>
       <tr>
-        <td>NatureName.ADAMANT</td>
+        <td>`NatureName.ADAMANT`</td>
+        <td>`'Adamant'`</td>
       </tr>
       <tr>
-        <td>NatureName.BASHFUL</td>
+        <td>`NatureName.BASHFUL`</td>
+        <td>`'Bashful'`</td>
       </tr>
       <tr>
-        <td>NatureName.BOLD</td>
+        <td>`NatureName.BOLD`</td>
+        <td>`'Bold'`</td>
       </tr>
       <tr>
-        <td>NatureName.BRAVE</td>
+        <td>`NatureName.BRAVE`</td>
+        <td>`'Brave'`</td>
       </tr>
       <tr>
-        <td>NatureName.CALM</td>
+        <td>`NatureName.CALM`</td>
+        <td>`'Calm'`</td>
       </tr>
       <tr>
-        <td>NatureName.CAREFUL</td>
+        <td>`NatureName.CAREFUL`</td>
+        <td>`'Careful'`</td>
       </tr>
       <tr>
-        <td>NatureName.DOCILE</td>
+        <td>`NatureName.DOCILE`</td>
+        <td>`'Docile'`</td>
       </tr>
       <tr>
-        <td>NatureName.GENTLE</td>
+        <td>`NatureName.GENTLE`</td>
+        <td>`'Gentle'`</td>
       </tr>
       <tr>
-        <td>NatureName.HARDY</td>
+        <td>`NatureName.HARDY`</td>
+        <td>`'Hardy'`</td>
       </tr>
       <tr>
-        <td>NatureName.HASTY</td>
+        <td>`NatureName.HASTY`</td>
+        <td>`'Hasty'`</td>
       </tr>
       <tr>
-        <td>NatureName.IMPISH</td>
+        <td>`NatureName.IMPISH`</td>
+        <td>`'Impish'`</td>
       </tr>
       <tr>
-        <td>NatureName.JOLLY</td>
+        <td>`NatureName.JOLLY`</td>
+        <td>`'Jolly'`</td>
       </tr>
       <tr>
-        <td>NatureName.LAX</td>
+        <td>`NatureName.LAX`</td>
+        <td>`'Lax'`</td>
       </tr>
       <tr>
-        <td>NatureName.LONELY</td>
+        <td>`NatureName.LONELY`</td>
+        <td>`'Lonely'`</td>
       </tr>
       <tr>
-        <td>NatureName.MILD</td>
+        <td>`NatureName.MILD`</td>
+        <td>`'Mild'`</td>
       </tr>
       <tr>
-        <td>NatureName.MODEST</td>
+        <td>`NatureName.MODEST`</td>
+        <td>`'Modest'`</td>
       </tr>
       <tr>
-        <td>NatureName.NAIVE</td>
+        <td>`NatureName.NAIVE`</td>
+        <td>`'Naive'`</td>
       </tr>
       <tr>
-        <td>NatureName.NAUGHTY</td>
+        <td>`NatureName.NAUGHTY`</td>
+        <td>`'Naughty'`</td>
       </tr>
       <tr>
-        <td>NatureName.QUIET</td>
+        <td>`NatureName.QUIET`</td>
+        <td>`'Quiet'`</td>
       </tr>
       <tr>
-        <td>NatureName.QUIRKY</td>
+        <td>`NatureName.QUIRKY`</td>
+        <td>`'Quirky'`</td>
       </tr>
       <tr>
-        <td>NatureName.RASH</td>
+        <td>`NatureName.RASH`</td>
+        <td>`'Rash'`</td>
       </tr>
       <tr>
-        <td>NatureName.RELAXED</td>
+        <td>`NatureName.RELAXED`</td>
+        <td>`'Relaxed'`</td>
       </tr>
       <tr>
-        <td>NatureName.SASSY</td>
+        <td>`NatureName.SASSY`</td>
+        <td>`'Sassy'`</td>
       </tr>
       <tr>
-        <td>NatureName.SERIOUS</td>
+        <td>`NatureName.SERIOUS`</td>
+        <td>`'Serious'`</td>
       </tr>
       <tr>
-        <td>NatureName.TIMID</td>
+        <td>`NatureName.TIMID`</td>
+        <td>`'Timid'`</td>
       </tr>
   </tbody>
 </table>

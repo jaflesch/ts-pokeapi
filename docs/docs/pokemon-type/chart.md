@@ -4,10 +4,10 @@ sidebar_position: 3
 
 # Type Chart
 
-A stat refers to any of several parameters pertaining to Pokémon that can affect turn order, move success, and damage output during a battle. With exception to the HP stat, a Pokémon's stat can also be temporarily raised or lowered in stages during battle through various effects.
+Types are properties applied to Pokémon and their moves, which affect the power of moves in battles. As of Generation IX, there are 19 types, with 18 regular types and the special Stellar type. Most of the types were introduced during Generation I, but the _Dark_ and _Steel_ types were introduced in Generation II, the _Fairy_ type was introduced in Generation VI, and the _Stellar_ type was introduced in Generation IX.
 
 ::::info
-See more on [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Stat).
+See more on [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Type).
 ::::
 
 ## Methods

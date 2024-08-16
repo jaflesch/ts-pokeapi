@@ -293,4 +293,110 @@ A "syntatic sugar" object with shortened calls for all Pokémon Type module's fo
 </table>
 
 ### PokemonTypeId
+An enum for PokéAPI Type resources' ids.
 
+<table className='full-width'>
+  <thead className='left upc'>
+    <tr>
+      <th>Types</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Enum</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Properties
+
+<table className='full-width'>
+  <thead className='left upc'>
+    <tr>
+      <th>Name</th>
+      <th width="50%">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`PokemonTypeId.NORMAL`</td>
+      <td>`1`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.FIGHTING`</td>
+      <td>`2`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.FLYING`</td>
+      <td>`3`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.POISON`</td>
+      <td>`4`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.GROUND`</td>
+      <td>`5`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.ROCK`</td>
+      <td>`6`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.BUG`</td>
+      <td>`7`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.GHOST`</td>
+      <td>`8`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.STEEL`</td>
+      <td>`9`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.FIRE`</td>
+      <td>`10`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.WATER`</td>
+      <td>`11`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.GRASS`</td>
+      <td>`12`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.ELECTRIC`</td>
+      <td>`13`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.PSYCHIC`</td>
+      <td>`14`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.ICE`</td>
+      <td>`15`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.DRAGON`</td>
+      <td>`16`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.DARK`</td>
+      <td>`17`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.FAIRY`</td>
+      <td>`18`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.UNKNOWN`</td>
+      <td>`10001`</td>
+    </tr>
+    <tr>
+      <td>`PokemonTypeId.SHADOW`</td>
+      <td>`10002`</td>
+    </tr>
+  </tbody>
+</table>

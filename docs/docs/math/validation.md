@@ -4,7 +4,7 @@ sidebar_position: 1000
 
 # Validation
 
-The `PokeApi` is a wrapper class that allows fetching and handling resources from [PokéAPI/v2](https://pokeapi.co/docs/v2) endpoints. All the methods returns typed interfaces regarding the desired PokéAPI resource. For example, a `'/pokemon'` endpoint, can return one single `interface` `Pokemon` resource, or many paginated resources, according to which method was used.
+This module allows easy validation of common parameters across functions from [Stats](../stats), such as Pokémon levels, Effort Values (EVs), Individual Values (IVs) etc.
 
 ## Methods
 
@@ -30,7 +30,7 @@ isValidPokemonLevel(level: number) => boolean
       <td>`level`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The Pokémon level.</td>
+      <td>The Pokémon's level.</td>
     </tr>
   </tbody>
 </table>
@@ -107,7 +107,7 @@ isValidIV(iv: number) => boolean
       <td>`iv`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The Pokémon IV.</td>
+      <td>The Pokémon's IV.</td>
     </tr>
   </tbody>
 </table>
@@ -146,7 +146,7 @@ isValidEV(ev: number) => boolean
       <td>`ev`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The Pokémon EV.</td>
+      <td>The Pokémon's EV.</td>
     </tr>
   </tbody>
 </table>
@@ -223,7 +223,7 @@ isValidIVPriorGen3(iv: number) => boolean
       <td>`iv`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The Pokémon IV.</td>
+      <td>The Pokémon's IV.</td>
     </tr>
   </tbody>
 </table>
@@ -262,7 +262,7 @@ isValidEVPriorGen3(ev: number) => boolean
       <td>`ev`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The Pokémon IV.</td>
+      <td>The Pokémon's IV.</td>
     </tr>
   </tbody>
 </table>
@@ -301,7 +301,7 @@ isValidEffortLevel(effortLevel: number) => boolean
       <td>`effortLevel`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The Pokémon Effort Level.</td>
+      <td>The Pokémon's Effort Level.</td>
     </tr>
   </tbody>
 </table>
@@ -340,7 +340,7 @@ isValidAV(av: number) => boolean
       <td>`av`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The Pokémon AV.</td>
+      <td>The Pokémon's AV.</td>
     </tr>
   </tbody>
 </table>
@@ -418,7 +418,7 @@ isValidFrienshipValue(friendship: number) => boolean
       <td>`friendship`</td>
       <td>`number`</td>
       <td>Yes</td>
-      <td>The Pokémon friendship value.</td>
+      <td>The Pokémon's friendship value.</td>
     </tr>
   </tbody>
 </table>

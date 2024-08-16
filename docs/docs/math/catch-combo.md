@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Catch Combo
 
-Capture Combos are a unique feature in Pokémon Let's Go. As you capture more of the same species of Pokémon in a row, you will increase your Catch Combo. On the surface, this doesn't provide any special benefit, but there are some big benefits from getting long combos.
+Capture Combos are a unique feature in [Pokémon: Let's Go, Pikachu! and Let's Go, Eevee!](https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon:_Let%27s_Go,_Pikachu!_and_Let%27s_Go,_Eevee!). As you capture more of the same species of Pokémon in a row, you will increase your Catch Combo. On the surface, this doesn't provide any special benefit, but there are some big benefits from getting long combos.
 
 ::::info
 For more info about Catch Combo mechanics, visit [Serebii.net](https://www.serebii.net/letsgopikachueevee/catchcombo.shtml).
@@ -78,7 +78,7 @@ const bonus = getCatchComboBonusLGP({
 });
 
 console.log(bonus.sameSpecieChance) // outputs 0.5
-console.log(bonus.guaranteedMaxIVs) // 4
+console.log(bonus.guaranteedMaxIVs) // outputs 4
 console.log(bonus.shinyRate.fullOdds) // outputs 0.00292997363
 console.log(bonus.shinyRate.shinyCharmWithLure) // 0.00366206467
 console.log(bonus.rareSpawnChance) // outputs 0.5
