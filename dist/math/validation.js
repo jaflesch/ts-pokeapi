@@ -25,7 +25,7 @@ const isValidBaseStat = (baseStat) => {
 exports.isValidBaseStat = isValidBaseStat;
 /**
  * Returns true if given value is a valid Pokémon individual value (IV).
- * @param {number} iv - The Pokémon IV.
+ * @param {number} iv - The Pokémon's IV.
  * @returns {boolean}
  */
 const isValidIV = (iv) => {
@@ -37,7 +37,7 @@ const isValidIV = (iv) => {
 exports.isValidIV = isValidIV;
 /**
  * Returns true if given value is a valid Pokémon effort value (EV).
- * @param {number} ev - The Pokémon EV.
+ * @param {number} ev - The Pokémon's EV.
  * @returns {boolean}
  */
 const isValidEV = (ev) => {
@@ -61,7 +61,7 @@ const isValidTotalEVs = (totalEvs) => {
 exports.isValidTotalEVs = isValidTotalEVs;
 /**
  * Returns true if given value is a valid Pokémon individual value (IV) prior Generation III games.
- * @param {number} iv - The Pokémon IV.
+ * @param {number} iv - The Pokémon's IV.
  * @returns {boolean}
  */
 const isValidIVPriorGen3 = (iv) => {
@@ -73,7 +73,7 @@ const isValidIVPriorGen3 = (iv) => {
 exports.isValidIVPriorGen3 = isValidIVPriorGen3;
 /**
  * Returns true if given value is a valid Pokémon effort value (EV) prior Generation III games.
- * @param {number} ev - The Pokémon EV.
+ * @param {number} ev - The Pokémon's EV.
  * @returns {boolean}
  */
 const isValidEVPriorGen3 = (ev) => {
@@ -85,7 +85,7 @@ const isValidEVPriorGen3 = (ev) => {
 exports.isValidEVPriorGen3 = isValidEVPriorGen3;
 /**
  * Returns true if given value is a valid Effort Level on Pokémon Legends Arceus game.
- * @param {number} effortLevel - The Pokémon Effort Level.
+ * @param {number} effortLevel - The Pokémon's Effort Level.
  * @returns {boolean}
  */
 const isValidEffortLevel = (effortLevel) => {
@@ -98,7 +98,7 @@ const isValidEffortLevel = (effortLevel) => {
 exports.isValidEffortLevel = isValidEffortLevel;
 /**
  * Returns true if given value is a valid Pokémon Awakening Value (AV).
- * @param {number} av - The Pokémon AV.
+ * @param {number} av - The Pokémon's AV.
  * @returns {boolean}
  */
 const isValidAV = (av) => {
@@ -122,7 +122,7 @@ const isValidTotalAVs = (totalAvs) => {
 exports.isValidTotalAVs = isValidTotalAVs;
 /**
  * Returns true if given value is a valid friendship value
- * @param {number} friendship - The Pokémon friendship value
+ * @param {number} friendship - The Pokémon's friendship value
  * @returns {boolean}
  */
 const isValidFrienshipValue = (friendship) => {

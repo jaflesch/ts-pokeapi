@@ -37,14 +37,14 @@ export declare const getHeatCrashBasePower: (params: GetMoveBasePowerByRelativeW
  */
 export declare const getMoveBasePowerByRelativeWeightPriorGenVII: (userWeight: number, targetWeight: number) => number;
 /**
- * Returns the move Base Power (BP) according the Pokémon weight for move
+ * Returns the move Base Power (BP) according the Pokémon's weight for move
  * {@link https://bulbapedia.bulbagarden.net/wiki/Grass_Knot_(move) Grass Knot}.
  * @param {number} weight - The Pokémon's weight.
  * @returns {number} The move BP.
  */
 export declare const getGrassKnotBasePower: (weight: number) => number;
 /**
- * Returns the move Base Power (BP) according the Pokémon weight for move {@link https://bulbapedia.bulbagarden.net/wiki/Low_Kick_(move) Low kick}.
+ * Returns the move Base Power (BP) according the Pokémon weight's for move {@link https://bulbapedia.bulbagarden.net/wiki/Low_Kick_(move) Low kick}.
  * @param {number} weight - The Pokémon's weight.
  * @returns {number} The move BP.
  */

@@ -71,13 +71,13 @@ export interface PokemonSpecieDexEntry {
 }
 /**
  * @property rate - The base rate for encountering the referenced Pokémon in this pal park area.
- * @property base_score - The base score given to the player when the referenced Pokémon is caught during a pal park run.
  * @property area - The pal park area where this encounter happens.
+ * @property base_score - The base score given to the player when the referenced Pokémon is caught during a pal park run.
  * */
 export interface PalParkEncounterArea {
-    base_score: number;
     rate: number;
     area: NamedAPIResource;
+    base_score: number;
 }
 /**
  * @property genus - The localized genus for the referenced Pokémon species.

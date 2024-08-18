@@ -6,12 +6,12 @@ import { Name, NamedAPIResource } from '../utility/common';
  *
  * @property id - The identifier for this resource.
  * @property name - The name for this resource.
- * @property berries - A list of the berries with this firmness.
  * @property names - The name of this resource listed in different languages.
+ * @property berries - A list of the berries with this firmness.
  */
 export interface BerryFirmness {
     id: number;
     name: string;
-    berries: NamedAPIResource[];
     names: Name[];
+    berries: NamedAPIResource[];
 }

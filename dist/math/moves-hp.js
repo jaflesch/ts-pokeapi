@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getBrineBasePower = exports.getFlailBasePower = exports.getReversalBasePower = exports.getHardPressBasePower = exports.getWringOutBasePower = exports.getCrushGripBasePower = exports.getWaterSpoutBasePower = exports.getEruptionBasePower = void 0;
 /** Returns the Base Power (BP) for moves considering the ratio between current HP and maximum HP values.
  * @param {number} basePower - The move's initial base power multipler.
- * @param {number} currentHp - The user (or target) current HP dividend value.
- * @param {number} maxHp - The user (or target) maximum HP divisor value.
+ * @param {number} currentHp - The user (or target)'s current HP dividend value.
+ * @param {number} maxHp - The user (or target)'s maximum HP divisor value.
  * @returns {number} The move BP.
  */
 const getBaseHPRelation = (basePower, currentHp, maxHp) => {
@@ -13,8 +13,8 @@ const getBaseHPRelation = (basePower, currentHp, maxHp) => {
 };
 /** Returns the Base Power (BP) for moves considering the ratio between current HP and maximum HP values.
  * This formula works for moves like Reversal and Flail, where the lower the user's HP, the greater the BP becomes.
- * @param {number} currentHp - The user current HP dividend value.
- * @param {number} maxHp - The user maximum HP divisor value.
+ * @param {number} currentHp - The user's current HP dividend value.
+ * @param {number} maxHp - The user's maximum HP divisor value.
  * @returns {number} The move BP.
  */
 const getBaseHPInverseRelationWhenLowHP = (currentHp, maxHp) => {
@@ -39,9 +39,9 @@ const getBaseHPInverseRelationWhenLowHP = (currentHp, maxHp) => {
     }
 };
 /** Returns the Base Power (BP) for
- * {@link https://bulbapedia.bulbagarden.net/wiki/Erouption_(move) Eruption} move according to the ratio of Pokémon current HP and maximum HP.
- * @param {number} currentHp - The user current HP.
- * @param {number} maxHp - The user maximum HP.
+ * {@link https://bulbapedia.bulbagarden.net/wiki/Erouption_(move) Eruption} move according to the ratio of Pokémon's current HP and maximum HP.
+ * @param {number} currentHp - The user's current HP.
+ * @param {number} maxHp - The user's maximum HP.
  * @returns {number} The move BP.
  */
 const getEruptionBasePower = (currentHp, maxHp) => {
@@ -49,9 +49,9 @@ const getEruptionBasePower = (currentHp, maxHp) => {
 };
 exports.getEruptionBasePower = getEruptionBasePower;
 /** Returns the Base Power (BP) for
- * {@link https://bulbapedia.bulbagarden.net/wiki/Water_Spot_(move) Water Spout} move according to the ratio of Pokémon current HP and maximum HP.
- * @param {number} currentHp - The user current HP.
- * @param {number} maxHp - The user maximum HP.
+ * {@link https://bulbapedia.bulbagarden.net/wiki/Water_Spot_(move) Water Spout} move according to the ratio of Pokémon's current HP and maximum HP.
+ * @param {number} currentHp - The user's current HP.
+ * @param {number} maxHp - The user's maximum HP.
  * @returns {number} The move BP.
  */
 const getWaterSpoutBasePower = (currentHp, maxHp) => {
@@ -59,9 +59,9 @@ const getWaterSpoutBasePower = (currentHp, maxHp) => {
 };
 exports.getWaterSpoutBasePower = getWaterSpoutBasePower;
 /** Returns the Base Power (BP) for
- * {@link https://bulbapedia.bulbagarden.net/wiki/Crush_Grip_(move) Crush Grip} move according to the ratio of Pokémon current HP and maximum HP.
- * @param {number} currentHp - The target current HP.
- * @param {number} maxHp - The target maximum HP.
+ * {@link https://bulbapedia.bulbagarden.net/wiki/Crush_Grip_(move) Crush Grip} move according to the ratio of Pokémon's current HP and maximum HP.
+ * @param {number} currentHp - The target's current HP.
+ * @param {number} maxHp - The target's maximum HP.
  * @returns {number} The move BP.
  */
 const getCrushGripBasePower = (currentHp, maxHp) => {
@@ -69,9 +69,9 @@ const getCrushGripBasePower = (currentHp, maxHp) => {
 };
 exports.getCrushGripBasePower = getCrushGripBasePower;
 /** Returns the Base Power (BP) for
- * {@link https://bulbapedia.bulbagarden.net/wiki/Wring_Out_(move) Wring Out} move according to the ratio of Pokémon current HP and maximum HP.
- * @param {number} currentHp - The target current HP.
- * @param {number} maxHp - The target maximum HP.
+ * {@link https://bulbapedia.bulbagarden.net/wiki/Wring_Out_(move) Wring Out} move according to the ratio of Pokémon's current HP and maximum HP.
+ * @param {number} currentHp - The target's current HP.
+ * @param {number} maxHp - The target's maximum HP.
  * @returns {number} The move BP.
  */
 const getWringOutBasePower = (currentHp, maxHp) => {
@@ -79,9 +79,9 @@ const getWringOutBasePower = (currentHp, maxHp) => {
 };
 exports.getWringOutBasePower = getWringOutBasePower;
 /** Returns the Base Power (BP) for
- * {@link https://bulbapedia.bulbagarden.net/wiki/Hard_Press_(move) Hard Press} move according to the ratio of Pokémon current HP and maximum HP.
- * @param {number} currentHp - The target current HP.
- * @param {number} maxHp - The target maximum HP.
+ * {@link https://bulbapedia.bulbagarden.net/wiki/Hard_Press_(move) Hard Press} move according to the ratio of Pokémon's current HP and maximum HP.
+ * @param {number} currentHp - The target's current HP.
+ * @param {number} maxHp - The target's maximum HP.
  * @returns {number} The move BP.
  */
 const getHardPressBasePower = (currentHp, maxHp) => {
@@ -89,9 +89,9 @@ const getHardPressBasePower = (currentHp, maxHp) => {
 };
 exports.getHardPressBasePower = getHardPressBasePower;
 /** Returns the Base Power (BP) for
- * {@link https://bulbapedia.bulbagarden.net/wiki/Reversal_(move) Reversal} move according to the ratio of Pokémon current HP and maximum HP.
- * @param {number} currentHp - The user current HP.
- * @param {number} maxHp - The user maximum HP.
+ * {@link https://bulbapedia.bulbagarden.net/wiki/Reversal_(move) Reversal} move according to the ratio of Pokémon's current HP and maximum HP.
+ * @param {number} currentHp - The user's current HP.
+ * @param {number} maxHp - The user's maximum HP.
  * @returns {number} The move BP.
  */
 const getReversalBasePower = (currentHp, maxHp) => {
@@ -99,9 +99,9 @@ const getReversalBasePower = (currentHp, maxHp) => {
 };
 exports.getReversalBasePower = getReversalBasePower;
 /** Returns the Base Power (BP) for
- * {@link https://bulbapedia.bulbagarden.net/wiki/Flail_(move) Flail} move according to the ratio of Pokémon current HP and maximum HP.
- * @param {number} currentHp - The user current HP.
- * @param {number} maxHp - The user maximum HP.
+ * {@link https://bulbapedia.bulbagarden.net/wiki/Flail_(move) Flail} move according to the ratio of Pokémon's current HP and maximum HP.
+ * @param {number} currentHp - The user's current HP.
+ * @param {number} maxHp - The user's maximum HP.
  * @returns {number} The move BP.
  */
 const getFlailBasePower = (currentHp, maxHp) => {
@@ -109,9 +109,9 @@ const getFlailBasePower = (currentHp, maxHp) => {
 };
 exports.getFlailBasePower = getFlailBasePower;
 /** Returns the Base Power (BP) for
- * {@link https://bulbapedia.bulbagarden.net/wiki/Brine_(move) Brine} move according to the ratio of Pokémon current HP and maximum HP.
- * @param {number} currentHp - The target current HP.
- * @param {number} maxHp - The target maximum HP.
+ * {@link https://bulbapedia.bulbagarden.net/wiki/Brine_(move) Brine} move according to the ratio of Pokémon's current HP and maximum HP.
+ * @param {number} currentHp - The target's current HP.
+ * @param {number} maxHp - The target's maximum HP.
  * @returns {number} The move BP.
  */
 const getBrineBasePower = (currentHp, maxHp) => {

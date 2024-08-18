@@ -4,14 +4,14 @@ import { Name, NamedAPIResource } from '../utility/common';
  *
  * Move Ailments are status conditions caused by moves used during battle. See {@link https://bulbapedia.bulbagarden.net/wiki/Status_condition Bulbapedia} for greater detail.
  *
- * @property id - The identifier for this resource
- * @property name - The name for this resource
- * @property moves - A list of moves that cause this ailment
- * @property names - The name of this resource listed in different languages
+ * @property id - The identifier for this resource.
+ * @property name - The name for this resource.
+ * @property names - The name of this resource listed in different languages.
+ * @property moves - A list of moves that cause this ailment.
  * */
 export interface MoveAilment {
     id: number;
     name: string;
-    moves: NamedAPIResource[];
     names: Name[];
+    moves: NamedAPIResource[];
 }

@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getGyroBallBasePower = exports.getElectroBallBasePower = void 0;
 /** Returns the Base Power (BP) for move
- * {@link https://bulbapedia.bulbagarden.net/wiki/Electro_Ball_(move) Electro Ball} according to the ratio of Pokémon user and target respective speeds.
+ * {@link https://bulbapedia.bulbagarden.net/wiki/Electro_Ball_(move) Electro Ball} according to the ratio of Pokémon user and target's respective speeds.
  * @param {number} userSpeed - The user Pokémon's speed.
- * @param {number} targetSpeed - True target Pokémon's speed.
+ * @param {number} targetSpeed - The target Pokémon's speed.
  * @returns {number} The move BP.
  */
 const getElectroBallBasePower = (userSpeed, targetSpeed) => {
@@ -27,9 +27,9 @@ const getElectroBallBasePower = (userSpeed, targetSpeed) => {
 };
 exports.getElectroBallBasePower = getElectroBallBasePower;
 /** Returns the Base Power (BP) for move
- * {@link https://bulbapedia.bulbagarden.net/wiki/Gyro_Ball_(move) Gyro Ball} according to the ratio of Pokémon user and target respective speeds.
+ * {@link https://bulbapedia.bulbagarden.net/wiki/Gyro_Ball_(move) Gyro Ball} according to the ratio of Pokémon user and target's respective speeds.
  * @param {number} userSpeed - The user Pokémon's speed.
- * @param {number} targetSpeed - True target Pokémon's speed.
+ * @param {number} targetSpeed - The target Pokémon's speed.
  * @returns {number} The move BP.
  */
 const getGyroBallBasePower = (userSpeed, targetSpeed) => {

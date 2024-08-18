@@ -6,25 +6,25 @@ import { GenerationGameIndex, Name, NamedAPIResource } from '../utility/common';
  *
  * @property id - The identifier for this resource.
  * @property name - The name for this resource.
+ * @property names - The name of this resource listed in different languages.
  * @property damage_relations	- A detail of how effective this type is toward others and vice versa.
  * @property past_damage_relations - A list of details of how effective this type was toward others and vice versa in previous generations.
  * @property game_indices - A list of game indices relevent to this item by generation.
  * @property generation - The generation this type was introduced in.
  * @property move_damage_class - The class of damage inflicted by this type.
- * @property names - The name of this resource listed in different languages.
  * @property pokemon - A list of details of Pokémon that have this type.
  * @property moves - A list of moves that have this type.
  */
 export interface PokemonType {
     id: number;
     name: string;
+    names: Name[];
     damage_relations: TypeRelations;
-    past_damage_relations: TypeRelationsPast;
+    past_damage_relations: TypeRelationsPast[];
     game_indices: GenerationGameIndex[];
     generation: NamedAPIResource;
-    move_damage_class: NamedAPIResource[];
-    names: Name[];
-    pokemon: TypePokemon;
+    move_damage_class: NamedAPIResource;
+    pokemon: TypePokemon[];
     moves: NamedAPIResource[];
 }
 /**

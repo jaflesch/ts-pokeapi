@@ -6,11 +6,11 @@ import { Description, Name, NamedAPIResource } from '../utility/common';
  *
  * @property id - The identifier for this resource.
  * @property name - The name for this resource.
+ * @property names - The name of this resource listed in different languages.
+ * @property region - The region this Pokédex catalogues Pokémon for.
  * @property is_main_series - Whether or not this Pokédex originated in the main series of the video games.
  * @property descriptions - The description of this resource listed in different languages.
- * @property names - The name of this resource listed in different languages.
  * @property pokemon_entries - A list of Pokémon catalogued in this Pokédex and their indexes.
- * @property region - The region this Pokédex catalogues Pokémon for.
  * @property version_groups - A list of version groups this Pokédex is relevant to.
  * */
 export interface Pokedex {

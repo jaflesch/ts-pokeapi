@@ -6,20 +6,20 @@ import { Name, NamedAPIResource, VersionEncounterDetail } from '../utility/commo
  *
  * @property id - The identifier for this resource.
  * @property name - The name for this resource.
- * @property game_index - The internal id of an API resource within game data.
- * @property encounter_method_rates - A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
- * @property location - The region this location area can be found in.
  * @property names - The name of this resource listed in different languages.
+ * @property location - The region this location area can be found in.
+ * @property game_index - The internal id of an API resource within game data.
  * @property pokemon_encounters - A list of Pokémon that can be encountered in this area along with version specific details about the encounter.
+ * @property encounter_method_rates - A list of methods in which Pokémon may be encountered in this area and how likely the method will occur depending on the version of the game.
  * */
 export interface LocationArea {
     id: number;
     name: string;
-    game_index: number;
-    encounter_method_rates: EncounterMethodRate[];
-    location: NamedAPIResource;
     names: Name[];
+    location: NamedAPIResource;
+    game_index: number;
     pokemon_encounters: PokemonEncounter[];
+    encounter_method_rates: EncounterMethodRate[];
 }
 /**
  * @property encounter_method - The method in which Pokémon may be encountered in an area.

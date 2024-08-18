@@ -3,6 +3,16 @@
 Here we write upgrading notes for brands. It's a team effort to make them as
 straightforward as possible.
 
+## 0.6.0 - 2024-08-18
+
+### Added
+- TS-PokéAPI's documentation at GitHub Pages with Docusaurus.
+
+### Fixed
+- Items resource test cases.
+- Minor type annotations from PokéAPI responses.
+
+
 ## 0.5.1 - 2024-08-04
 
 ### Added

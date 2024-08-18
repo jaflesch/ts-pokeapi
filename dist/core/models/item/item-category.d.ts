@@ -6,14 +6,14 @@ import { Name, NamedAPIResource } from '../utility/common';
  *
  * @property id - The identifier for this resource.
  * @property name - The name for this resource.
- * @property items - A list of items that are a part of this category.
  * @property names - The name of this item category listed in different languages.
+ * @property items - A list of items that are a part of this category.
  * @property pocket	- The pocket items in this category would be put in.
  */
 export interface ItemCategory {
     id: number;
     name: string;
-    items: NamedAPIResource[];
     names: Name[];
+    items: NamedAPIResource[];
     pocket: NamedAPIResource;
 }

@@ -18,4 +18,5 @@ __exportStar(require("./constants/"), exports);
 __exportStar(require("./models/"), exports);
 __exportStar(require("./utils"), exports);
 __exportStar(require("./poke-api"), exports);
+__exportStar(require("./poke-api.types"), exports);
 //# sourceMappingURL=index.js.map

@@ -6,24 +6,24 @@ import { Name, NamedAPIResource } from '../utility/common';
  *
  * @property id - The identifier for this resource.
  * @property name - The name for this resource.
+ * @property names - The name of this resource listed in different languages.
  * @property decreased_stat - The stat decreased by 10% in Pokémon with this nature.
  * @property increased_stat - The stat increased by 10% in Pokémon with this nature.
  * @property hates_flavor - The flavor hated by Pokémon with this nature.
  * @property likes_flavor - The flavor liked by Pokémon with this nature.
  * @property pokeathlon_stat_changes - A list of Pokéathlon stats this nature effects and how much it effects them.
- * @property move_battle_style_preferences - A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
- * @property names - The name of this resource listed in different languages.
+ * @property move_battle_style_preferences - A list of battle styles and how likely a Pokémon with this nature is to use them in the {@link https://bulbapedia.bulbagarden.net/wiki/Battle_Palace Battle Palace} or {@link https://bulbapedia.bulbagarden.net/wiki/Battle_Tent Battle Tent}.
  */
 export interface Nature {
     id: number;
     name: string;
+    names: Name[];
     decreased_stat: NamedAPIResource;
     increased_stat: NamedAPIResource;
     hates_flavor: NamedAPIResource;
     likes_flavor: NamedAPIResource;
     pokeathlon_stat_changes: NatureStatChange;
     move_battle_style_preferences: MoveBattleStylePreference;
-    names: Name[];
 }
 /**
  * @property max_change - The amount of change.
@@ -36,7 +36,7 @@ export interface NatureStatChange {
 /**
  * @property low_hp_preference - Chance of using the move, in percent, if HP is under one half.
  * @property high_hp_preference - Chance of using the move, in percent, if HP is over one half.
- * @property pokeathlon_stat - The move battle style
+ * @property move_battle_style - The move battle style.
  */
 export interface MoveBattleStylePreference {
     low_hp_preference: number;

@@ -1,5 +1,4 @@
 import { APIResource, Name, NamedAPIResource } from '../utility/common';
-import { MoveDamageClass } from '../move/move-damage-class';
 /**
  * (GET) {@link https://pokeapi.co/api/v2/stat/1 https://pokeapi.co/api/v2/stat/[id or name]}
  *
@@ -24,7 +23,7 @@ export interface PokemonStat {
     characteristics: APIResource[];
     affecting_moves: MoveStatAffectSet;
     affecting_natures: NatureStatAffectSet;
-    move_damage_class: NamedAPIResource<MoveDamageClass>;
+    move_damage_class: NamedAPIResource;
 }
 /**
  * @property increase - A list of moves and how they change the referenced stat.

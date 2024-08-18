@@ -4,10 +4,10 @@ import { FlavorText, NamedAPIResource } from '../utility/common';
  *
  * Super contest effects refer to the effects of moves when used in super contests.
  *
- * @property id - The identifier for this resource
- * @property appeal - The level of appeal this super contest effect has
- * @property flavor_text_entries - The flavor text of this super contest effect listed in different languages
- * @property moves - A list of moves that have the effect when used in super contests
+ * @property id - The identifier for this resource.
+ * @property appeal - The level of appeal this super contest effect has.
+ * @property flavor_text_entries - The flavor text of this super contest effect listed in different languages.
+ * @property moves - A list of moves that have the effect when used in super contests.
  * */
 export interface SuperContestEffect {
     id: number;
