@@ -15,4 +15,5 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./nature"), exports);
+__exportStar(require("./pokemon-species"), exports);
 //# sourceMappingURL=index.js.map
