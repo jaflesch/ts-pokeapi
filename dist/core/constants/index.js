@@ -56,4 +56,9 @@ __exportStar(require("./relative-physical-stat-evolution.enum"), exports);
 __exportStar(require("./time-of-day.enum"), exports);
 __exportStar(require("./version-group.enum"), exports);
 __exportStar(require("./version.enum"), exports);
+__exportStar(require("./ability-name.type"), exports);
+__exportStar(require("./ball-name.type"), exports);
+__exportStar(require("./gender-name.type"), exports);
+__exportStar(require("./item-name.type"), exports);
+__exportStar(require("./status-name.type"), exports);
 //# sourceMappingURL=index.js.map

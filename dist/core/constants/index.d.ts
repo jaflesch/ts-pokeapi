@@ -40,3 +40,8 @@ export * from './relative-physical-stat-evolution.enum';
 export * from './time-of-day.enum';
 export * from './version-group.enum';
 export * from './version.enum';
+export * from './ability-name.type';
+export * from './ball-name.type';
+export * from './gender-name.type';
+export * from './item-name.type';
+export * from './status-name.type';
